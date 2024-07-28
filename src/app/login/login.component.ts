@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 type inputInfo = {
   label: string,
   labelFor: string,
-  inputType: string,
-  forControllerName: string,
+  type: string,
+  formControlName: string,
   placeholder: string,
 }
 
@@ -27,16 +27,16 @@ export class LoginComponent implements OnInit {
   inputs: inputInfo[] = [
     {
       label: 'usuario',
-      inputType: 'text',
+      type: 'text',
       labelFor: 'username',
-      forControllerName: 'username',
+      formControlName: 'username',
       placeholder: ''
     },
     {
       label: 'contraseña',
-      inputType: 'password',
+      type: 'password',
       labelFor: 'password',
-      forControllerName: 'password',
+      formControlName: 'password',
       placeholder: ''
     }
   ]
