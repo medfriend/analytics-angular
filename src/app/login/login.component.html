@@ -1,0 +1,32 @@
+<div class="flex items-center justify-center login-container">
+    <div class="login-form">
+      <h2 class="text-center">Inicio sesion</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input 
+            type="text" 
+            id="username"
+            formControlName="username"
+            class="form-control" 
+            placeholder=""
+        >
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            formControlName="password"
+            class="form-control" 
+            placeholder=""
+            >
+        </div>
+        <div class="form-group" *ngFor="let input of inputs">
+          <label [for]="input.label">{{ input.label }}</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+      </form>
+    </div>
+</div>
+  

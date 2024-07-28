@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "public/assets"
+              ]
+            },
             "outputPath": "dist/pokeapi-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -32,7 +37,10 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "public/assets/scss/grid.scss",
+              "public/assets/scss/flex.scss",
+              "public/assets/scss/shadows.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
