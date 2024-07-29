@@ -1,6 +1,5 @@
-<div class="flex items-center justify-center login-container">
-  <div class="login-form">
-    <h2 class="text-center">Inicio sesión</h2>
+<div class="form">
+    <h2 class="text-center">{{ forTitle }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group" *ngFor="let input of inputs">
         <label [for]="input.formControlName">{{ input.label }}</label>
@@ -14,5 +13,4 @@
       </div>
       <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
     </form>
-  </div>
 </div>

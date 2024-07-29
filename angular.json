@@ -40,7 +40,8 @@
               "src/styles.scss",
               "public/assets/scss/grid.scss",
               "public/assets/scss/flex.scss",
-              "public/assets/scss/shadows.scss"
+              "public/assets/scss/shadows.scss",
+              "public/assets/scss/rounded.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -113,6 +114,9 @@
     }
   },
   "cli": {
-    "analytics": "f03e9093-78e4-45b4-a546-464842a768df"
+    "analytics": "f03e9093-78e4-45b4-a546-464842a768df",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }
