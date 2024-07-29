@@ -1,0 +1,16 @@
+<div class="form">
+    <h2 class="text-center">{{ forTitle }}</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" *ngFor="let input of inputs">
+        <label [for]="input.formControlName">{{ input.label }}</label>
+        <input 
+          [type]="input.type"
+          [id]="input.formControlName"
+          class="form-control"
+          [formControlName]="input.formControlName"
+          [placeholder]="input.placeholder"
+        >
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+    </form>
+</div>

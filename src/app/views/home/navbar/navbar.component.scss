@@ -1,0 +1,118 @@
+@import '../../../../../public/assets/colors.scss';
+
+.sidenav-toggle {
+  display: none; // Hide by default
+
+  @media screen and (max-width: 768px) {
+    display: block; // Show on small screens
+    position: fixed; // Use fixed position to stay on top
+    top: 15px;
+    left: 15px;
+    background-color: $navbar-color;
+    color: $navbartext-color;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; // Ensure the button is above the sidenav
+    border-radius: 5px;
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 210px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $navbar-color;
+  padding-top: 40px;
+  color: $navbartext-color;
+  overflow-x: hidden;
+  transition: transform 0.3s ease; // Add transition for smooth sliding
+  z-index: 1000; // Ensure the sidenav is below the toggle button
+
+  .sidenav-brand {
+    font-size: 1.5rem;
+    color: $navbartext-color;
+    text-decoration: none;
+    display: block;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .sidenav-menu {
+    list-style: none;
+    padding: 0;
+
+    .sidenav-item {
+      .sidenav-link {
+        color: $navbartext-color;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+        margin: 10px;
+        border-radius: 12px;
+        &:hover {
+          background-color: $navbarhover-color;
+        }
+      }
+    }
+  }
+
+  // Media queries for responsiveness
+  @media screen and (max-width: 768px) {
+    width: 200px;
+    transform: translateX(-100%); // Hide sidenav off screen
+
+    &.open {
+      transform: translateX(0); // Slide in when open
+    }
+
+    .sidenav-brand {
+      font-size: 1.25rem;
+      padding: 0 15px;
+    }
+
+    .sidenav-menu {
+      .sidenav-item {
+        .sidenav-link {
+          padding: 8px 15px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 150px;
+
+    .sidenav-brand {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+
+    .sidenav-menu {
+      .sidenav-item {
+        .sidenav-link {
+          padding: 6px 10px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100px;
+
+    .sidenav-brand {
+      font-size: 0.85rem;
+      padding: 0 5px;
+    }
+
+    .sidenav-menu {
+      .sidenav-item {
+        .sidenav-link {
+          padding: 4px 5px;
+        }
+      }
+    }
+  }
+}
