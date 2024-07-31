@@ -39,6 +39,7 @@
             "styles": [
               "src/styles.scss",
               "public/assets/scss/grid.scss",
+              "public/assets/scss/text.scss",
               "public/assets/scss/flex.scss",
               "public/assets/scss/shadows.scss",
               "public/assets/scss/rounded.scss"

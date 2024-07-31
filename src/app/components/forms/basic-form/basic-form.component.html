@@ -2,15 +2,22 @@
     <h2 class="text-center">{{ forTitle }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group" *ngFor="let input of inputs">
-        <label [for]="input.formControlName">{{ input.label }}</label>
+        <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
         <input 
           [type]="input.type"
           [id]="input.formControlName"
-          class="form-control"
+          class="form-control rounded-xl"
           [formControlName]="input.formControlName"
           [placeholder]="input.placeholder"
         >
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+      <div class="button-container">
+        <button 
+          type="submit" 
+          class="btn rounded-xl text-base"
+        >
+          Ingresar
+        </button>
+      </div>
     </form>
 </div>
