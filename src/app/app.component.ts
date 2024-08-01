@@ -1,6 +1,5 @@
 import { ToastComponent } from './components/toast/toast.component';
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon'
 import { RouterOutlet } from '@angular/router';
 
 @Component({
