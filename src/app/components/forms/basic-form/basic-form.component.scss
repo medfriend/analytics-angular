@@ -22,28 +22,8 @@
         margin:0.5rem;
     }
 
-    .form-control {
-        margin-top: 5px;
-        border: 0.15rem solid $border-input;
-        background-color: $background-input;
-        
-        padding: 0.7rem;
-        outline: none;
-        transition: border 0.3s ease, box-shadow 0.3s ease;
+    
 
-
-        &:hover{
-            
-            box-shadow: none;
-            border: 0.15rem solid $border-hover-input;
-        }
-
-        &:focus{
-            border: 0.15rem solid $border-focus-input;
-            box-shadow: 0 0 10px 5px $border-focus-shadow-input;
-        }
-
-    }
     }
 
     .button-container{

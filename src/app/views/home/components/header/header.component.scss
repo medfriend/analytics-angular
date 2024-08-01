@@ -4,3 +4,15 @@
     background-color: $background-header;
     color: $color-header;
 }
+
+.search-bar{
+
+    border: none;
+    outline: none; 
+    width: 280px;
+
+    &:focus{
+        box-shadow: none;
+        outline: 0.18rem solid $border-focus-input;
+    }
+}

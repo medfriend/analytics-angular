@@ -43,7 +43,8 @@
               "public/assets/scss/flex.scss",
               "public/assets/scss/shadows.scss",
               "public/assets/scss/rounded.scss",
-              "public/assets/scss/sizing.scss"
+              "public/assets/scss/sizing.scss",
+              "public/assets/scss/inputs.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
