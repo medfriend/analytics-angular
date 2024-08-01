@@ -29,7 +29,7 @@ type InputInfo = {
 export class LoginComponent {
 
   //? parametros para la construccion del formulario
-  forTitle: string = 'Inicio sesión';
+  forTitle: string = 'tesoreria de compensación';
   
   inputs: InputInfo[] = [
     {
