@@ -37,12 +37,15 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss",
               "public/assets/scss/grid.scss",
               "public/assets/scss/text.scss",
               "public/assets/scss/flex.scss",
               "public/assets/scss/shadows.scss",
-              "public/assets/scss/rounded.scss"
+              "public/assets/scss/rounded.scss",
+              "public/assets/scss/sizing.scss",
+              "public/assets/scss/inputs.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -106,6 +109,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []

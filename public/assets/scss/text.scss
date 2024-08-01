@@ -1,22 +1,438 @@
-// Define los tamaños de texto
-$text-sizes: (
-  text-xs: 0.75rem,   // 12px
-  text-sm: 0.875rem,  // 14px
-  text-base: 1rem,    // 16px
-  text-lg: 1.125rem,  // 18px
-  text-xl: 1.25rem,   // 20px
-  text-2xl: 1.5rem,   // 24px
-  text-3xl: 1.875rem, // 30px
-  text-4xl: 2.25rem,  // 36px
-  text-5xl: 3rem,     // 48px
-  text-6xl: 3.75rem,  // 60px
-  text-7xl: 4.5rem,   // 72px
-  text-8xl: 6rem      // 96px
-);
+/* Text Transformations */
+.capitalize {
+  text-transform: capitalize;
+}
 
-// Generar las clases de texto
-@each $name, $size in $text-sizes {
-  .#{$name} {
-    font-size: $size;
-  }
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.normal-case {
+  text-transform: none;
+}
+
+/* Text Align */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Text Color */
+.text-black {
+  color: black;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-gray-500 {
+  color: #6B7280;
+}
+
+.text-red-500 {
+  color: #EF4444;
+}
+
+.text-green-500 {
+  color: #10B981;
+}
+
+.text-blue-500 {
+  color: #3B82F6;
+}
+
+.text-yellow-500 {
+  color: #F59E0B;
+}
+
+/* Font Weight */
+.font-thin {
+  font-weight: 100;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* Font Size */
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.text-6xl {
+  font-size: 4rem;
+}
+
+/* Line Height */
+.leading-none {
+  line-height: 1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+/* Letter Spacing */
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+  letter-spacing: 0;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+/* Text Decoration */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Font Style */
+.italic {
+  font-style: italic;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+/* Text Overflow */
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.overflow-clip {
+  text-overflow: clip;
+}
+
+/* Whitespace */
+.whitespace-normal {
+  white-space: normal;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+/* Word Break */
+.break-normal {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.break-words {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+/* First Letter */
+.first-letter\:uppercase::first-letter {
+  text-transform: uppercase;
+}
+
+.first-letter\:lowercase::first-letter {
+  text-transform: lowercase;
+}
+
+.first-letter\:capitalize::first-letter {
+  text-transform: capitalize;
+}
+
+.first-letter\:normal-case::first-letter {
+  text-transform: none;
+}
+
+.first-letter\:text-black::first-letter {
+  color: black;
+}
+
+.first-letter\:text-white::first-letter {
+  color: white;
+}
+
+.first-letter\:text-gray-500::first-letter {
+  color: #6B7280;
+}
+
+.first-letter\:text-red-500::first-letter {
+  color: #EF4444;
+}
+
+.first-letter\:text-green-500::first-letter {
+  color: #10B981;
+}
+
+.first-letter\:text-blue-500::first-letter {
+  color: #3B82F6;
+}
+
+.first-letter\:text-yellow-500::first-letter {
+  color: #F59E0B;
+}
+
+.first-letter\:font-thin::first-letter {
+  font-weight: 100;
+}
+
+.first-letter\:font-light::first-letter {
+  font-weight: 300;
+}
+
+.first-letter\:font-normal::first-letter {
+  font-weight: 400;
+}
+
+.first-letter\:font-medium::first-letter {
+  font-weight: 500;
+}
+
+.first-letter\:font-semibold::first-letter {
+  font-weight: 600;
+}
+
+.first-letter\:font-bold::first-letter {
+  font-weight: 700;
+}
+
+.first-letter\:font-extrabold::first-letter {
+  font-weight: 800;
+}
+
+.first-letter\:font-black::first-letter {
+  font-weight: 900;
+}
+
+.first-letter\:text-xs::first-letter {
+  font-size: 0.75rem;
+}
+
+.first-letter\:text-sm::first-letter {
+  font-size: 0.875rem;
+}
+
+.first-letter\:text-base::first-letter {
+  font-size: 1rem;
+}
+
+.first-letter\:text-lg::first-letter {
+  font-size: 1.125rem;
+}
+
+.first-letter\:text-xl::first-letter {
+  font-size: 1.25rem;
+}
+
+.first-letter\:text-2xl::first-letter {
+  font-size: 1.5rem;
+}
+
+.first-letter\:text-3xl::first-letter {
+  font-size: 1.875rem;
+}
+
+.first-letter\:text-4xl::first-letter {
+  font-size: 2.25rem;
+}
+
+.first-letter\:text-5xl::first-letter {
+  font-size: 3rem;
+}
+
+.first-letter\:text-6xl::first-letter {
+  font-size: 4rem;
+}
+
+.first-letter\:leading-none::first-letter {
+  line-height: 1;
+}
+
+.first-letter\:leading-tight::first-letter {
+  line-height: 1.25;
+}
+
+.first-letter\:leading-snug::first-letter {
+  line-height: 1.375;
+}
+
+.first-letter\:leading-normal::first-letter {
+  line-height: 1.5;
+}
+
+.first-letter\:leading-relaxed::first-letter {
+  line-height: 1.625;
+}
+
+.first-letter\:leading-loose::first-letter {
+  line-height: 2;
+}
+
+.first-letter\:tracking-tighter::first-letter {
+  letter-spacing: -0.05em;
+}
+
+.first-letter\:tracking-tight::first-letter {
+  letter-spacing: -0.025em;
+}
+
+.first-letter\:tracking-normal::first-letter {
+  letter-spacing: 0;
+}
+
+.first-letter\:tracking-wide::first-letter {
+  letter-spacing: 0.025em;
+}
+
+.first-letter\:tracking-wider::first-letter {
+  letter-spacing: 0.05em;
+}
+
+.first-letter\:tracking-widest::first-letter {
+  letter-spacing: 0.1em;
+}
+
+.first-letter\:underline::first-letter {
+  text-decoration: underline;
+}
+
+.first-letter\:line-through::first-letter {
+  text-decoration: line-through;
+}
+
+.first-letter\:no-underline::first-letter {
+  text-decoration: none;
+}
+
+.first-letter\:italic::first-letter {
+  font-style: italic;
+}
+
+.first-letter\:not-italic::first-letter {
+  font-style: normal;
 }

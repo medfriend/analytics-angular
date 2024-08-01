@@ -1,0 +1,28 @@
+@import '../../../../../../public/assets/colors.scss';
+
+.header{
+    background-color: $background-header;
+    color: $color-header;
+}
+
+.search-bar{
+
+    border: none;
+    outline: none; 
+    width: 280px;
+    
+    .icon{
+        color:black
+    }
+
+    .input-searchBar{
+        width: 80%;
+        border: none;
+        outline: none;
+    }
+
+    &:focus{
+        box-shadow: none;
+        outline: 0.18rem solid $border-focus-input;
+    }
+}
