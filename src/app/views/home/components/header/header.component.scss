@@ -26,3 +26,13 @@
         outline: 0.18rem solid $border-focus-input;
     }
 }
+
+
+.icon-container{
+    cursor: pointer;
+
+    &:hover{
+        background-color: $background-hover-header;
+    }
+}
+
