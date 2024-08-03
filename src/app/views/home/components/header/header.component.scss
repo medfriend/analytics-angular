@@ -12,13 +12,14 @@
     width: 280px;
     
     .icon{
-        color:black
+        color: $icon-color;
     }
 
     .input-searchBar{
         width: 80%;
         border: none;
         outline: none;
+        color: $icon-color;
     }
 
     &:focus{
@@ -42,4 +43,10 @@
       transform: translateY(0.15rem);
       transition: transform 0.3s ease, color 0.3s ease;
     }
+
+    mat-icon.deactive {
+        color: white;
+        transform: translateY(0rem);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
   }
