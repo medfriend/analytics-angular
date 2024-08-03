@@ -36,3 +36,10 @@
     }
 }
 
+.key-container {  
+    mat-icon.active {
+      color: gray;
+      transform: translateY(0.15rem);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+  }
