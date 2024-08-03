@@ -3,20 +3,28 @@
 .container{
     background-color: $color-panel-control;
 
-    .control-panel-module{
-        color: $text-color-panel-control;
-        cursor: pointer;
-    }
+    .control-panel-container{
 
-    .icon{
-        color: $icon-panel-control;
-        cursor: pointer;
-
-        transition: transform 0.5s ease; 
-
-        &:hover {
+        .control-panel-module{
             color: $text-color-panel-control;
-            transform: rotateZ(90deg); 
+            cursor: pointer;
+        }
+    
+        .icon{
+            color: $icon-panel-control;
+            cursor: pointer;
+    
+            transition: transform 0.5s ease; 
+    
+            &:hover {
+                color: $text-color-panel-control;
+                transform: rotateZ(90deg); 
+            }
+        }
+
+        &:hover{
+            background-color: $icon-container-hover;
         }
     }
+
 }
