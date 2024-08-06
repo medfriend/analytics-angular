@@ -1,22 +1,24 @@
 <div class="form">
     <h2 class="text-center">{{ forTitle }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group" *ngFor="let input of inputs">
-        <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
-        <input 
-          [type]="input.type"
-          [id]="input.formControlName"
-          class="form-control rounded-xl"
-          [formControlName]="input.formControlName"
-          [placeholder]="input.placeholder"
-        >
+      <div [ngClass]="gridColumnClass">
+        <div class="form-group" *ngFor="let input of inputs">
+          <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
+          <input 
+            [type]="input.type"
+            [id]="input.formControlName"
+            class="form-control rounded-xl text-base"
+            [formControlName]="input.formControlName"
+            [placeholder]="input.placeholder"
+          >
+        </div>
       </div>
       <div class="button-container">
         <button 
           type="submit" 
           class="btn rounded-xl text-base"
         >
-          Ingresar
+          {{ buttonName }}
         </button>
       </div>
     </form>

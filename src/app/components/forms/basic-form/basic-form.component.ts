@@ -21,8 +21,10 @@ type InputInfo = {
 })
 export class BasicFormComponent implements OnInit {
   @Input() forTitle: string = 'Inicio sesión';
+  @Input() buttonName: string = 'Ingresar'
   @Input() inputs: InputInfo[] = [];
   @Input() onSubmitHandler: (values: any, toast: ToastService) => void = () => {};
+  @Input() numberOfColumns: number = 1
 
   loginForm: FormGroup;
 
@@ -35,6 +37,10 @@ export class BasicFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+  }
+
+  get gridColumnClass(): string {
+    return `grid grid-cols-${this.numberOfColumns} gap-4`;
   }
 
   initializeForm(): void {
