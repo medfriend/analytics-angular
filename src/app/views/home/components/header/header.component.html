@@ -26,14 +26,9 @@
                 (mouseup)="userArrowDeactive()"
                 (mouseleave)="userArrowDeactive()"
             >
-                <mat-icon
-                    [ngClass]="{
-                        'active': isUserArrowActive,
-                        'deactive': !isUserArrowActive
-                    }"
-                >
-                    keyboard_arrow_down
-                </mat-icon>
+                <app-basic-popup
+                    [isUserArrowActive]="isUserArrowActive"
+                />
             </div>
         </div>
         <div class="flex flex-row justify-center items-center gap-1 mr-3 icon-container p-2 rounded-xl">
