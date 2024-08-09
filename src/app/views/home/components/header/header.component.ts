@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { BasicPopupComponent } from '../../../../components/popupList/basic-popup/basic-popup.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,8 @@ import { BasicPopupComponent } from '../../../../components/popupList/basic-popu
   imports: [ 
     MatIconModule, 
     CommonModule,
-    BasicPopupComponent 
+    BasicPopupComponent,
+    UserListComponent 
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

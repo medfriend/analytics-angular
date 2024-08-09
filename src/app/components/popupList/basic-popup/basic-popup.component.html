@@ -11,6 +11,10 @@
     <div 
         class="referente-element shadow-2xl rounded-md p-2" 
         [ngClass]="{'showup': showPopUp}"
+        [ngStyle]="{
+            'transform': 'translate(' + translateX + 'px, ' + (showPopUp ? translateY - 10 : translateY) + 'px)',
+            'opacity': showPopUp ? 1 : 0
+        }"
     >
       <ng-content></ng-content>
     </div>

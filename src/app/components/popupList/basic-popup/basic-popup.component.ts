@@ -14,6 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class BasicPopupComponent {
   @Input() isActive: boolean = false
+  @Input() translateX: number = -100
+  @Input() translateY: number = 45
+
   showPopUp: boolean = false
 
   tooglePopup(){
