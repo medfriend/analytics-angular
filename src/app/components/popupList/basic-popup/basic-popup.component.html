@@ -1,0 +1,21 @@
+<div class="flex key-container">
+    <mat-icon
+      [ngClass]="{
+        'active': isActive,
+        'deactive': !isActive
+      }"
+      (click)="tooglePopup()"
+    >
+      keyboard_arrow_down
+    </mat-icon>
+    <div 
+        class="referente-element shadow-2xl rounded-md p-2" 
+        [ngClass]="{'showup': showPopUp}"
+        [ngStyle]="{
+            'transform': 'translate(' + translateX + 'px, ' + (showPopUp ? translateY - 10 : translateY) + 'px)',
+            'opacity': showPopUp ? 1 : 0
+        }"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>

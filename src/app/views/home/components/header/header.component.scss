@@ -1,0 +1,52 @@
+@import '../../../../../../public/assets/colors.scss';
+
+.header{
+    background-color: $background-header;
+    color: $color-header;
+}
+
+.search-bar{
+
+    border: none;
+    outline: none; 
+    width: 280px;
+    
+    .icon{
+        color: $icon-color;
+    }
+
+    .input-searchBar{
+        width: 80%;
+        border: none;
+        outline: none;
+        color: $icon-color;
+    }
+
+    &:focus{
+        box-shadow: none;
+        outline: 0.18rem solid $border-focus-input;
+    }
+}
+
+
+.icon-container{
+    cursor: pointer;
+
+    &:hover{
+        background-color: $background-hover-header;
+    }
+}
+
+.key-container {  
+    mat-icon.active {
+      color: gray;
+      transform: translateY(0.15rem);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    mat-icon.deactive {
+        color: white;
+        transform: translateY(0rem);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+  }

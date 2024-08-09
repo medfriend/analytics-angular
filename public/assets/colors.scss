@@ -1,0 +1,41 @@
+// src/assets/colors.scss
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$navbar-color: #f8f9fa;
+$navbartext-color: #343a40;
+$navbarhover-color: #e9ecef;
+
+
+//input configuration
+$border-input: rgb(206, 215, 225);
+$background-input: rgb(253, 253, 253);
+
+$border-focus-input: rgb(0,88,224);
+$border-focus-shadow-input: rgb(218, 229, 250);
+
+$border-hover-input: rgb(159, 173, 193);
+
+//header configuration
+$background-header: black;
+$background-hover-header: rgb(20,20,25);
+$color-header: white;
+
+//searchbar
+$icon-color: rgb(98, 98, 98);
+
+//controlPanel
+$color-panel-control: rgb(244, 244, 248);
+$text-color-panel-control: rgb(16, 16, 23);
+$icon-panel-control: rgb(142, 159, 183);
+$icon-container-hover: rgb(231, 231, 240);
+
+//user-list
+$background-user-list: rgb(231, 231, 240);
+// Agrega más colores según sea necesario
