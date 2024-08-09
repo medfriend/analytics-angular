@@ -8,7 +8,10 @@
     >
       keyboard_arrow_down
     </mat-icon>
-    <div class="referente-element shadow-2xl rounded-md p-2" *ngIf="showPopUp">
+    <div 
+        class="referente-element shadow-2xl rounded-md p-2" 
+        [ngClass]="{'showup': showPopUp}"
+    >
       <ng-content></ng-content>
     </div>
   </div>

@@ -15,6 +15,16 @@
         position: absolute;
         background-color: white;
         color: black;
+        transform: translate(-150px, 45px);
+        opacity: 0;
+        transition: opacity 1s ease, transform 1s ease;
+        pointer-events: none;
+      }
+    
+      /* Animación cuando se muestra */
+      .referente-element.showup {
+        opacity: 1;
         transform: translate(-150px, 35px);
-    }
+        pointer-events: auto;
+      }
   }
