@@ -1,6 +1,5 @@
 import { AuthState } from './../../store/auth/auth.state';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BasicFormComponent } from '../../components/forms/basic-form/basic-form.component';
 import { ToastService } from '../../components/toast/toast.component';
 import { Observable } from 'rxjs';
