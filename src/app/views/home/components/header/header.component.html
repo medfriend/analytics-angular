@@ -35,7 +35,10 @@
                 </app-basic-popup>
             </div>
         </div>
-        <div class="flex flex-row justify-center items-center gap-1 mr-3 icon-container p-2 rounded-xl">
+        <div 
+            class="flex flex-row justify-center items-center gap-1 mr-3 icon-container p-2 rounded-xl"
+            (click)="logoutHandler()"
+        >
             <mat-icon>logout</mat-icon>
             Desconectar
         </div>
