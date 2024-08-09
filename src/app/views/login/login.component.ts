@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { setToken } from '../../store/auth/auth.actions';
 import { Router } from '@angular/router';
+import { StorageService } from '../../util/localstorage/localstorage.service';
 
 type InputInfo = {
   label: string,
@@ -51,7 +52,8 @@ export class LoginComponent {
 
   constructor(
     private store: Store<{ auth: AuthState }>,
-    private router: Router
+    private router: Router,
+    private localstorageService: StorageService
   ) {
     this.token$ = store.pipe(select(state => state.auth.token));
 
@@ -65,8 +67,12 @@ export class LoginComponent {
   onSubmitHandler(){
     return (values: any, toast: ToastService): void => {
       const token = 'fake-token';
+
       this.store.dispatch(setToken({ token }));
+      this.localstorageService.setItem('token', token)
+
       toast.addToast('Token set successfully', 'success');
+
       this.router.navigate(['/home'])
     }
   }
