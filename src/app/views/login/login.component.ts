@@ -20,7 +20,6 @@ type InputInfo = {
   selector: 'app-login',
   standalone: true,
   imports: [
-    CommonModule, 
     BasicFormComponent
   ],
   templateUrl: './login.component.html',
@@ -29,18 +28,18 @@ type InputInfo = {
 export class LoginComponent {
 
   //? parametros para la construccion del formulario
-  forTitle: string = 'tesoreria de compensación';
+  forTitle: string = 'Tesoreria de compensación';
   
   inputs: InputInfo[] = [
     {
-      label: 'usuario',
+      label: 'Usuario',
       type: 'text',
       labelFor: 'username',
       formControlName: 'username',
       placeholder: ''
     },
     {
-      label: 'contraseña',
+      label: 'Contraseña',
       type: 'password',
       labelFor: 'password',
       formControlName: 'password',

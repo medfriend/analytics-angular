@@ -4,6 +4,9 @@ import { MatIconModule } from '@angular/material/icon'
 import { BasicPopupComponent } from '../../../../components/popupList/basic-popup/basic-popup.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { Router } from '@angular/router';
+import { clearToken } from '../../../../store/auth/auth.actions';
+import { Store } from '@ngrx/store';
+import { AuthState } from '../../../../store/auth/auth.state';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +23,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   isUserArrowActive: boolean = false;
 
-  constructor( private router: Router){}
+  constructor( 
+    private router: Router,
+    private store: Store<{ auth: AuthState }>
+  ){}
 
   userArrowActive(){
     this.isUserArrowActive = true
@@ -32,5 +38,6 @@ export class HeaderComponent {
 
   logoutHandler(){
     this.router.navigate(['/login'])
+    this.store.dispatch(clearToken())
   }
 }
