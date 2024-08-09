@@ -1,0 +1,9 @@
+@import '../../../../../../../../public/assets/colors.scss';
+
+.icon{
+    width: 175px;
+
+    &:hover{
+        background-color: $background-user-list;
+    }
+}

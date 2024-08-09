@@ -1,4 +1,7 @@
 .key-container {  
+
+    
+
     mat-icon.active {
       color: gray;
       transform: translateY(0.15rem);
@@ -12,8 +15,8 @@
       }
 
     .referente-element {
+        background: linear-gradient(to bottom, gray 0%, white 20%);
         position: absolute;
-        background-color: white;
         color: black;
         transform: translate(-150px, 45px);
         opacity: 0;

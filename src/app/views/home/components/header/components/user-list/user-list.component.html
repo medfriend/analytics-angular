@@ -1,14 +1,6 @@
-<div class="flex flex-col gap-1 text-sm px-2 py-1">
-    <div class="flex flex-row m-1 gap-1">  
-        <mat-icon>manage_accounts</mat-icon>
-        Cuenta
+<div class="flex flex-col gap-1 text-sm">
+    <div *ngFor="let item of menuItems" class="flex flex-row p-1 gap-1 icon rounded-md">  
+        <mat-icon>{{ item.icon }}</mat-icon>
+        {{ item.label }}
     </div>
-    <div class="flex flex-row m-1 gap-1">  
-        <mat-icon>palette</mat-icon>
-        Apariencia
-    </div>    
-    <div class="flex flex-row m-1 gap-1">  
-    <mat-icon>tune</mat-icon>
-        Preferencia
-    </div> 
 </div>
