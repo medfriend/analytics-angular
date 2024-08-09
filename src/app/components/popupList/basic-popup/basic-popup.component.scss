@@ -1,0 +1,30 @@
+.key-container {  
+    mat-icon.active {
+      color: gray;
+      transform: translateY(0.15rem);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    mat-icon.deactive {
+        color: white;
+        transform: translateY(0rem);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+    .referente-element {
+        position: absolute;
+        background-color: white;
+        color: black;
+        transform: translate(-150px, 45px);
+        opacity: 0;
+        transition: opacity 1s ease, transform 1s ease;
+        pointer-events: none;
+      }
+    
+      /* Animación cuando se muestra */
+      .referente-element.showup {
+        opacity: 1;
+        transform: translate(-150px, 35px);
+        pointer-events: auto;
+      }
+  }
