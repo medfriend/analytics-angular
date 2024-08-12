@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActionPanelComponent } from '../../../../components/actionPanel/actionPanel.component';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -7,25 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [ 
     MatIconModule,
-    CommonModule
+    CommonModule,
+    ActionPanelComponent
+    
   ],
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.scss'
 })
 export class ControlPanelComponent {
-  showActions = false;
 
-  @HostBinding('style.--startWidth') startWidth = '118px';
-  @HostBinding('style.--endWidth') endWidth = '145px';
-  @Input() panelLabel: string = 'Panel de Control'
-
-  ActiveShowAction(elemnet: HTMLElement){
-    this.startWidth = `${elemnet.scrollWidth}px `
-    this.endWidth = `${elemnet.scrollWidth + 30}px `
-    this.showActions = true
-  }
-
-  DeactiveShowAction(){
-    this.showActions = false
-  }
 }

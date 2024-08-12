@@ -1,41 +1,8 @@
 @import '../../../../../../public/assets/colors.scss';
 
 .container{
+
     background-color: $color-panel-control;
-
-    .control-panel-container{
-
-        .control-panel-module{
-            color: $text-color-panel-control;
-            cursor: pointer;
-        }
-    
-        .deactive {
-            opacity: 0;
-            position: absolute;
-            margin-left:  var(--startWidth);
-            transform: translate(-5px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-        
-        .active {
-            color: $text-color-panel-control;
-            opacity: 1;
-            position: absolute;
-            margin-left:  var(--startWidth);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            transform: translate(5px);
-
-        }
-
-        &:hover{
-            //background-color: var(--nameOfVar);
-            background-color: $icon-container-hover;
-            animation-fill-mode: forwards;
-            animation: widthfull 0.5s 1;
-            animation-fill-mode: forwards;
-        }
-    }
     .icon{
         color: $icon-panel-control;
         cursor: pointer;

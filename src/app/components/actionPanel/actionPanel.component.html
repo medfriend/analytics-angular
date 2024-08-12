@@ -1,0 +1,21 @@
+<div class="flex control-panel-container py-1 px-2 rounded-xl"
+    (mouseenter)="ActiveShowAction()"
+    (mouseleave)="DeactiveShowAction()"
+>
+    <div 
+        #controlPanelModule
+        class="text-sm font-medium control-panel-module">
+        {{ panelLabel }}
+    </div>
+    <div 
+        class="action-container"
+        [ngClass]="{
+            'active': showActions,
+            'deactive': !showActions
+        }"
+    >
+        <mat-icon>
+            keyboard_arrow_down
+        </mat-icon>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@import '../../../../public/assets/colors.scss';
+
+.control-panel-container{
+
+    .control-panel-module{
+        color: $text-color-panel-control;
+        cursor: pointer;
+    }
+
+    .deactive {
+        opacity: 0;
+        position: absolute;
+        margin-left:  var(--startWidth);
+        transform: translate(-5px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .active {
+        color: $text-color-panel-control;
+        opacity: 1;
+        position: absolute;
+        margin-left:  var(--startWidth);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        transform: translate(5px);
+
+    }
+
+    &:hover{
+        background-color: $icon-container-hover;
+        animation-fill-mode: forwards;
+        animation: widthfull 0.5s 1;
+        animation-fill-mode: forwards;
+    }
+
+    mat-icon{
+        color: $icon-panel-control;
+    }
+}
+
+@keyframes widthfull {
+    from {width: var(--startWidth); }
+    to {width: var(--endWidth); }
+  }
