@@ -22,6 +22,20 @@
             }
         }
 
+        .deactive {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+        
+        .active {
+            color: $text-color-panel-control;
+            opacity: 1;
+            visibility: visible;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
         &:hover{
             background-color: $icon-container-hover;
         }
