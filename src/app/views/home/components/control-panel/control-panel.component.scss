@@ -10,35 +10,45 @@
             cursor: pointer;
         }
     
-        .icon{
-            color: $icon-panel-control;
-            cursor: pointer;
-    
-            transition: transform 0.5s ease; 
-    
-            &:hover {
-                color: $text-color-panel-control;
-                transform: rotateZ(90deg); 
-            }
-        }
-
         .deactive {
             opacity: 0;
-            visibility: hidden;
             position: absolute;
+            margin-left: 100px;
+            transform: translate(-18px);
             transition: transform 1s ease, opacity 1s ease;
         }
         
         .active {
             color: $text-color-panel-control;
             opacity: 1;
-            visibility: visible;
+            position: absolute;
+            margin-left: 100px;
             transition: transform 1s ease, opacity 1s ease;
+            transform: translate(18px);
+
         }
 
         &:hover{
             background-color: $icon-container-hover;
+            animation-fill-mode: forwards;
+            animation: widthfull 1s 1;
+            animation-fill-mode: forwards;
+        }
+    }
+    .icon{
+        color: $icon-panel-control;
+        cursor: pointer;
+    
+        transition: transform 0.5s ease; 
+    
+        &:hover {
+            color: $text-color-panel-control;
+            transform: rotateZ(90deg); 
         }
     }
 
 }
+@keyframes widthfull {
+    from {width: 118px; }
+    to {width: 145px; }
+  }
