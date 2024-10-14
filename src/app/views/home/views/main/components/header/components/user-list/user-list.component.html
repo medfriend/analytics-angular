@@ -1,6 +1,11 @@
 <div class="flex flex-col gap-1 text-sm">
-    <div *ngFor="let item of menuItems" class="flex flex-row p-1 gap-1 icon rounded-md">  
+    <a
+      *ngFor="let item of menuItems"
+      class="flex flex-row p-1 gap-1 icon rounded-md"
+      [routerLink]="item.route"
+    >
         <mat-icon>{{ item.icon }}</mat-icon>
         {{ item.label }}
-    </div>
+    </a>
+  
 </div>

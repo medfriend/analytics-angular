@@ -1,7 +1,10 @@
 @import '../../../../../../../../../../public/assets/colors';
 
 .icon{
-    width: 175px;
+  width: 175px;
+  outline: none;
+  color: black;
+  text-decoration: none;
 
     &:hover{
         background-color: $background-user-list;

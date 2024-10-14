@@ -14,8 +14,8 @@ import {sharedModules} from "../../../../../../../../shared/shared.module";
 })
 export class UserListComponent {
   menuItems = [
-    { icon: 'manage_accounts', label: 'Cuenta' },
-    { icon: 'palette', label: 'Apariencia' },
-    { icon: 'tune', label: 'Preferencia' }
+    { icon: 'manage_accounts', label: 'Cuenta', route: 'account'},
+    { icon: 'palette', label: 'Apariencia', route: 'appearance' },
+    { icon: 'tune', label: 'Preferencia', route: 'preference'}
   ];
 }
