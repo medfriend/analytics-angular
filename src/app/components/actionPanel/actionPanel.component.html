@@ -2,20 +2,26 @@
     (mouseenter)="ActiveShowAction()"
     (mouseleave)="DeactiveShowAction()"
 >
-    <div 
+    <div
         #controlPanelModule
         class="text-sm font-medium control-panel-module">
         {{ panelLabel }}
     </div>
-    <div 
+    <div
         class="action-container"
         [ngClass]="{
             'active': showActions,
             'deactive': !showActions
         }"
+        (click)="showPopUp()"
     >
-        <mat-icon>
-            keyboard_arrow_down
-        </mat-icon>
+
+      <app-basic-popup
+        [isActive]="showActions && showPopup"
+        [translateX]="-100"
+        [translateY]="40"
+      >
+        <ng-content/>
+      </app-basic-popup>
     </div>
 </div>

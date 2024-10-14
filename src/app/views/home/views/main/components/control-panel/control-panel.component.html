@@ -1,13 +1,27 @@
 <div class="flex flex-row px-2 py-2 container">
-    <div class="flex items-center">
-        <app-actionPanel
-            [panelLabel]="'Control Panel'"
-        />
+  <div class="flex items-center">
+      <app-actionPanel
+          [panelLabel]="'Control Panel'"
+      >
+        <app-user-list/>
+      </app-actionPanel>
+      <mat-icon
+          class="icon"
+      >
+          keyboard_arrow_right
+      </mat-icon>
+    <div
+      *ngFor="let route of routes; let isLast = last"
+    >
+      <div class="flex items-center">
+        {{ route }}
         <mat-icon
-            class="icon"
+          class="icon"
+          *ngIf="!isLast"
         >
-            keyboard_arrow_right
+          keyboard_arrow_right
         </mat-icon>
+      </div>
     </div>
-
+  </div>
 </div>
