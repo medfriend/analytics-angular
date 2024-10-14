@@ -1,21 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl, ValidatorFn } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.component';
-
-type InputInfo = {
-  label: string,
-  labelFor: string,
-  type: string,
-  formControlName: string,
-  placeholder: string,
-  validators?: ValidatorFn[] // Añadir validadores opcionales
-}
+import { sharedModules } from "../../../shared/shared.module";
+import { InputInfo } from "../../../interfaces/forms/basic-form/basic-form.interface";
 
 @Component({
   selector: 'app-basic-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [...sharedModules, ReactiveFormsModule],
   templateUrl: './basic-form.component.html',
   styleUrls: ['./basic-form.component.scss']
 })

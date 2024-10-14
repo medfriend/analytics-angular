@@ -1,4 +1,4 @@
-@import '../../../../../../public/assets/colors.scss';
+@import '../../../../../../../../public/assets/colors';
 
 .header{
     background-color: $background-header;
@@ -8,9 +8,9 @@
 .search-bar{
 
     border: none;
-    outline: none; 
+    outline: none;
     width: 280px;
-    
+
     .icon{
         color: $icon-color;
     }
@@ -37,7 +37,7 @@
     }
 }
 
-.key-container {  
+.key-container {
     mat-icon.active {
       color: gray;
       transform: translateY(0.15rem);

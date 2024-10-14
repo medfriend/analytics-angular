@@ -1,4 +1,4 @@
-@import '../../../../../../public/assets/colors.scss';
+@import '../../../../../../../../public/assets/colors';
 
 .container{
 
@@ -6,12 +6,12 @@
     .icon{
         color: $icon-panel-control;
         cursor: pointer;
-    
-        transition: transform 0.5s ease; 
-    
+
+        transition: transform 0.5s ease;
+
         &:hover {
             color: $text-color-panel-control;
-            transform: rotateZ(90deg); 
+            transform: rotateZ(90deg);
         }
     }
 

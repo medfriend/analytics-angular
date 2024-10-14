@@ -1,14 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, HostListener, ElementRef } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import {sharedModules} from "../../../shared/shared.module";
 
 @Component({
   selector: 'app-basic-popup',
   standalone: true,
-  imports: [
-    MatIconModule, 
-    CommonModule,
-  ],
+  imports: [ ...sharedModules ],
   templateUrl: './basic-popup.component.html',
   styleUrl: './basic-popup.component.scss'
 })
