@@ -9,9 +9,9 @@ export const HOME_ROUTES: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'account', component: AccountComponent },
-      { path: 'appearance', component: AppearanceComponent },
-      { path: 'preference', component: PreferenceComponent}
+      { path: 'user/account', component: AccountComponent },
+      { path: 'user/appearance', component: AppearanceComponent },
+      { path: 'user/preference', component: PreferenceComponent}
     ]
   }
 ]

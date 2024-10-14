@@ -1,6 +1,6 @@
-.key-container {  
+.key-container {
 
-    
+
 
     mat-icon.active {
       color: gray;
@@ -15,15 +15,15 @@
       }
 
     .referente-element {
-        background: linear-gradient(to bottom, gray 0%, white 20%);
+        background: white;
         position: absolute;
         color: black;
         transform: translate(-150px, 45px);
         opacity: 0;
-        transition: opacity 1s ease, transform 1s ease;
+        transition: opacity 250ms ease, transform 250ms ease;
         pointer-events: none;
       }
-    
+
       /* Animación cuando se muestra */
       .referente-element.showup {
         opacity: 1;

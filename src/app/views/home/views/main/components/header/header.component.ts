@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { BasicPopupComponent } from '../../../../../../components/popupList/basic-popup/basic-popup.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { UserListComponent } from '../user-list/user-list.component';
 import { Router } from '@angular/router';
 import { clearToken } from '../../../../../../store/auth/auth.actions';
 import { Store } from '@ngrx/store';
