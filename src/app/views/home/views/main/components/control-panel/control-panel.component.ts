@@ -1,10 +1,11 @@
-import { CommonModule } from '@angular/common';
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActionPanelComponent } from '../../../../../../components';
-import {sharedModules} from "../../../../../../shared/shared.module";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
-import {UserListComponent} from "../user-list/user-list.component";
+import { sharedModules } from "../../../../../../shared/shared.module";
+import { NavigationEnd, Router} from "@angular/router";
+import { filter } from "rxjs";
+import { UserListComponent } from "../user-list/user-list.component";
+import { routeInformation } from "../../../../../../interfaces/control-panel/control-panel.interface";
+
 
 @Component({
   selector: 'app-control-panel',
@@ -23,7 +24,7 @@ export class ControlPanelComponent implements OnInit {
     private router: Router,
   ) {}
 
-  routes: string[] = [];
+  routes: routeInformation[] = [];
 
   userName = 'Diego';
 
@@ -44,8 +45,12 @@ export class ControlPanelComponent implements OnInit {
     const routesAux = this.router.url.split("/");
     routesAux.splice(0, 2);
 
-    this.routes = routesAux.map(route =>
-      route === 'user' ? this.userName : route
-    );
+    this.routes = routesAux.map(route => {
+      return {
+        name: route === 'user' ? this.userName : route,
+        hasActionPanel: route === 'user',
+        actionPanelComponent: UserListComponent
+      }
+    });
   }
 }

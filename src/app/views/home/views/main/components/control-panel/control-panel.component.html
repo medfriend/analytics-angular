@@ -10,15 +10,25 @@
       >
           keyboard_arrow_right
       </mat-icon>
-    <div
-      *ngFor="let route of routes; let isLast = last"
-    >
+    <div *ngFor="let route of routes; let isLast = last">
       <div class="flex items-center">
-        {{ route }}
-        <mat-icon
-          class="icon"
-          *ngIf="!isLast"
-        >
+
+        <ng-container *ngIf="route.hasActionPanel; else showRouteName">
+          <app-actionPanel *ngIf="route.hasActionPanel" [panelLabel]="route.name">
+
+            <ng-container *ngIf="route.actionPanelComponent">
+              <ng-container *ngComponentOutlet="route.actionPanelComponent"></ng-container>
+            </ng-container>
+
+          </app-actionPanel>
+        </ng-container>
+
+        <ng-template #showRouteName>
+          {{ route.name }}
+        </ng-template>
+
+
+        <mat-icon class="icon" *ngIf="!isLast">
           keyboard_arrow_right
         </mat-icon>
       </div>
