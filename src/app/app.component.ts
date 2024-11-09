@@ -20,8 +20,8 @@ import { StorageService } from './util/localstorage/localstorage.service';
   ],
 })
 export class AppComponent implements OnInit {
-  title = 'Tesoreria Compensación';
-  
+  title = 'MedFriend';
+
 
   constructor(
     private location: Location,

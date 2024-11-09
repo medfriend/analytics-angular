@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.component';
 import { sharedModules } from "../../../shared/shared.module";
-import { InputInfo } from "../../../interfaces/forms/basic-form/basic-form.interface";
+import { InputInfo } from "../../../core/interfaces/components/forms/basic-form/basic-form.interface";
 
 @Component({
   selector: 'app-basic-form',

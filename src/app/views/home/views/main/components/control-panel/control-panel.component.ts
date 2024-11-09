@@ -4,7 +4,7 @@ import { sharedModules } from "../../../../../../shared/shared.module";
 import { NavigationEnd, Router} from "@angular/router";
 import { filter } from "rxjs";
 import { UserListComponent } from "../user-list/user-list.component";
-import { routeInformation } from "../../../../../../interfaces/control-panel/control-panel.interface";
+import { routeInformation } from "../../../../../../core/interfaces/components/control-panel/control-panel.interface";
 
 
 @Component({
