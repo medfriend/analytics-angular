@@ -9,10 +9,23 @@
     }
   }
 
-.image{
-  background: rgb(196,196,196);
-  background: linear-gradient(96deg, rgba(196,196,196,1) 0%, rgba(255,255,255,1) 100%);
+.container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+  //background: rgb(196,196,196);
+  background: linear-gradient(90deg, rgb(243, 243, 243) 0%, #bbd8f4 100%);
+
+  .image{
+    width: auto;
+    height: 50vh;
+    object-fit: cover;
+  }
 }
+
 
 
 .grid {

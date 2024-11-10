@@ -1,23 +1,14 @@
 import { AuthState } from '../../store/auth/auth.state';
 import {Component, OnDestroy} from '@angular/core';
 import {ToastComponent, ToastService, BasicFormComponent} from '../../components';
-import {Observable, Subject, takeUntil} from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { setToken } from '../../store/auth/auth.actions';
-import {Router, RouterOutlet} from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { StorageService } from '../../util/localstorage/localstorage.service';
-import {AuthService} from "../../core/service/auth.service";
-import {Auth} from "../../core/interfaces/services/auth.interface";
-import {ValidatorFn, Validators} from "@angular/forms";
-
-type InputInfo = {
-  label: string,
-  labelFor: string,
-  type: string,
-  formControlName: string,
-  placeholder: string,
-  validators?: ValidatorFn[]
-}
+import { AuthService } from "../../core/service/auth.service";
+import { Auth } from "../../core/interfaces/services/auth.interface";
+import { inputsLogin } from "../../core/interfaces/components/login/login.interface";
 
 @Component({
   selector: 'app-login',
@@ -32,27 +23,9 @@ type InputInfo = {
 })
 export class LoginComponent implements  OnDestroy {
 
-  //? parametros para la construccion del formulario
   forTitle: string = 'MedFriend';
 
-  inputs: InputInfo[] = [
-    {
-      label: 'Usuario',
-      type: 'text',
-      labelFor: 'usuario',
-      formControlName: 'usuario',
-      placeholder: '',
-      validators: [Validators.required, Validators.minLength(6)]
-    },
-    {
-      label: 'Contraseña',
-      type: 'password',
-      labelFor: 'contraseña',
-      formControlName: 'contraseña',
-      placeholder: '',
-      validators: [Validators.required, Validators.minLength(6)]
-    }
-  ];
+  inputs = inputsLogin
 
   token$: Observable<string | null>;
   destroy$ = new Subject<void>();

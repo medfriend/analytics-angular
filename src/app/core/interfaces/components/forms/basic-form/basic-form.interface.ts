@@ -1,6 +1,6 @@
 import {ValidatorFn} from "@angular/forms";
 
-export type InputInfo = {
+export  type InputInfo = {
   label: string,
   labelFor: string,
   type: string,
