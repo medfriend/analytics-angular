@@ -5,6 +5,7 @@ import { NavigationEnd, Router} from "@angular/router";
 import { filter } from "rxjs";
 import { UserListComponent } from "../user-list/user-list.component";
 import { routeInformation } from "../../../../../../core/interfaces/components/control-panel/control-panel.interface";
+import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
 
 
 @Component({
@@ -22,15 +23,24 @@ export class ControlPanelComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private localstorageService: StorageService,
   ) {}
 
   routes: routeInformation[] = [];
 
-  userName = 'Diego';
+  userName = '';
 
   ngOnInit() {
     this.initRoutes()
+    this.getUserInfo()
     this.convertRoute()
+  }
+
+  getUserInfo() {
+    const userInfo = this.localstorageService.getItem('userInfo')
+    // @ts-ignore
+    this.userName = userInfo.user.nombre_1
+    console.log(userInfo)
   }
 
   initRoutes(): void {

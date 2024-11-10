@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { BasicPopupComponent } from '../../../../../../components/popupList/basic-popup/basic-popup.component';
 import { UserListComponent } from '../user-list/user-list.component';
@@ -20,14 +20,26 @@ import {sharedModules} from "../../../../../../shared/shared.module";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isUserArrowActive: boolean = false;
+  username = ""
 
   constructor(
     private router: Router,
     private store: Store<{ auth: AuthState }>,
     private localstorageService: StorageService
   ){}
+
+  ngOnInit() {
+    this.getUserInfo()
+  }
+
+  getUserInfo(){
+    const userInfo = this.localstorageService.getItem('userInfo')
+
+    // @ts-ignore
+    this.username = userInfo.user.nombre_1;
+  }
 
   userArrowActive(){
     this.isUserArrowActive = true
