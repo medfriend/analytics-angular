@@ -1,25 +1,37 @@
 <div class="form">
-    <h2 class="text-center">{{ forTitle }}</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div [ngClass]="gridColumnClass">
-        <div class="form-group" *ngFor="let input of inputs">
-          <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
-          <input 
-            [type]="input.type"
-            [id]="input.formControlName"
-            class="form-control rounded-xl text-base"
-            [formControlName]="input.formControlName"
-            [placeholder]="input.placeholder"
-          >
+  <h2 class="text-center">{{ forTitle }}</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div [ngClass]="gridColumnClass">
+      <div class="form-group" *ngFor="let input of inputs">
+        <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
+        <input
+          [type]="input.type"
+          [id]="input.formControlName"
+          class="form-control rounded-xl text-base"
+          [class.input-error]="loginForm.get(input.formControlName)?.invalid && loginForm.get(input.formControlName)?.touched"
+          [formControlName]="input.formControlName"
+          [placeholder]="input.placeholder"
+        >
+
+        <!-- Contenedor de errores -->
+        <div *ngIf="loginForm.get(input.formControlName)?.invalid && loginForm.get(input.formControlName)?.touched" class="error-message">
+          <small *ngIf="loginForm.get(input.formControlName)?.hasError('required')">
+            Este campo es requerido
+          </small>
+          <small *ngIf="loginForm.get(input.formControlName)?.hasError('minlength')">
+            Debe tener al menos {{ loginForm.get(input.formControlName)?.errors?.['minlength'].requiredLength }} caracteres
+          </small>
+          <!-- Puedes agregar más condiciones para otros errores -->
         </div>
       </div>
-      <div class="button-container">
-        <button 
-          type="submit" 
-          class="btn rounded-xl text-base"
-        >
-          {{ buttonName }}
-        </button>
-      </div>
-    </form>
+    </div>
+    <div class="button-container">
+      <button
+        type="submit"
+        class="btn rounded-xl text-base"
+      >
+        {{ buttonName }}
+      </button>
+    </div>
+  </form>
 </div>

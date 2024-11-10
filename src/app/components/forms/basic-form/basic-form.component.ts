@@ -42,11 +42,13 @@ export class BasicFormComponent implements OnInit {
     });
   }
 
+  //TODO agregar los demas casos de validators a medida que se vayan necesitando
+
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log('Form values:', this.loginForm.value);
       this.onSubmitHandler(this.loginForm.value, this.toastService);
     } else {
+      this.toastService.addToast("error del formulario","error")
       console.log('Form is invalid');
     }
   }

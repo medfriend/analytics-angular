@@ -1,14 +1,14 @@
-import { AuthState } from './../../store/auth/auth.state';
+import { AuthState } from '../../store/auth/auth.state';
 import {Component, OnDestroy} from '@angular/core';
-import { BasicFormComponent } from '../../components/forms/basic-form/basic-form.component';
-import { ToastService } from '../../components/toast/toast.component';
+import {ToastComponent, ToastService, BasicFormComponent} from '../../components';
 import {Observable, Subject, takeUntil} from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { setToken } from '../../store/auth/auth.actions';
-import { Router } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
 import { StorageService } from '../../util/localstorage/localstorage.service';
 import {AuthService} from "../../core/service/auth.service";
 import {Auth} from "../../core/interfaces/services/auth.interface";
+import {ValidatorFn, Validators} from "@angular/forms";
 
 type InputInfo = {
   label: string,
@@ -16,13 +16,16 @@ type InputInfo = {
   type: string,
   formControlName: string,
   placeholder: string,
+  validators?: ValidatorFn[]
 }
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    BasicFormComponent
+    BasicFormComponent,
+    RouterOutlet,
+    ToastComponent
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -38,14 +41,16 @@ export class LoginComponent implements  OnDestroy {
       type: 'text',
       labelFor: 'usuario',
       formControlName: 'usuario',
-      placeholder: ''
+      placeholder: '',
+      validators: [Validators.required, Validators.minLength(6)]
     },
     {
       label: 'Contraseña',
       type: 'password',
       labelFor: 'contraseña',
       formControlName: 'contraseña',
-      placeholder: ''
+      placeholder: '',
+      validators: [Validators.required, Validators.minLength(6)]
     }
   ];
 
@@ -59,11 +64,6 @@ export class LoginComponent implements  OnDestroy {
     private authService: AuthService,
   ) {
     this.token$ = store.pipe(select(state => state.auth.token));
-
-    //? observer del token
-    this.token$.subscribe(token => {
-      console.log('Token:', token);
-    });
   }
 
   //onSubmitHandler handler para realizar el submit
@@ -77,24 +77,25 @@ export class LoginComponent implements  OnDestroy {
 
       this.authService.auth(dataParsed)
         .pipe(takeUntil(this.destroy$))
-        .subscribe(auth => {
-          this.handlerAuthentication(auth, toast);
-      })
+        .subscribe({
+          next: auth => {
+            this.handlerAuthentication(auth, toast);
+          },
+          error: (err) => {
+            toast.addToast('error al realizar autenticacion','error')
+          }
+        });
 
     }
   }
 
   handlerAuthentication(auth: any, toast: ToastService): void {
-
-    if (auth.error === undefined) {
       const token = auth.data
       this.store.dispatch(setToken({ token }));
       this.localstorageService.setItem('token', token)
 
-      //toast.addToast('Token set successfully', 'success');
-
+      toast.addToast('Token set successfully', 'success')
       this.router.navigate(['/home'])
-    }
   }
 
   ngOnDestroy() {

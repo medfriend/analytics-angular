@@ -1,7 +1,6 @@
 @import '../colors.scss';
 
 .form-control {
-    margin-top: 5px;
     border: 0.15rem solid $border-input;
     background-color: $background-input;
     
@@ -11,7 +10,6 @@
 
 
     &:hover{
-        
         box-shadow: none;
         border: 0.15rem solid $border-hover-input;
     }
@@ -19,6 +17,11 @@
     &:focus{
         border: 0.15rem solid $border-focus-input;
         box-shadow: 0 0 10px 5px $border-focus-shadow-input;
+    }
+
+    &.input-error {
+        border-color: $error-border-color;
+        box-shadow: $error-box-shadow; 
     }
 
 }

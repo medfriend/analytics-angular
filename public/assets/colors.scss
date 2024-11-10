@@ -22,6 +22,9 @@ $border-focus-shadow-input: rgb(218, 229, 250);
 
 $border-hover-input: rgb(159, 173, 193);
 
+$error-border-color: #d9534f;
+$error-box-shadow: 0 0 5px 2px rgba(217, 83, 79, 0.5);
+
 //header configuration
 $background-header: black;
 $background-hover-header: rgb(20,20,25);
@@ -38,4 +41,5 @@ $icon-container-hover: rgb(231, 231, 240);
 
 //user-list
 $background-user-list: rgb(231, 231, 240);
+
 // Agrega más colores según sea necesario
