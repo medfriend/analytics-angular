@@ -9,6 +9,7 @@ import { StorageService } from '../../util/localstorage/localstorage.service';
 import { AuthService } from "../../core/service/auth.service";
 import { Auth } from "../../core/interfaces/services/auth.interface";
 import { inputsLogin } from "../../core/interfaces/components/login/login.interface";
+import {jwtDecode} from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -62,12 +63,26 @@ export class LoginComponent implements  OnDestroy {
     }
   }
 
+  decodeToken(token: string){
+    try{
+      const decodeToken = jwtDecode(token)
+      return decodeToken
+    }catch (e){
+      return null
+    }
+  }
+
   handlerAuthentication(auth: any, toast: ToastService): void {
       const token = auth.data
+
+      const userInfo = this.decodeToken(token)
+
       this.store.dispatch(setToken({ token }));
       this.localstorageService.setItem('token', token)
+      this.localstorageService.setItem('userInfo', userInfo)
 
-      toast.addToast('Token set successfully', 'success')
+      // @ts-ignore
+      toast.addToast(`Bienvenido ${userInfo.user.nombre_1}`, 'success')
       this.router.navigate(['/home'])
   }
 
