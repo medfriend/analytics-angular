@@ -1,9 +1,15 @@
 @import '../colors.scss';
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-0.5rem); }
+  75% { transform: translateX(0.5rem); }
+}
+
 .form-control {
     border: 0.15rem solid $border-input;
     background-color: $background-input;
-    
+
     padding: 0.7rem;
     outline: none;
     transition: border 0.3s ease, box-shadow 0.3s ease;
@@ -21,7 +27,8 @@
 
     &.input-error {
         border-color: $error-border-color;
-        box-shadow: $error-box-shadow; 
+        box-shadow: $error-box-shadow;
+        animation: shake 0.2s ease 0s 3;
     }
 
 }

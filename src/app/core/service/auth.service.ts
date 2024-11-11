@@ -7,7 +7,7 @@ import {Auth} from "../interfaces/services/auth.interface";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/medfri-getway/security/auth';
+  private apiUrl = 'http://localhost:8070/medfri-getway/security/auth';
 
   constructor(private http: HttpClient) {}
 

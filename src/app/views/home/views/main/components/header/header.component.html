@@ -22,7 +22,7 @@
         </div>
         <div class="flex flex-row justify-center items-center gap-1 icon-container p-2 rounded-xl">
             <mat-icon>person</mat-icon>
-            {{username}}
+            <a class="label"> {{username}}</a>
             <div
                 class="key-container flex"
                 (mousedown)="userArrowActive()"
@@ -43,7 +43,7 @@
             (click)="logoutHandler()"
         >
             <mat-icon>logout</mat-icon>
-            Desconectar
+            <a class="label">Desconectar</a>
         </div>
     </div>
 </div>

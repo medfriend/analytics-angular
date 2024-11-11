@@ -1,0 +1,22 @@
+@import '../../../../../public/assets/colors';
+
+.icon{
+  width: 175px;
+  outline: none;
+  color: black;
+  text-decoration: none;
+
+  &:hover{
+    background-color: $background-user-list;
+  }
+}
+
+.submenu {
+  position: absolute;
+  left: 100%;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 4px;
+}

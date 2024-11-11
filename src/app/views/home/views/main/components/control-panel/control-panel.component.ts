@@ -62,5 +62,7 @@ export class ControlPanelComponent implements OnInit {
         actionPanelComponent: UserListComponent
       }
     });
+
+    console.log(this.routes);
   }
 }

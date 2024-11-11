@@ -35,7 +35,7 @@
   @media (max-width: 570px) {
     grid-template-columns: 1fr; // Una columna para pantallas pequeñas
 
-    .image {
+    .container {
       display: none; // Oculta el primer div con la clase "image"
     }
   }
