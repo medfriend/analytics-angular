@@ -14,7 +14,7 @@
         transform: translate(-5px);
         transition: transform 0.5s ease, opacity 0.5s ease;
     }
-    
+
     .active {
         color: $text-color-panel-control;
         opacity: 1;
@@ -30,10 +30,6 @@
         animation-fill-mode: forwards;
         animation: widthfull 0.5s 1;
         animation-fill-mode: forwards;
-    }
-
-    mat-icon{
-        color: $icon-panel-control;
     }
 }
 

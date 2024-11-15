@@ -3,14 +3,17 @@
   class="flex flex-row p-1 gap-1 icon rounded-md"
   [routerLink]="item.route"
 >
+
   <mat-icon>{{ item.icon }}</mat-icon>
+
   {{ item.label }}
 
   <!-- Ícono chevron_right con eventos de mouse -->
   <mat-icon
+    class="arrow-icon"
     *ngIf="item.submenus && item.submenus.length > 0"
-    (mouseenter)="item.showSubmenu = true"
-    (mouseleave)="item.showSubmenu = false"
+    (mouseenter)="onMouseEnter(item)"
+    (mouseleave)="onMouseLeave(item)"
   >
     chevron_right
   </mat-icon>
@@ -19,8 +22,8 @@
   <div
     *ngIf="item.showSubmenu"
     class="submenu absolute left-full pl-4"
-    (mouseenter)="item.showSubmenu = true"
-    (mouseleave)="item.showSubmenu = false"
+    (mouseenter)="onSubmenuEnter(item)"
+    (mouseleave)="onSubmenuLeave(item)"
   >
     <app-basic-list [menuItems]="item.submenus"></app-basic-list>
   </div>
