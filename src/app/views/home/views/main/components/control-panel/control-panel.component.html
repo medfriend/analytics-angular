@@ -1,37 +1,37 @@
 <div class="flex flex-row p-2 container text-sm">
   <div class="flex items-center">
-      <app-actionPanel
-          [panelLabel]="'Control Panel'"
-      >
-        <app-user-list/>
-      </app-actionPanel>
-      <mat-icon
-          class="icon"
-      >
-          keyboard_arrow_right
-      </mat-icon>
-    <div *ngFor="let route of routes; let isLast = last">
-      <div class="flex items-center">
+    <!-- Panel principal -->
+    <app-actionPanel [panelLabel]="'Control Panel'">
+      <app-user-list></app-user-list>
+    </app-actionPanel>
 
-        <ng-container *ngIf="route.hasActionPanel; else showRouteName">
-          <app-actionPanel *ngIf="route.hasActionPanel" [panelLabel]="route.name">
+    <mat-icon class="icon">
+      keyboard_arrow_right
+    </mat-icon>
 
-            <ng-container *ngIf="route.actionPanelComponent">
-              <ng-container *ngComponentOutlet="route.actionPanelComponent"></ng-container>
+    <!-- Rutas dinámicas -->
+    <div *ngFor="let route of routes; let isLast = last" class="flex items-center">
+      <ng-container *ngIf="route.hasActionPanel; else showRouteName">
+        <app-actionPanel [panelLabel]="route.name">
+          <!-- Componente dinámico con inputs -->
+          <ng-container *ngIf="route.actionPanelComponent">
+            <ng-container
+              *ngComponentOutlet="route.actionPanelComponent.component;
+              injector: getInjector(route.actionPanelComponent.injectors)">
             </ng-container>
+          </ng-container>
+        </app-actionPanel>
+      </ng-container>
 
-          </app-actionPanel>
-        </ng-container>
+      <!-- Mostrar el nombre de la ruta si no tiene panel -->
+      <ng-template #showRouteName>
+        <span>{{ route.name }}</span>
+      </ng-template>
 
-        <ng-template #showRouteName>
-          {{ route.name }}
-        </ng-template>
-
-
-        <mat-icon class="icon" *ngIf="!isLast">
-          keyboard_arrow_right
-        </mat-icon>
-      </div>
+      <!-- Ícono de separación si no es el último -->
+      <mat-icon class="icon" *ngIf="!isLast">
+        keyboard_arrow_right
+      </mat-icon>
     </div>
   </div>
 </div>

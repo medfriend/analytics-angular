@@ -1,7 +1,11 @@
-import {Type} from "@angular/core";
+import { Type } from '@angular/core';
 
 export type routeInformation = {
   name: string;
   hasActionPanel: boolean;
-  actionPanelComponent?: Type<any>;
-}
+  actionPanelComponent?: {
+    component: Type<any>; // Componente dinámico
+    injectors: Record<string, any>; // Valores para los @Input del componente
+  };
+};
+

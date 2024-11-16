@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input } from "@angular/core";
 import {sharedModules} from "../../../shared/shared.module";
 
 @Component({
@@ -9,6 +9,7 @@ import {sharedModules} from "../../../shared/shared.module";
   styleUrls: ['./basic-list.component.scss']
 })
 export class BasicListComponent {
+
   @Input() menuItems: any[] | undefined;
 
   onMouseEnter(item: any): void {

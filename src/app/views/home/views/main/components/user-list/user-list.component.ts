@@ -25,7 +25,6 @@ export class UserListComponent implements OnInit {
     { icon: 'tune', label: 'Preferencia', route: 'user/preference', submenus: []}
   ];
 
-
   ngOnInit() {
 
     const userInfo = this.localstorageService.getItem("userInfo");
@@ -35,7 +34,6 @@ export class UserListComponent implements OnInit {
       this.menuItems.push(menu);
     })
 
-    console.log(this.menuItems);
   }
 
 }

@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
     if(this.location.path() !== 'login'){
       this.store.select(selectToken).subscribe(token => {
           const localstoarageToken = this.localstorageService.getItem<String>('token')
-          console.log(localstoarageToken)
           if(token === null && localstoarageToken === null){
             this.router.navigate(['/login'])
           }
