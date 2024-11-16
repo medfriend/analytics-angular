@@ -23,7 +23,7 @@ import {
   styleUrl: './control-panel.component.scss'
 })
 export class ControlPanelComponent implements OnInit {
-  private menus: any;
+  protected menus: any;
 
   constructor(
     private router: Router,
@@ -32,6 +32,13 @@ export class ControlPanelComponent implements OnInit {
 
   routes: routeInformation[] = [];
   userName = '';
+  injectionComponent = InjectListComponent;
+
+  menuItems = [
+    { icon: 'manage_accounts', label: 'Cuenta', route: 'home/user/account', submenus: []},
+    { icon: 'palette', label: 'Apariencia', route: 'home/user/appearance', submenus: [] },
+    { icon: 'tune', label: 'Preferencia', route: 'home/user/preference', submenus: []}
+  ];
 
   ngOnInit() {
     this.initRoutes();
@@ -92,12 +99,6 @@ export class ControlPanelComponent implements OnInit {
       `${parent.label}/${routewithoutHome.join("/")}`
       : routewithoutHome.join("/");
 
-    const menuItems = [
-      { icon: 'manage_accounts', label: 'Cuenta', route: 'home/user/account', submenus: []},
-      { icon: 'palette', label: 'Apariencia', route: 'home/user/appearance', submenus: [] },
-      { icon: 'tune', label: 'Preferencia', route: 'home/user/preference', submenus: []}
-    ];
-
     const routesAux = fullPath.split("/");
 
     this.routes = routesAux.map(route => {
@@ -106,14 +107,13 @@ export class ControlPanelComponent implements OnInit {
        name: route === 'user' ? this.userName : route,
        hasActionPanel: route === 'user' || this.routeHasSubMenus(route),
        actionPanelComponent: {
-         component: InjectListComponent,
+         component: this.injectionComponent,
          injectors: {
-           menuItems: route === 'user' ? menuItems : parent.submenus,
+           menuItems: route === 'user' ? this.menuItems : parent.submenus,
          },
        },
      }
     });
-
   }
 
   getInjector(inputs: Record<string, any>): Injector {
@@ -121,7 +121,7 @@ export class ControlPanelComponent implements OnInit {
       providers: [
         {
           provide: INJECT_LIST_DATA,
-          useValue: inputs, // Pasa los datos de menuItems al token
+          useValue: inputs,
         },
       ],
     });

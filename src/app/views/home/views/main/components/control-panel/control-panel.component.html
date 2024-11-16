@@ -1,8 +1,18 @@
 <div class="flex flex-row p-2 container text-sm">
   <div class="flex items-center">
-    <!-- Panel principal -->
-    <app-actionPanel [panelLabel]="'Control Panel'">
+<!--     Panel principal -->
+    <app-actionPanel [panelLabel]="'Panel de Control'">
       <app-user-list></app-user-list>
+    </app-actionPanel>
+
+    <mat-icon class="icon">
+      keyboard_arrow_right
+    </mat-icon>
+
+    <app-actionPanel [panelLabel]="'Panel de Control test'">
+      <ng-container
+        *ngComponentOutlet="injectionComponent; injector: getInjector({ menuItems: menus })">
+      </ng-container>
     </app-actionPanel>
 
     <mat-icon class="icon">
@@ -12,8 +22,8 @@
     <!-- Rutas dinámicas -->
     <div *ngFor="let route of routes; let isLast = last" class="flex items-center">
       <ng-container *ngIf="route.hasActionPanel; else showRouteName">
+
         <app-actionPanel [panelLabel]="route.name">
-          <!-- Componente dinámico con inputs -->
           <ng-container *ngIf="route.actionPanelComponent">
             <ng-container
               *ngComponentOutlet="route.actionPanelComponent.component;
@@ -21,6 +31,7 @@
             </ng-container>
           </ng-container>
         </app-actionPanel>
+
       </ng-container>
 
       <!-- Mostrar el nombre de la ruta si no tiene panel -->
