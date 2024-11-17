@@ -1,0 +1,8 @@
+<div class="flex-container mt-1 p-2">
+  <div class="item" *ngFor="let item of menu">
+    <div class="flex gap-2 menu items-center h-ful px-1 py-2 rounded-md" tabindex="0">
+      <mat-icon>{{ item.icon }}</mat-icon>
+      <div class="text">{{item.label}}</div>
+    </div>
+  </div>
+</div>

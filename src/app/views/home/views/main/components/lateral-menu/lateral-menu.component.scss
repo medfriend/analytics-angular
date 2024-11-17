@@ -1,0 +1,36 @@
+//TODO cambiar las rutas "../.." por "colors"
+@import "colors";
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  cursor: pointer;
+
+}
+
+.item {
+  display: contents; /* Solo los hijos tendrán un cuadro visual */
+}
+
+.text {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-size: 0.875rem;
+  font-weight: 450 !important;
+}
+
+.menu {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $lateral-menu-hover; // Color al pasar el mouse
+  }
+
+  &:focus {
+    border: none;
+    background-color: $lateral-menu-hover;
+    box-shadow: 0 0 0 5px $lateral-menu-boxshadow; // Sombra al hacer focus
+  }
+}
+

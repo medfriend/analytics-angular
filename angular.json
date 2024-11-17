@@ -45,7 +45,8 @@
               "public/assets/scss/shadows.scss",
               "public/assets/scss/rounded.scss",
               "public/assets/scss/sizing.scss",
-              "public/assets/scss/inputs.scss"
+              "public/assets/scss/inputs.scss",
+              "public/assets/colors.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
