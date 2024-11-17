@@ -3,37 +3,32 @@ import {sharedModules} from "../../shared/shared.module";
 import {BasicPopupComponent} from "../popupList/basic-popup/basic-popup.component";
 import {UserListComponent} from "../../views/home/views/main/components/user-list/user-list.component";
 
+//TODO hacer la anicacion de cierre si funcione
 @Component({
   selector: 'app-actionPanel',
   standalone: true,
   imports: [...sharedModules, BasicPopupComponent, UserListComponent],
   templateUrl: './actionPanel.component.html',
   styleUrl: './actionPanel.component.scss'
-})
-export class ActionPanelComponent  implements AfterViewInit{
-  showActions = false;
-
+})export class ActionPanelComponent implements AfterViewInit {
   @HostBinding('style.--startWidth') startWidth = '118px';
   @HostBinding('style.--endWidth') endWidth = '145px';
-  @ViewChild('controlPanelModule') controlPanelModule!: ElementRef
-  @Input() panelLabel: string = 'Panel de Control'
+  @ViewChild('controlPanelModule') controlPanelModule!: ElementRef;
+  @Input() panelLabel: string = 'Panel de Control';
 
-  showPopup: boolean = false;
+  showPopup: boolean = false; // Controla toda la lógica del popup
 
   ngAfterViewInit(): void {
-    this.startWidth = `${this.controlPanelModule.nativeElement.scrollWidth + 1}px`
-    this.endWidth = `${this.controlPanelModule.nativeElement.scrollWidth + 30}px `
+    this.startWidth = `${this.controlPanelModule.nativeElement.scrollWidth + 1}px`;
+    this.endWidth = `${this.controlPanelModule.nativeElement.scrollWidth + 30}px`;
   }
 
-  ActiveShowAction(){
-    this.showActions = true
+  showPopUp(state: boolean): void {
+    // Solo cambia el estado en eventos de hover
+    if (!this.showPopup) {
+      this.showPopup = state;
+    }
   }
 
-  DeactiveShowAction(){
-    this.showActions = false
-  }
-
-  showPopUp(){
-    this.showPopup = !this.showPopup
-  }
 }
+

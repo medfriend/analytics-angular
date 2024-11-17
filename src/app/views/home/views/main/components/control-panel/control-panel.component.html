@@ -2,17 +2,7 @@
   <div class="flex items-center">
 <!--     Panel principal -->
     <app-actionPanel [panelLabel]="'Panel de Control'">
-      <app-user-list></app-user-list>
-    </app-actionPanel>
-
-    <mat-icon class="icon">
-      keyboard_arrow_right
-    </mat-icon>
-
-    <app-actionPanel [panelLabel]="'Panel de Control test'">
-      <ng-container
-        *ngComponentOutlet="injectionComponent; injector: getInjector({ menuItems: menus })">
-      </ng-container>
+      <app-basic-list [menuItems]="menus"></app-basic-list>
     </app-actionPanel>
 
     <mat-icon class="icon">

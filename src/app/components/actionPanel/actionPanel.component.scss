@@ -2,38 +2,43 @@
 
 .control-panel-container{
 
-    .control-panel-module{
-        color: $text-color-panel-control;
-        cursor: pointer;
-    }
+  .control-panel-module{
+    color: $text-color-panel-control;
+    cursor: pointer;
+  }
 
-    .deactive {
-        opacity: 0;
-        position: absolute;
-        margin-left:  var(--startWidth);
-        transform: translate(-5px);
-        transition: transform 0.5s ease, opacity 0.5s ease;
-    }
+  .deactive {
+    opacity: 0;
+    position: absolute;
+    transform: translate(-5px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    background-color: #dc3545;
+  }
 
-    .active {
-        color: $text-color-panel-control;
-        opacity: 1;
-        position: absolute;
-        margin-left:  var(--startWidth);
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        transform: translate(5px);
+  .active {
+    color: $text-color-panel-control;
+    opacity: 1;
+    position: absolute;
+    margin-left:  var(--startWidth);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translate(5px);
+  }
 
-    }
+  &.active{
+    background-color: $icon-container-hover;
+    animation-fill-mode: forwards;
+    animation: widthfull 0.5s 1;
+    animation-fill-mode: forwards;
+  }
 
-    &:hover{
-        background-color: $icon-container-hover;
-        animation-fill-mode: forwards;
-        animation: widthfull 0.5s 1;
-        animation-fill-mode: forwards;
-    }
 }
 
 @keyframes widthfull {
-    from {width: var(--startWidth); }
-    to {width: var(--endWidth); }
-  }
+  from {width: var(--startWidth); }
+  to {width: var(--endWidth); }
+}
+
+@keyframes reverseWidthfull {
+  from {width: var(--endWidth); }
+  to {width: var(--startWidth); }
+}

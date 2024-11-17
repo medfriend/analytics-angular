@@ -13,27 +13,12 @@ import {BasicListComponent} from "../../../../../../components/list/basic-list/b
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss'
 })
-export class UserListComponent implements OnInit {
-
-  constructor(
-    private localstorageService: StorageService,
-  ) {}
+export class UserListComponent {
 
   menuItems = [
     { icon: 'manage_accounts', label: 'Cuenta', route: 'user/account', submenus: []},
     { icon: 'palette', label: 'Apariencia', route: 'user/appearance', submenus: [] },
     { icon: 'tune', label: 'Preferencia', route: 'user/preference', submenus: []}
   ];
-
-  ngOnInit() {
-
-    const userInfo = this.localstorageService.getItem("userInfo");
-
-    // @ts-ignore
-    userInfo.menus.map((menu) => {
-      this.menuItems.push(menu);
-    })
-
-  }
 
 }

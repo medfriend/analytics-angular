@@ -10,14 +10,18 @@ import {
   INJECT_LIST_DATA,
   InjectListComponent
 } from "../../../../../../components/list/inject-list/inject-list.component";
+import {BasicListComponent} from "../../../../../../components/list/basic-list/basic-list.component";
 
+//TODO convetir el menuItem en una constante
+//TODO revizar la parte de menus dentro de submenus
 @Component({
   selector: 'app-control-panel',
   standalone: true,
   imports: [
     ...sharedModules,
     ActionPanelComponent,
-    UserListComponent
+    UserListComponent,
+    BasicListComponent
   ],
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.scss'

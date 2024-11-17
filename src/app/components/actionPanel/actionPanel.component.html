@@ -1,27 +1,30 @@
 <div class="flex control-panel-container py-1 px-2 rounded-xl"
-    (mouseenter)="ActiveShowAction()"
-    (mouseleave)="DeactiveShowAction()"
->
-    <div
-        #controlPanelModule
-        class="text-sm font-medium control-panel-module">
-        {{ panelLabel }}
-    </div>
-    <div
-        class="action-container"
-        [ngClass]="{
-            'active': showActions,
-            'deactive': !showActions
+     (mouseenter)="showPopUp(true)"
+     [ngClass]="{
+            'active': showPopup,
+            'deactive': !showPopup
         }"
-        (click)="showPopUp()"
+>
+  <div
+    #controlPanelModule
+    class="text-sm font-medium control-panel-module">
+    {{ panelLabel }}
+  </div>
+  <div
+    class="action-container"
+    [ngClass]="{
+            'active': showPopup,
+            'deactive': !showPopup
+        }"
+    (click)="showPopUp(!showPopup)"
+  >
+    <app-basic-popup
+      [isActive]="showPopup"
+      [translateX]="-80"
+      [translateY]="40"
+      [hidden]="!showPopup"
     >
-
-      <app-basic-popup
-        [isActive]="showActions"
-        [translateX]="-100"
-        [translateY]="40"
-      >
-        <ng-content/>
-      </app-basic-popup>
-    </div>
+      <ng-content></ng-content>
+    </app-basic-popup>
+  </div>
 </div>
