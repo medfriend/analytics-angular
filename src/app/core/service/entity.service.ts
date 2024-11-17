@@ -7,17 +7,9 @@ import {enviroment} from "../../enviroment/service.enviroment";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private apiUrl = `${enviroment.getwayUri}/security/auth`;
+export class EntityService {
+  private apiUrl = `${enviroment.getwayUri}/security/entity`;
 
   constructor(private http: HttpClient) {}
 
-  auth(data: Auth): Observable<any> {
-
-    const headers = new HttpHeaders({
-      'Usuario': data.usuario.toString()
-    });
-
-    return this.http.post(`${this.apiUrl}`, data, { headers: headers });
-  }
 }
