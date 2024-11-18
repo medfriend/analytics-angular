@@ -1,5 +1,6 @@
 <div class="form">
-  <h2 class="text-center">{{ forTitle }}</h2>
+  <h2 [ngClass]="{ 'text-center': isCentered }">{{ forTitle }}</h2>
+  <hr *ngIf="hasDivisor">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div [ngClass]="gridColumnClass">
       <div class="form-group" *ngFor="let input of inputs">
@@ -25,7 +26,22 @@
         </div>
       </div>
     </div>
-    <div class="button-container">
+    <div
+      class="button-container"
+      [ngClass]="{
+    'grid grid-cols-2 gap-4 w-50 justify-end ml-auto': showCancelButton,
+    'flex justify-end w-full': !showCancelButton
+  }"
+    >
+      <button
+        type="button"
+        *ngIf="showCancelButton"
+        class="btn-cancelar rounded-xl text-base"
+        (click)="execCancelHandler()"
+      >
+        Cancelar
+      </button>
+
       <button
         type="submit"
         class="btn rounded-xl text-base"
@@ -33,5 +49,7 @@
         {{ buttonName }}
       </button>
     </div>
+
+
   </form>
 </div>

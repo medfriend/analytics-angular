@@ -1,14 +1,12 @@
-@import '../../../../../public/assets/colors.scss';
+@import 'colors';
 
 .form {
   background: #fff;
-  padding: 20px;
   border-radius: 8px;
   width: 100%; // Limita el ancho máximo en pantallas grandes
 
   h2 {
     margin-bottom: 20px;
-    text-align: center;
   }
 
   .form-group {
@@ -22,7 +20,7 @@
     }
 
     .error-message {
-      color: #d9534f;
+      color: $danger-color;
       font-size: 0.875rem;
       margin-top: 0.25rem;
       margin-left: 0.5rem;
@@ -35,12 +33,23 @@
   }
 
   .button-container {
+    margin-top: 1rem;
+
     .btn {
-      margin-top: 1rem;
+      color: $light-color;
       width: 100%;
       border: none;
       background-color: $primary-color;
+      cursor: pointer;
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .btn-cancelar {
+      width: 100%;
       color: $light-color;
+      border: none;
+      background-color: $danger-color;
       cursor: pointer;
       padding: 0.8rem;
       font-size: 1rem;
@@ -49,7 +58,6 @@
 
   // Media Queries para pantallas pequeñas
   @media (max-width: 768px) {
-    padding: 15px;
 
     h2 {
       font-size: 1.5rem;
@@ -72,7 +80,6 @@
   }
 
   @media (max-width: 480px) {
-    padding: 10px;
 
     h2 {
       font-size: 1.25rem;

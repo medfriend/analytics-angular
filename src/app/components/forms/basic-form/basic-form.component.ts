@@ -17,6 +17,10 @@ export class BasicFormComponent implements OnInit {
   @Input() inputs: InputInfo[] = [];
   @Input() onSubmitHandler: (values: any, toast: ToastService) => void = () => {};
   @Input() numberOfColumns: number = 1
+  @Input() isCentered: boolean = true;
+  @Input() hasDivisor: boolean = false;
+  @Input() showCancelButton: boolean = false;
+  @Input() cancelHandler: () => void = ():void  => {}
 
   loginForm: FormGroup;
 
@@ -51,5 +55,9 @@ export class BasicFormComponent implements OnInit {
       this.toastService.addToast("error del formulario","error")
       console.log('Form is invalid');
     }
+  }
+
+  execCancelHandler(): void {
+    this.cancelHandler();
   }
 }
