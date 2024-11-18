@@ -1,0 +1,41 @@
+//@import "colors";
+//
+//.basic-button {
+//  background-color: $basic-button;
+//  cursor: pointer;
+//  color: $basic-button-color;
+//
+//  button{
+//    border: none;
+//    background-color: transparent;
+//  }
+//
+//
+//}
+@import "colors";
+
+.basic-button {
+  background-color: $basic-button;
+  cursor: pointer;
+  color: $basic-button-color;
+  display: flex; /* Permite alinear los elementos en línea */
+  align-items: center; /* Asegura el centrado vertical */
+  transition: background-color 0.3s; /* Animación suave al pasar el cursor */
+
+  &:hover {
+    background-color: darken($basic-button, 5%);
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $basic-button-color;
+  }
+}

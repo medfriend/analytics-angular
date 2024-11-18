@@ -173,6 +173,8 @@ export class ControlPanelComponent implements OnInit {
          foundRoute = true;
        }
      })
+     this.router.navigate([acc.slice(1)])
+
     }
   }
 
