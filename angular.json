@@ -46,6 +46,7 @@
               "public/assets/scss/rounded.scss",
               "public/assets/scss/sizing.scss",
               "public/assets/scss/inputs.scss",
+              "public/assets/scss/background.scss",
               "public/assets/colors.scss"
             ],
             "scripts": [],

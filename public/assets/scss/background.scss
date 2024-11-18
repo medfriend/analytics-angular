@@ -1,0 +1,63 @@
+// Colores de fondo principales
+$bg-colors: (
+  "bg-transparent": transparent,
+  "bg-black": #000,
+  "bg-white": #fff,
+  "bg-gray-50": #f9fafb,
+  "bg-gray-100": #f3f4f6,
+  "bg-gray-200": #e5e7eb,
+  "bg-gray-300": #d1d5db,
+  "bg-gray-400": #9ca3af,
+  "bg-gray-500": #6b7280,
+  "bg-gray-600": #4b5563,
+  "bg-gray-700": #374151,
+  "bg-gray-800": #1f2937,
+  "bg-gray-900": #111827,
+  "bg-red-50": #fef2f2,
+  "bg-red-100": #fee2e2,
+  "bg-red-200": #fecaca,
+  "bg-red-300": #fca5a5,
+  "bg-red-400": #f87171,
+  "bg-red-500": #ef4444,
+  "bg-red-600": #dc2626,
+  "bg-red-700": #b91c1c,
+  "bg-red-800": #991b1b,
+  "bg-red-900": #7f1d1d,
+  "bg-green-50": #ecfdf5,
+  "bg-green-100": #d1fae5,
+  "bg-green-200": #a7f3d0,
+  "bg-green-300": #6ee7b7,
+  "bg-green-400": #34d399,
+  "bg-green-500": #10b981,
+  "bg-green-600": #059669,
+  "bg-green-700": #047857,
+  "bg-green-800": #065f46,
+  "bg-green-900": #064e3b,
+  "bg-blue-50": #eff6ff,
+  "bg-blue-100": #dbeafe,
+  "bg-blue-200": #bfdbfe,
+  "bg-blue-300": #93c5fd,
+  "bg-blue-400": #60a5fa,
+  "bg-blue-500": #3b82f6,
+  "bg-blue-600": #2563eb,
+  "bg-blue-700": #1d4ed8,
+  "bg-blue-800": #1e40af,
+  "bg-blue-900": #1e3a8a
+);
+
+// Generar clases automáticamente
+@each $name, $color in $bg-colors {
+  .#{$name} {
+    background-color: $color;
+  }
+}
+
+// Opcional: Agregar variantes hover, focus, etc.
+@each $name, $color in $bg-colors {
+  .hover\:#{$name}:hover {
+    background-color: $color;
+  }
+  .focus\:#{$name}:focus {
+    background-color: $color;
+  }
+}

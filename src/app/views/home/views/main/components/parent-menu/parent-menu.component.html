@@ -1,0 +1,15 @@
+<h4> {{menu}}</h4>
+<hr>
+<div class="grid gap-4 mt-1" [ngStyle]="{'grid-template-columns': 'repeat(auto-fit, minmax(200px, 1fr))'}">
+  <div
+    *ngFor="let item of submenus"
+    class="flex flex-row items-center rounded gap-2 menu p-2"
+    [routerLink]="item.route"
+    tabindex="0"
+  >
+    <mat-icon class="rounded-full p-3 icon">
+      {{ item.icon }}
+    </mat-icon>
+    <p class="text-sm tracking-tighter leading-tight">{{ item.label }}</p>
+  </div>
+</div>

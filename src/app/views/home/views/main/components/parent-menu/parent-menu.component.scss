@@ -1,0 +1,26 @@
+@import "colors";
+
+.icon{
+  background-color: $parent-icon;
+  color: $parent-icon-color;
+}
+
+.menu {
+  cursor: pointer;
+  transition: background-color 0.5s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $lateral-menu-hover;
+  }
+
+  &:focus {
+    border: none;
+    background-color: $lateral-menu-hover;
+    box-shadow: 0 0 0 5px $lateral-menu-boxshadow; // Sombra al hacer focus
+  }
+}
+
+hr {
+  border: none;
+  border-top: 2px solid $parent-icon;
+}

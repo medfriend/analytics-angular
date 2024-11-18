@@ -7,6 +7,7 @@ import {MenuAdminComponent} from "../../feature/admin/menu/menu.component";
 import {RecursoAdminComponent} from "../../feature/admin/recurso/recurso.component";
 import {UsuarioAdminComponent} from "../../feature/admin/usuario/usuario.component";
 import {RolAdminComponent} from "../../feature/admin/rol/rol.component";
+import {ParentMenuComponent} from "./views/main/components/parent-menu/parent-menu.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -20,6 +21,7 @@ export const HOME_ROUTES: Routes = [
       { path: 'administracion-recursos', component: RecursoAdminComponent},
       { path: 'administracion-menus', component: MenuAdminComponent},
       { path: 'administracion-roles', component: RolAdminComponent},
+      { path: 'parent-menu', component: ParentMenuComponent},
     ]
   }
 ]
