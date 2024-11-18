@@ -11,7 +11,7 @@ import {
   InjectListComponent
 } from "../../../../../../components/list/inject-list/inject-list.component";
 import {BasicListComponent} from "../../../../../../components/list/basic-list/basic-list.component";
-import {routes} from "../../../../../../app.routes";
+import bootstrap from "../../../../../../../main.server";
 
 //TODO convetir el menuItem en una constante
 //TODO revizar la parte de menus dentro de submenus
@@ -29,6 +29,7 @@ import {routes} from "../../../../../../app.routes";
 })
 export class ControlPanelComponent implements OnInit {
   protected menus: any;
+  actualRoute = '';
 
   constructor(
     private router: Router,
@@ -69,7 +70,9 @@ export class ControlPanelComponent implements OnInit {
 
   findParentMenuByRoute(route: string): any | null {
     for (const menu of this.menus) {
-      const submenu = menu.submenus.find((sub: { route: string }) => sub.route === route);
+      const submenu = menu.submenus.find((sub: { route: string }) => {
+        return route.startsWith(sub.route);
+      });
       if (submenu) {
         return menu; // Retorna el menú padre si encuentra el submenú con la ruta
       }
@@ -110,15 +113,15 @@ export class ControlPanelComponent implements OnInit {
 
   convertRoute(): void {
 
-    const actualRoute = this.router.url
+    this.actualRoute = this.router.url
 
-    let parent = this.findParentMenuByRoute(actualRoute);
+    let parent = this.findParentMenuByRoute(this.actualRoute);
 
     if (parent === null) {
       parent = { submenus: [] };
     }
 
-    const routewithoutHome = actualRoute.split("/").splice(2, actualRoute.length - 1);
+    const routewithoutHome = this.actualRoute.split("/").splice(2, this.actualRoute.length - 1);
 
     this.findParentMenuLink(routewithoutHome, parent)
 
@@ -127,7 +130,6 @@ export class ControlPanelComponent implements OnInit {
       : routewithoutHome.join("/");
 
     const routesAux = fullPath.split("/");
-
 
     this.routes = routesAux.map(route => {
 
@@ -155,7 +157,27 @@ export class ControlPanelComponent implements OnInit {
     });
   }
 
-  navegateHome(){
-    this.router.navigate(['home']);
+  navegateTo(route: string, index: number, isLast: boolean) {
+    const actualRoute = this.router.url;
+
+    let acc = ''
+    let foundRoute = false;
+
+    if (!isLast) {
+     actualRoute.split("/").forEach(splitted => {
+       if (!foundRoute){
+         acc = acc + "/" + splitted
+       }
+
+       if (splitted === route){
+         foundRoute = true;
+       }
+     })
+    }
   }
+
+  navegateHome(){
+    console.log(this.actualRoute)
+  }
+
 }

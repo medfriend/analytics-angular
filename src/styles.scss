@@ -5,6 +5,9 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0px;
+
+  hr {
+    border: none;
+    border-top: 2px solid $parent-icon;
+  }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

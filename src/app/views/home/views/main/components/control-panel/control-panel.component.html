@@ -1,7 +1,7 @@
 <div class="flex flex-row p-2 container text-sm">
   <div class="flex items-center">
 <!--     Panel principal -->
-    <div (click)="navegateHome()">
+    <div>
       <app-actionPanel [panelLabel]="'Panel de Control'">
         <app-basic-list [menuItems]="menus"></app-basic-list>
       </app-actionPanel>
@@ -12,7 +12,7 @@
     </mat-icon>
 
     <!-- Rutas dinámicas -->
-    <div *ngFor="let route of routes; let isLast = last" class="flex items-center">
+    <div *ngFor="let route of routes; let isLast = last; let i = index" class="flex items-center" >
       <ng-container *ngIf="route.hasActionPanel; else showRouteName">
 
         <app-actionPanel [panelLabel]="route.name">
@@ -28,7 +28,12 @@
 
       <!-- Mostrar el nombre de la ruta si no tiene panel -->
       <ng-template #showRouteName>
-        <span>{{ route.name }}</span>
+        <div
+          (click)="navegateTo(route.name, i, isLast)"
+          class="sub-control-panel"
+        >
+          {{ route.name }}
+        </div>
       </ng-template>
 
       <!-- Ícono de separación si no es el último -->
