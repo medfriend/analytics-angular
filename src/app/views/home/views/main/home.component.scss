@@ -16,17 +16,5 @@
 @media (max-width: 900px){
   .layout {
     display: block;
-
-    .sidebar {
-      position: relative;
-      z-index: 1;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-    }
-
-
   }
 }

@@ -1,9 +1,11 @@
 <div class="flex flex-row p-2 container text-sm">
   <div class="flex items-center">
 <!--     Panel principal -->
-    <app-actionPanel [panelLabel]="'Panel de Control'">
-      <app-basic-list [menuItems]="menus"></app-basic-list>
-    </app-actionPanel>
+    <div (click)="navegateHome()">
+      <app-actionPanel [panelLabel]="'Panel de Control'">
+        <app-basic-list [menuItems]="menus"></app-basic-list>
+      </app-actionPanel>
+    </div>
 
     <mat-icon class="icon">
       keyboard_arrow_right

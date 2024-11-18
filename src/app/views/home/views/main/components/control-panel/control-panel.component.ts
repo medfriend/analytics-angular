@@ -11,6 +11,7 @@ import {
   InjectListComponent
 } from "../../../../../../components/list/inject-list/inject-list.component";
 import {BasicListComponent} from "../../../../../../components/list/basic-list/basic-list.component";
+import {routes} from "../../../../../../app.routes";
 
 //TODO convetir el menuItem en una constante
 //TODO revizar la parte de menus dentro de submenus
@@ -87,6 +88,26 @@ export class ControlPanelComponent implements OnInit {
     return hasSubMenus;
   }
 
+  // funcionalidad para encontrar si se encuentra en una ruta de parent-menu
+  findParentMenuLink(urls: any, parent: { submenus: any; }){
+    urls.forEach((url: string, index: number) => {
+      if (url.includes('parent-menu?menu=')) {
+        const urlParams = new URLSearchParams(url.split('?')[1]);
+        urls[index] = urlParams.get('menu');
+        parent.submenus = this.findSubmenuBylabel(urlParams.get('menu'))
+        return
+      }
+    })
+  }
+
+  findSubmenuBylabel(label: string | null){
+    for (const menu of this.menus) {
+      if (menu.label === label){
+        return menu.submenus
+      }
+    }
+  }
+
   convertRoute(): void {
 
     const actualRoute = this.router.url
@@ -99,11 +120,14 @@ export class ControlPanelComponent implements OnInit {
 
     const routewithoutHome = actualRoute.split("/").splice(2, actualRoute.length - 1);
 
-    const fullPath = parent.submenus.length > 0 ?
+    this.findParentMenuLink(routewithoutHome, parent)
+
+    const fullPath = parent.submenus.length > 0 && parent.label ?
       `${parent.label}/${routewithoutHome.join("/")}`
       : routewithoutHome.join("/");
 
     const routesAux = fullPath.split("/");
+
 
     this.routes = routesAux.map(route => {
 
@@ -129,5 +153,9 @@ export class ControlPanelComponent implements OnInit {
         },
       ],
     });
+  }
+
+  navegateHome(){
+    this.router.navigate(['home']);
   }
 }

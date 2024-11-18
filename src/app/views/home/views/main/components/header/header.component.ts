@@ -49,6 +49,10 @@ export class HeaderComponent implements OnInit {
     this.isUserArrowActive = false
   }
 
+  navegateHome() {
+    this.router.navigate([`/home`])
+  }
+
   logoutHandler(){
     this.store.dispatch(clearToken())
     this.localstorageService.clear()

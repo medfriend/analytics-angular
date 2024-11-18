@@ -1,5 +1,10 @@
 @import '../../../../../../../../public/assets/colors';
 
+.logo{
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .header{
     background-color: $background-header;
     color: $color-header;
