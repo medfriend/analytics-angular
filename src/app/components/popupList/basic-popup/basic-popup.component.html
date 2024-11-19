@@ -1,5 +1,6 @@
 <div class="flex key-container">
     <mat-icon
+
       [ngClass]="{
         'active': isActive,
         'deactive': !isActive
@@ -8,8 +9,8 @@
     >
       keyboard_arrow_down
     </mat-icon>
-    <div 
-        class="referente-element shadow-2xl rounded-md p-2" 
+    <div
+        class="referente-element shadow-2xl rounded-md p-2"
         [ngClass]="{'showup': showPopUp}"
         [ngStyle]="{
             'transform': 'translate(' + translateX + 'px, ' + (showPopUp ? translateY - 10 : translateY) + 'px)',

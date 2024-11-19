@@ -11,7 +11,17 @@
         *ngFor="let row of paginatedData"
         class="row-container rounded-2xl text-sm"
       >
-        <td *ngFor="let column of columns">{{ row[column.field] }}</td>
+        <td *ngFor="let column of columns">
+          <ng-container [ngSwitch]="column.field" class="flex items-center">
+            <app-actionPanel
+              *ngSwitchCase="'name'"
+              [panelLabel]="row[column.field]"
+            >
+              <app-user-list/>
+            </app-actionPanel>
+            <span *ngSwitchDefault>{{ row[column.field] }}</span>
+          </ng-container>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -19,7 +29,7 @@
   <!-- Paginación -->
 </div>
 
-<div class="pagination" *ngIf="paginated">
+<div class="pagination ml-auto" *ngIf="paginated">
   <button
     (click)="changePage(-1)"
     [disabled]="currentPage === 1"

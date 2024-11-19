@@ -12,11 +12,8 @@
   </div>
   <div
     class="action-container"
-    [ngClass]="{
-            'active': showPopup,
-            'deactive': !showPopup
-        }"
-    (click)="showPopUp(!showPopup)"
+    [class.active]="showPopup"
+    [class.deactive]="!showPopup"
   >
     <app-basic-popup
       [isActive]="showPopup"

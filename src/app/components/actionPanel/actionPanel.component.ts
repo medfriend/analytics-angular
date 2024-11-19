@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostBinding, Input, ViewChild } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostBinding, Input, ViewChild} from '@angular/core';
 import {sharedModules} from "../../shared/shared.module";
 import {BasicPopupComponent} from "../popupList/basic-popup/basic-popup.component";
 import {UserListComponent} from "../../views/home/views/main/components/user-list/user-list.component";
@@ -16,6 +16,8 @@ import {UserListComponent} from "../../views/home/views/main/components/user-lis
   @ViewChild('controlPanelModule') controlPanelModule!: ElementRef;
   @Input() panelLabel: string = 'Panel de Control';
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   showPopup: boolean = false; // Controla toda la lógica del popup
 
   ngAfterViewInit(): void {
@@ -24,10 +26,8 @@ import {UserListComponent} from "../../views/home/views/main/components/user-lis
   }
 
   showPopUp(state: boolean): void {
-    // Solo cambia el estado en eventos de hover
-    if (!this.showPopup) {
-      this.showPopup = state;
-    }
+    this.cdr.detectChanges();
+    this.showPopup = state;
   }
 
 }
