@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="table-container mt-2 rounded-2xl tracking-tighter leading-tight px-1">
   <table>
     <thead>
       <tr>
@@ -7,27 +7,30 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of paginatedData">
-        <!-- Renderizar celdas dinámicamente -->
+      <tr
+        *ngFor="let row of paginatedData"
+        class="row-container rounded-2xl text-sm"
+      >
         <td *ngFor="let column of columns">{{ row[column.field] }}</td>
       </tr>
     </tbody>
   </table>
 
   <!-- Paginación -->
-  <div class="pagination" *ngIf="paginated">
-    <button
-      (click)="changePage(-1)"
-      [disabled]="currentPage === 1"
-      aria-label="Página anterior">
-      Anterior
-    </button>
-    <span>Página {{ currentPage }} de {{ totalPages }}</span>
-    <button
-      (click)="changePage(1)"
-      [disabled]="currentPage === totalPages"
-      aria-label="Página siguiente">
-      Siguiente
-    </button>
-  </div>
+</div>
+
+<div class="pagination" *ngIf="paginated">
+  <button
+    (click)="changePage(-1)"
+    [disabled]="currentPage === 1"
+    aria-label="Página anterior">
+    Anterior
+  </button>
+  <span>Página {{ currentPage }} de {{ totalPages }}</span>
+  <button
+    (click)="changePage(1)"
+    [disabled]="currentPage === totalPages"
+    aria-label="Página siguiente">
+    Siguiente
+  </button>
 </div>

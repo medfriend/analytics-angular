@@ -1,52 +1,95 @@
+@import "colors";
+
 .table-container {
-    margin: 20px auto;
-    max-width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
-  
+  color: $parent-icon-color;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  background-color: $lateral-menu-hover;
+
   table {
     width: 100%;
-    border-collapse: collapse;
-  }
-  
-  thead {
-    background-color: #f4f4f4;
-  }
-  
-  th, td {
+    border-collapse: separate;
+    border-spacing: 0 0.2rem; /* Espaciado entre filas */
     text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+
+    thead {
+      tr {
+        th {
+          padding: 0.75rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    tbody {
+      .row-container {
+        background-color: white;
+
+        &:first-child td:first-child {
+          border-top-left-radius: 1rem;
+          border-bottom-left-radius: 0.5rem;
+        }
+
+        &:first-child td:last-child {
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+
+        &:last-child td:first-child {
+          border-bottom-left-radius: 1rem;
+          border-top-left-radius: 0.5rem;
+        }
+
+        &:last-child td:last-child {
+          border-bottom-right-radius: 1rem;
+          border-top-right-radius: 0.5rem;
+        }
+
+        &:not(:first-child):not(:last-child) td:first-child {
+          border-top-left-radius: 0.5rem;
+          border-bottom-left-radius: 0.5rem;
+        }
+
+        &:not(:first-child):not(:last-child) td:last-child {
+          border-top-right-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+
+        td {
+          padding: 0.75rem;
+        }
+      }
+    }
   }
-  
-  tr:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
   button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f4f4f4;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
   }
-  
-  button:disabled {
-    background-color: #e0e0e0;
-    cursor: not-allowed;
+
+  span {
+    font-size: 0.875rem;
+    color: #333;
   }
-  
-  button:hover:not(:disabled) {
-    background-color: #e8e8e8;
-  }
-  
+}

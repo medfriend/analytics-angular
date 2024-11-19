@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {sharedModules} from "../../shared/shared.module";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [[...sharedModules]]
 })
 export class TableComponent implements OnChanges {
   @Input() columns: { header: string; field: string }[] = [];
