@@ -9,8 +9,10 @@
   </app-basic-button>
 </div>
 
-<app-table
-  [columns]="columns"
-  [data]="data"
-  [paginated]="true"
-></app-table>
+<div *ngIf="dataSource.length > 0; else noData">
+  <app-table [columns]="columns" [data]="dataSource"></app-table>
+</div>
+
+<ng-template #noData>
+  <p>No hay datos disponibles. Haz clic en "Cargar".</p>
+</ng-template>

@@ -3,37 +3,30 @@ import {BasicButtonComponent} from "../../../components/buttons/basic-button/bas
 import {Router} from "@angular/router";
 import { UserService } from "../../../core/service/user.service";
 import { TableComponent } from "../../../components/table/table.component";
+import { sharedModules } from "../../../shared/shared.module";
+import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
 
 @Component({
   selector: 'app-usuario-admin',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
-  imports: [
-    BasicButtonComponent,
-    TableComponent
+  imports: [[...sharedModules], BasicButtonComponent, TableComponent
   ],
 })
 export class UsuarioAdminComponent{
-  users: any = []
+  dataSource: any[] = []
 
   columns = [
-    { header: 'S', field: 'icon' },
-    { header: 'W', field: 'status' },
-    { header: 'Nombre', field: 'name' },
-    { header: 'Último Éxito', field: 'lastSuccess' },
-    { header: 'Último Fallo', field: 'lastFailure' },
-    { header: 'Última Duración', field: 'lastDuration' },
-  ];
-
-  data = [
-    { icon: '☀️', status: '✓', name: 'chapola-back', lastSuccess: '9 Mes 20 días', lastFailure: 'N/D', lastDuration: '29 Seg' },
-    { icon: '☀️', status: '✓', name: 'chapola-coin', lastSuccess: '9 Mes 20 días', lastFailure: 'N/D', lastDuration: '7 Min 54 Seg' },
-    { icon: '☀️', status: '✓', name: 'ecobeeBack', lastSuccess: '7 Mes 1 día', lastFailure: 'N/D', lastDuration: '1 Min 45 Seg' },
-    { icon: '☀️', status: '✓', name: 'ecobeeFront', lastSuccess: '7 Mes 1 día', lastFailure: 'N/D', lastDuration: '1 Min 22 Seg' },
-    { icon: '☁️', status: '✓', name: 'ecobeeIA', lastSuccess: '6 Mes 14 días', lastFailure: '6 Mes 14 días', lastDuration: '1 Min 7 Seg' },
-    { icon: '☁️', status: '✓', name: 'falcon-view', lastSuccess: '2 Mes 14 días', lastFailure: '2 Mes 21 días', lastDuration: '12 Min' },
-    { icon: '☁️', status: '✓', name: 'falcon-view', lastSuccess: '3 Mes 14 días', lastFailure: '2 Mes 21 días', lastDuration: '12 Min', lastDuration2: '13 Min' },
+    { header: 'Nombre 1', field: 'nombre_1' },
+    { header: 'Nombre 2', field: 'nombre_2' },
+    { header: 'Apellido Paterno', field: 'apellido_paterno' },
+    { header: 'Apellido Materno', field: 'apellido_materno' },
+    { header: 'Email', field: 'email' },
+    { header: 'Usuario', field: 'usuario' },
+    { header: 'Usuario ID', field: 'usuario_id' },
+    { header: 'Activo', field: 'activo' },
+    { header: 'Fecha de Creación', field: 'fecha_creacion' },
   ];
 
   constructor(
@@ -43,8 +36,8 @@ export class UsuarioAdminComponent{
 
   ngOnInit() {
     this.userService.getUsers().subscribe((data) => {
-      console.log('data::', data)
-      this.users = data;
+      // user all is missing
+      this.dataSource.push(data)
     });
   }
 
