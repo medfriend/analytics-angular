@@ -1,4 +1,25 @@
-<div class="bg-gray-200 p-1 rounded-md flex flex-row">
-  <mat-icon> search </mat-icon>
-  <input>
+<div class="autocomplete-container p-1 rounded-md flex flex-row mr-2" tabindex="0">
+  <mat-icon class="text-lg">search</mat-icon>
+  <input
+    class="input-autocomplete"
+    placeholder="Buscar"
+    [formControl]="searchControl"
+    (focus)="showSuggestions = true"
+    (blur)="hideSuggestions()"
+    (input)="filterList()"
+  />
+
+  <ul
+    *ngIf="filteredItems.length && showSuggestions"
+      class="suggestions-list rounded-md shadow-lg"
+      [ngClass]="{ 'active': showSuggestions }"
+    >
+    <li
+      *ngFor="let item of filteredItems"
+      (click)="selectItem(item)"
+      class="p-1 tracking-tighter leading-tight text-sm"
+    >
+      {{ item }}
+    </li>
+  </ul>
 </div>

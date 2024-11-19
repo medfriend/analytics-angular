@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [CommonModule]  
+  imports: [CommonModule]
 })
 export class TableComponent implements OnChanges {
   @Input() columns: { header: string; field: string }[] = [];
@@ -14,6 +14,7 @@ export class TableComponent implements OnChanges {
   @Input() paginated: boolean = true;
 
   currentPage: number = 1;
+  //TODO cambiarlo a una variable global
   itemsPerPage: number = 5;
   paginatedData: any[] = [];
   totalPages: number = 0;
