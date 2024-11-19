@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
 import {sharedModules} from "../../../../../../shared/shared.module";
+import {BasicAutocompleteComponent} from "../../../../../../components/autocompletes/basic-autocomplete.component";
 
 type menuItem = {
   label: string;
@@ -14,7 +15,7 @@ type menuItem = {
   selector: "app-parent-menu",
   styleUrls: ["./parent-menu.component.scss"],
   templateUrl: "./parent-menu.component.html",
-  imports: [[...sharedModules]],
+  imports: [[...sharedModules], BasicAutocompleteComponent],
   standalone: true,
 })
 export class ParentMenuComponent implements OnInit{
