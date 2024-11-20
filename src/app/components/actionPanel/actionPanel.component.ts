@@ -1,7 +1,7 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostBinding, Input, ViewChild} from '@angular/core';
 import {sharedModules} from "../../shared/shared.module";
 import {BasicPopupComponent} from "../popupList/basic-popup/basic-popup.component";
-import {UserListComponent} from "../../views/home/views/main/components/user-list/user-list.component";
+import {UserListComponent} from "../list/user-list/user-list.component";
 
 //TODO hacer la anicacion de cierre si funcione
 @Component({

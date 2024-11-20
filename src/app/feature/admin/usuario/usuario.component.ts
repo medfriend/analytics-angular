@@ -14,12 +14,12 @@ import { Usuario } from "../../../core/interfaces/components/usuario/usuario.int
   imports: [[...sharedModules], BasicButtonComponent, TableComponent
   ],
 })
-export class UsuarioAdminComponent{
+export class UsuarioAdminComponent {
   dataSource: any[] = []
 
   columns = [
-    { header: 'Nombre 1', field: 'nombre_1' },
-    { header: 'Nombre 2', field: 'nombre_2' },
+    { header: 'Primer nombre', field: 'nombre_1', foldable: true },
+    { header: 'Segundo nombre', field: 'nombre_2' },
     { header: 'Apellido Paterno', field: 'apellido_paterno' },
     { header: 'Apellido Materno', field: 'apellido_materno' },
     { header: 'Email', field: 'email' },

@@ -1,9 +1,19 @@
 <div class="table-container mt-2 rounded-2xl tracking-tighter leading-tight px-1">
+
   <table>
     <thead>
       <tr>
-        <!-- Renderizar encabezados dinámicamente -->
-        <th *ngFor="let column of columns">{{ column.header }}</th>
+        <th
+          *ngFor="let column of columns"
+          class="p-4 header text-sm"
+        >
+          <div
+            class="px-4 py-2 rounded-md"
+            tabindex="0"
+          >
+            {{ column.header }}
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -12,9 +22,9 @@
         class="row-container rounded-2xl text-sm"
       >
         <td *ngFor="let column of columns">
-          <ng-container [ngSwitch]="column.field" class="flex items-center">
+          <ng-container [ngSwitch]="column.foldable" class="flex items-center">
             <app-actionPanel
-              *ngSwitchCase="'name'"
+              *ngSwitchCase="true"
               [panelLabel]="row[column.field]"
             >
               <app-user-list/>

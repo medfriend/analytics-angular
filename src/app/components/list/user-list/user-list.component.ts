@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {sharedModules} from "../../../../../../shared/shared.module";
-import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
-import {BasicListComponent} from "../../../../../../components/list/basic-list/basic-list.component";
+import {sharedModules} from "../../../shared/shared.module";
+import {StorageService} from "../../../util/localstorage/localstorage.service";
+import {BasicListComponent} from "../basic-list/basic-list.component";
 
 @Component({
   selector: 'app-user-list',

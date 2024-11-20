@@ -3,7 +3,7 @@ import { ActionPanelComponent } from '../../../../../../components';
 import { sharedModules } from "../../../../../../shared/shared.module";
 import { NavigationEnd, Router} from "@angular/router";
 import { filter } from "rxjs";
-import { UserListComponent } from "../user-list/user-list.component";
+import { UserListComponent } from "../../../../../../components/list/user-list/user-list.component";
 import { routeInformation } from "../../../../../../core/interfaces/components/control-panel/control-panel.interface";
 import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
 import {

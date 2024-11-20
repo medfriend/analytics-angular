@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {sharedModules} from "../../shared/shared.module";
 import {ActionPanelComponent} from "../actionPanel/actionPanel.component";
-import {UserListComponent} from "../../views/home/views/main/components/user-list/user-list.component";
+import {UserListComponent} from "../list/user-list/user-list.component";
 
 @Component({
   selector: 'app-table',
@@ -12,7 +12,10 @@ import {UserListComponent} from "../../views/home/views/main/components/user-lis
   imports: [[...sharedModules], ActionPanelComponent, UserListComponent]
 })
 export class TableComponent implements OnChanges {
-  @Input() columns: { header: string; field: string }[] = [];
+  //TODO agregarlo dentro de las interfaces de componentes
+  @Input() columns: {
+    foldable?: boolean;
+    header: string; field: string }[] = [];
   @Input() data: any[] = [];
   @Input() paginated: boolean = true;
 
