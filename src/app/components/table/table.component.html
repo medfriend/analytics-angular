@@ -27,9 +27,28 @@
               *ngSwitchCase="true"
               [panelLabel]="row[column.field]"
             >
-              <app-table-list [id]="'1'"/>
+              <app-table-list [id]="row[idKey]"/>
             </app-actionPanel>
-            <span *ngSwitchDefault>{{ row[column.field] }}</span>
+
+            <span *ngSwitchDefault>
+              <ng-container *ngIf="isBoolean(row[column.field]); else stringTemplate">
+                <mat-icon
+                  *ngIf="row[column.field]; else inactiveIcon"
+                  class="sun"
+                >
+                  wb_sunny
+                </mat-icon>
+                <ng-template #inactiveIcon>
+                  <mat-icon class="moon">dark_mode</mat-icon>
+                </ng-template>
+              </ng-container>
+
+              <ng-template #stringTemplate>
+                {{ row[column.field] }}
+              </ng-template>
+            </span>
+
+
           </ng-container>
         </td>
       </tr>

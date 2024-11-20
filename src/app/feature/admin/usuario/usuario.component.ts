@@ -18,6 +18,7 @@ export class UsuarioAdminComponent {
   dataSource: any[] = []
 
   columns = [
+    { header: 'Estado', field: 'activo' },
     { header: 'Primer nombre', field: 'nombre_1', foldable: true },
     { header: 'Segundo nombre', field: 'nombre_2' },
     { header: 'Apellido Paterno', field: 'apellido_paterno' },
@@ -25,9 +26,10 @@ export class UsuarioAdminComponent {
     { header: 'Email', field: 'email' },
     { header: 'Usuario', field: 'usuario' },
     { header: 'Usuario ID', field: 'usuario_id' },
-    { header: 'Activo', field: 'activo' },
     { header: 'Fecha de Creación', field: 'fecha_creacion' },
   ];
+
+  idKey= 'usuario_id';
 
   constructor(
     private router: Router,

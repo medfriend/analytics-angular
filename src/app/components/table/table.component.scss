@@ -35,6 +35,14 @@
       .row-container {
         background-color: white;
 
+        .sun{
+          color: $table-sun;
+        }
+
+        .moon{
+          color: gray;
+        }
+
         &:first-child td:first-child {
           border-top-left-radius: 1rem;
           border-bottom-left-radius: 0.5rem;

@@ -10,7 +10,13 @@
 </div>
 
 <div *ngIf="dataSource.length > 0; else noData">
-  <app-table [columns]="columns" [data]="dataSource"></app-table>
+  <app-table
+    [columns]="columns"
+    [data]="dataSource"
+    [idKey]="idKey"
+  >
+
+  </app-table>
 </div>
 
 <ng-template #noData>

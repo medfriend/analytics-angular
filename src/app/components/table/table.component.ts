@@ -19,6 +19,7 @@ export class TableComponent implements OnChanges {
     header: string; field: string }[] = [];
   @Input() data: any[] = [];
   @Input() paginated: boolean = true;
+  @Input() idKey: string = '';
 
   currentPage: number = 1;
   //TODO cambiarlo a una variable global
@@ -31,6 +32,10 @@ export class TableComponent implements OnChanges {
     if (changes['data'] || changes['columns']) {
       this.calculatePagination();
     }
+  }
+
+  isBoolean(value: any): boolean {
+    return typeof value === 'boolean';
   }
 
   calculatePagination() {
