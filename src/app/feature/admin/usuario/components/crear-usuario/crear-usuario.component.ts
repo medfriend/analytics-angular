@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {inputsLogin} from "../../../../core/interfaces/components/login/login.interface";
-import {inputsCrearUsuario} from "../../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
-import {BasicFormComponent, ToastService} from "../../../../components";
+import {inputsLogin} from "../../../../../core/interfaces/components/login/login.interface";
+import {inputsCrearUsuario} from "../../../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
+import {BasicFormComponent, ToastService} from "../../../../../components";
 import {Router} from "@angular/router";
 
 @Component({

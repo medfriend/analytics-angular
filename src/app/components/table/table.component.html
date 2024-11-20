@@ -27,7 +27,7 @@
               *ngSwitchCase="true"
               [panelLabel]="row[column.field]"
             >
-              <app-user-list/>
+              <app-table-list [id]="'1'"/>
             </app-actionPanel>
             <span *ngSwitchDefault>{{ row[column.field] }}</span>
           </ng-container>

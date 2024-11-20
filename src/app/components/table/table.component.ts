@@ -3,13 +3,14 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {sharedModules} from "../../shared/shared.module";
 import {ActionPanelComponent} from "../actionPanel/actionPanel.component";
 import {UserListComponent} from "../list/user-list/user-list.component";
+import {TableListComponent} from "../list/table-list/table-list.component";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], ActionPanelComponent, UserListComponent]
+  imports: [[...sharedModules], ActionPanelComponent, UserListComponent, TableListComponent]
 })
 export class TableComponent implements OnChanges {
   //TODO agregarlo dentro de las interfaces de componentes
