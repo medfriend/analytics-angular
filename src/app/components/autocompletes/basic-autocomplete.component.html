@@ -2,7 +2,7 @@
   <mat-icon class="text-lg">search</mat-icon>
   <input
     class="input-autocomplete"
-    placeholder="Buscar"
+    [placeholder]="placeholder"
     [formControl]="searchControl"
     (focus)="showSuggestions = true"
     (blur)="hideSuggestions()"

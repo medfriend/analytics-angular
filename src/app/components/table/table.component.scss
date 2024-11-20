@@ -82,28 +82,25 @@
 }
 .pagination {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
-
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
+  
+  mat-icon {
+    font-size: 1.5rem;
+    color: #007bff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 
-    &:hover {
-      background-color: #0056b3;
-    }
-
-    &:disabled {
-      background-color: #ccc;
+    &.disabled {
+      color: #ccc;
       cursor: not-allowed;
     }
-  }
 
+    &:hover:not(.disabled) {
+      color: #0056b3;
+    }
+  }
 }
+

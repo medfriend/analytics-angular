@@ -1,4 +1,11 @@
-<h4 class="first-letter:capitalize">administración de usuarios</h4>
+<div class="flex flex-row items-center justify-center">
+  <h4 class="first-letter:capitalize">administración de usuarios</h4>
+  <app-basic-autocomplete
+    class="ml-auto"
+    [placeholder]="'Buscar usuario'"
+  >
+  </app-basic-autocomplete>
+</div>
 <hr>
 <div class="flex justify-end gap-2">
   <app-basic-button
@@ -15,7 +22,6 @@
     [data]="dataSource"
     [idKey]="idKey"
   >
-
   </app-table>
 </div>
 

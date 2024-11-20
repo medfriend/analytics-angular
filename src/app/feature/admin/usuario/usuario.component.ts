@@ -5,13 +5,14 @@ import { UserService } from "../../../core/service/user.service";
 import { TableComponent } from "../../../components/table/table.component";
 import { sharedModules } from "../../../shared/shared.module";
 import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
+import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
 
 @Component({
   selector: 'app-usuario-admin',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], BasicButtonComponent, TableComponent
+  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent
   ],
 })
 export class UsuarioAdminComponent {

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {sharedModules} from "../../shared/shared.module";
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 
@@ -10,11 +10,13 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
   imports: [ [...sharedModules], ReactiveFormsModule ]
 })
 export class BasicAutocompleteComponent {
+  @Input() suggestions: string[] = [];
+  @Input() placeholder: string = 'Buscar';
+
   searchControl = new FormControl('');
   items = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape', 'Mango', 'Orange'];
   filteredItems: string[] = [];
   showSuggestions = false;
-
 
   filterList() {
     const searchTerm = this.searchControl.value?.toLowerCase() || '';
