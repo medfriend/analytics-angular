@@ -36,7 +36,7 @@ export class TableComponent implements OnChanges {
     }
 
     this.totalPages = Math.ceil(this.data.length / this.itemsPerPage);
-    this.currentPage = Math.min(this.currentPage, this.totalPages); // Asegurarse de que la página actual no sea mayor que la total
+    this.currentPage = Math.min(this.currentPage, this.totalPages);
 
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = this.currentPage * this.itemsPerPage;
