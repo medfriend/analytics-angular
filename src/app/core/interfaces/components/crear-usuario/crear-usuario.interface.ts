@@ -8,7 +8,7 @@ export const inputsCrearUsuario: InputInfo[] = [
     labelFor: 'usuario',
     formControlName: 'usuario',
     placeholder: '',
-    validators: [Validators.required, Validators.minLength(6)]
+    validators: [Validators.required, Validators.minLength(2)]
   },
   {
     label: 'primer nombre',
@@ -16,7 +16,7 @@ export const inputsCrearUsuario: InputInfo[] = [
     labelFor: 'nombre_1',
     formControlName: 'nombre_1',
     placeholder: '',
-    validators: [Validators.required, Validators.minLength(3)]
+    validators: [Validators.required, Validators.minLength(2)]
   },
   {
     label: 'segundo nombre',
@@ -32,7 +32,7 @@ export const inputsCrearUsuario: InputInfo[] = [
     labelFor: 'nombre_paterno',
     formControlName: 'nombre_paterno',
     placeholder: '',
-    validators: [Validators.required, Validators.minLength(6)]
+    validators: [Validators.required, Validators.minLength(3)]
   },
   {
     label: 'segundo apellido',
@@ -40,7 +40,7 @@ export const inputsCrearUsuario: InputInfo[] = [
     labelFor: 'nombre_materno',
     formControlName: 'nombre_materno',
     placeholder: '',
-    validators: [Validators.required, Validators.minLength(6)]
+    validators: [Validators.required, Validators.minLength(3)]
   },
   {
     label: 'Contraseña',

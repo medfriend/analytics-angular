@@ -12,6 +12,9 @@ import {CrearUsuarioComponent} from "../../feature/admin/usuario/components/crea
 import {
   ActualizarUsuarioComponent
 } from "../../feature/admin/usuario/components/actualizar-usuario/actualizar-usuario.component";
+import {
+  EliminarUsuarioComponent
+} from "../../feature/admin/usuario/components/eliminar-usuario/eliminar-usuario.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -24,7 +27,7 @@ export const HOME_ROUTES: Routes = [
       { path: 'administracion-usuarios', component: UsuarioAdminComponent},
       { path: 'administracion-usuarios/crear', component: CrearUsuarioComponent},
       { path: 'administracion-usuarios/actualizar', component: ActualizarUsuarioComponent},
-      { path: 'administracion-usuarios/eliminar', component: CrearUsuarioComponent},
+      { path: 'administracion-usuarios/eliminar', component: EliminarUsuarioComponent},
       { path: 'administracion-recursos', component: RecursoAdminComponent},
       { path: 'administracion-menus', component: MenuAdminComponent},
       { path: 'administracion-roles', component: RolAdminComponent},

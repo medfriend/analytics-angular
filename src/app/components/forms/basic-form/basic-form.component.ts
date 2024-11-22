@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.component';
 import { sharedModules } from "../../../shared/shared.module";
@@ -11,7 +11,7 @@ import { InputInfo } from "../../../core/interfaces/components/forms/basic-form/
   templateUrl: './basic-form.component.html',
   styleUrls: ['./basic-form.component.scss']
 })
-export class BasicFormComponent implements OnInit {
+export class BasicFormComponent implements OnInit, OnChanges {
   @Input() forTitle: string = 'Inicio sesión';
   @Input() buttonName: string = 'Ingresar'
   @Input() inputs: InputInfo[] = [];
@@ -21,6 +21,7 @@ export class BasicFormComponent implements OnInit {
   @Input() hasDivisor: boolean = false;
   @Input() showCancelButton: boolean = false;
   @Input() cancelHandler: () => void = ():void  => {}
+  @Input() initialValues: { [key: string]: any } | null = null;
 
   loginForm: FormGroup;
 
@@ -31,8 +32,25 @@ export class BasicFormComponent implements OnInit {
     this.loginForm = this.fb.group({});
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    // Valida cambios en initialValues
+    if (changes['initialValues'] && this.initialValues) {
+      this.updateFormValues(this.initialValues);
+    }
+  }
+
+  updateFormValues(values: { [key: string]: any } | null | undefined): void {
+    if (values && this.loginForm) {
+      this.loginForm.patchValue(values);
+    }
+  }
+
   ngOnInit(): void {
     this.initializeForm();
+
+    if (this.initialValues) {
+      this.updateFormValues(this.initialValues);
+    }
   }
 
   get gridColumnClass(): string {
