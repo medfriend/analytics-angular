@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {BasicButtonComponent} from "../../../components/buttons/basic-button/basic-button.component";
 import {Router} from "@angular/router";
 import { UserService } from "../../../core/service/user.service";
-import { TableComponent } from "../../../components/table/table.component";
+import { TableComponent } from "../../../components/table/basic-table/table.component";
 import { sharedModules } from "../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
 
@@ -38,7 +38,6 @@ export class UsuarioAdminComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe((data) => {
-      // user all is missing
       this.dataSource.push(data)
     });
   }

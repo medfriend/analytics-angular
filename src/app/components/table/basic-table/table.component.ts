@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import {AfterViewInit, Component, ElementRef, Input, OnChanges, Output, SimpleChanges, ViewChild, EventEmitter } from '@angular/core';
-import {sharedModules} from "../../shared/shared.module";
-import {ActionPanelComponent} from "../actionPanel/actionPanel.component";
-import {UserListComponent} from "../list/user-list/user-list.component";
-import {TableListComponent} from "../list/table-list/table-list.component";
+import {sharedModules} from "../../../shared/shared.module";
+import {ActionPanelComponent} from "../../actionPanel/actionPanel.component";
+import {UserListComponent} from "../../list/user-list/user-list.component";
+import {TableListComponent} from "../../list/table-list/table-list.component";
 
 @Component({
   selector: 'app-table',

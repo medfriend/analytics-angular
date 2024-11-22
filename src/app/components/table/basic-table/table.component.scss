@@ -1,4 +1,4 @@
-@import "colors";
+@import "../../../../../public/assets/colors";
 
 .table-container {
   color: $parent-icon-color;
@@ -86,7 +86,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
-  
+
   mat-icon {
     font-size: 1.5rem;
     color: #007bff;
