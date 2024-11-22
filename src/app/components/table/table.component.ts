@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, Output, SimpleChanges, ViewChild, EventEmitter } from '@angular/core';
 import {sharedModules} from "../../shared/shared.module";
 import {ActionPanelComponent} from "../actionPanel/actionPanel.component";
 import {UserListComponent} from "../list/user-list/user-list.component";
@@ -12,14 +12,18 @@ import {TableListComponent} from "../list/table-list/table-list.component";
   standalone: true,
   imports: [[...sharedModules], ActionPanelComponent, UserListComponent, TableListComponent]
 })
-export class TableComponent implements OnChanges {
+export class TableComponent implements OnChanges, AfterViewInit {
   //TODO agregarlo dentro de las interfaces de componentes
+
+  @ViewChild('tableContainer', { static: true }) tableContainer!: ElementRef;
   @Input() columns: {
     foldable?: boolean;
     header: string; field: string }[] = [];
   @Input() data: any[] = [];
   @Input() paginated: boolean = true;
   @Input() idKey: string = '';
+
+  @Output() overflowDetected: EventEmitter<boolean>  = new EventEmitter<boolean>();
 
   currentPage: number = 1;
   //TODO cambiarlo a una variable global
@@ -28,9 +32,25 @@ export class TableComponent implements OnChanges {
   totalPages: number = 0;
 
   ngOnChanges(changes: SimpleChanges) {
-    // Solo recalcular si 'data' o 'columns' cambian
     if (changes['data'] || changes['columns']) {
       this.calculatePagination();
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.checkOverflow();
+
+    new ResizeObserver(() => {
+      this.checkOverflow();
+    }).observe(this.tableContainer.nativeElement);
+  }
+
+  checkOverflow(): void {
+    const element = this.tableContainer.nativeElement;
+    const isOverflowing = element.scrollWidth > element.clientWidth;
+
+    if(this.overflowDetected !== undefined){
+      this.overflowDetected.emit(isOverflowing || false)
     }
   }
 
