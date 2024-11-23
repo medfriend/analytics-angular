@@ -5,6 +5,7 @@ import { ToastComponent } from './components/toast/toast.component';
 import { Store } from '@ngrx/store';
 import { selectToken } from './store/auth/auth.selector';
 import { StorageService } from './util/localstorage/localstorage.service';
+import {BasicLoadingComponent} from "./components/loading/basic-loading/basic-loading.component";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { StorageService } from './util/localstorage/localstorage.service';
   imports: [
     RouterOutlet,
     ToastComponent,
-    CommonModule
+    CommonModule,
+    BasicLoadingComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: [
@@ -21,7 +23,6 @@ import { StorageService } from './util/localstorage/localstorage.service';
 })
 export class AppComponent implements OnInit {
   title = 'MedFriend';
-
 
   constructor(
     private location: Location,
