@@ -75,6 +75,13 @@
 
         td {
           padding: 0.75rem;
+
+          &.center-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
         }
       }
     }

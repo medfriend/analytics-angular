@@ -5,13 +5,14 @@ import { UserService } from "../../../core/service/user.service";
 import { TableComponent } from "../../../components/table/basic-table/table.component";
 import { sharedModules } from "../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
+import {miniTableComponent} from "../../../components/table/mini-table/mini-table.component";
 
 @Component({
   selector: 'app-usuario-admin',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent
+  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent
   ],
 })
 export class UsuarioAdminComponent implements OnInit {
@@ -26,7 +27,7 @@ export class UsuarioAdminComponent implements OnInit {
     { header: 'Apellido Paterno', field: 'apellido_paterno' },
     { header: 'Apellido Materno', field: 'apellido_materno' },
     { header: 'Email', field: 'email' },
-    { header: 'Fecha de Creación', field: 'fecha_creacion' },
+    { header: 'Fecha de Creación', field: 'fecha_creacion', date: true },
   ];
 
   idKey= 'usuario_id';

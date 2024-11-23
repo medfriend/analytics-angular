@@ -17,6 +17,7 @@ export class TableComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('tableContainer', { static: true }) tableContainer!: ElementRef;
   @Input() columns: {
+    date?: boolean;
     foldable?: boolean;
     header: string; field: string }[] = [];
   @Input() data: any[] = [];
@@ -70,6 +71,21 @@ export class TableComponent implements OnChanges, AfterViewInit {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = this.currentPage * this.itemsPerPage;
     this.paginatedData = this.data.slice(start, end);
+  }
+
+  convertDate(dateString : string): string{
+    const date = new Date(dateString);
+
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    };
+
+    return date.toLocaleString('es-ES', options);
   }
 
   changePage(direction: number) {

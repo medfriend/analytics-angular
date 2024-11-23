@@ -25,6 +25,10 @@
     (overflowDetected)="handleOverflow($event)"
   >
   </app-table>
+  <app-mini-table
+    *ngIf="overflow"
+  >
+  </app-mini-table>
 </div>
 
 <ng-template #noData>

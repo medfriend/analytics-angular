@@ -23,34 +23,40 @@
         *ngFor="let row of paginatedData"
         class="row-container rounded-2xl text-sm"
       >
-        <td *ngFor="let column of columns">
-          <ng-container [ngSwitch]="column.foldable" class="flex items-center">
+        <td *ngFor="let column of columns" [class.center-content]="column.foldable">
+          <ng-container [ngSwitch]="column.foldable">
             <app-actionPanel
               *ngSwitchCase="true"
               [panelLabel]="row[column.field]"
             >
-              <app-table-list [id]="row[idKey]"/>
+              <app-table-list [id]="row[idKey]"></app-table-list>
             </app-actionPanel>
 
             <span *ngSwitchDefault>
-              <ng-container *ngIf="isBoolean(row[column.field]); else stringTemplate">
-                <mat-icon
-                  *ngIf="row[column.field]; else inactiveIcon"
-                  class="sun"
-                >
-                  wb_sunny
-                </mat-icon>
-                <ng-template #inactiveIcon>
-                  <mat-icon class="moon">dark_mode</mat-icon>
-                </ng-template>
+              <ng-container *ngIf="column.date; else defaultLogic">
+                {{ convertDate(row[column.field]) }}
               </ng-container>
 
-              <ng-template #stringTemplate>
-                {{ row[column.field] }}
+              <ng-template #defaultLogic>
+                <ng-container *ngIf="isBoolean(row[column.field]); else stringTemplate">
+                  <mat-icon
+                    *ngIf="row[column.field]; else inactiveIcon"
+                    class="sun"
+                  >
+                    wb_sunny
+                  </mat-icon>
+                  <ng-template #inactiveIcon>
+                    <mat-icon class="moon">dark_mode</mat-icon>
+                  </ng-template>
+                </ng-container>
+
+                <ng-template #stringTemplate>
+                  {{ row[column.field] }}
+                </ng-template>
               </ng-template>
             </span>
+        </ng-container>
 
-          </ng-container>
         </td>
       </tr>
     </tbody>
