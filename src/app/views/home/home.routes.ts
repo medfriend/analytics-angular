@@ -15,6 +15,10 @@ import {
 import {
   EliminarUsuarioComponent
 } from "../../feature/admin/usuario/components/eliminar-usuario/eliminar-usuario.component";
+import {EntidadComponent} from "../../feature/admin/entidad/entidad.component";
+import {RecursoMenuComponent} from "../../feature/asignacion/recurso-menu/recurso-menu.component";
+import {SubmenusMenuComponent} from "../../feature/asignacion/submenus-menu/submenus-menu.component";
+import {RolUsuarioComponent} from "../../feature/asignacion/rol-usuario/rol-usuario.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -31,6 +35,10 @@ export const HOME_ROUTES: Routes = [
       { path: 'administracion-recursos', component: RecursoAdminComponent},
       { path: 'administracion-menus', component: MenuAdminComponent},
       { path: 'administracion-roles', component: RolAdminComponent},
+      { path: 'adminitracion-entidades', component: EntidadComponent},
+      { path: 'asignacion-menu-recurso', component: RecursoMenuComponent},
+      { path: 'asignacion-menu-submenu', component: SubmenusMenuComponent},
+      { path: 'asignacion-user-rol', component: RolUsuarioComponent},
       { path: 'parent-menu', component: ParentMenuComponent},
     ]
   }

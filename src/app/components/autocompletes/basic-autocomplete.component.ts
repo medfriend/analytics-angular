@@ -14,13 +14,12 @@ export class BasicAutocompleteComponent {
   @Input() placeholder: string = 'Buscar';
 
   searchControl = new FormControl('');
-  items = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape', 'Mango', 'Orange'];
   filteredItems: string[] = [];
   showSuggestions = false;
 
   filterList() {
     const searchTerm = this.searchControl.value?.toLowerCase() || '';
-    this.filteredItems = this.items.filter((item) =>
+    this.filteredItems = this.suggestions.filter((item) =>
       item.toLowerCase().includes(searchTerm)
     );
   }
