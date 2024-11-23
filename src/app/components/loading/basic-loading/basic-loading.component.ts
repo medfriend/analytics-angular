@@ -9,7 +9,7 @@ import {sharedModules} from "../../../shared/shared.module";
   imports: [...sharedModules],
 })
 export class BasicLoadingComponent implements OnChanges {
-  @Input() isLoading: boolean = true;
+  @Input() isLoading: boolean = false;
   @Input() message: string = 'Por favor, espera...';
 
   overlayClass: string = '';
