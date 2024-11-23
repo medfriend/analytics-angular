@@ -10,10 +10,11 @@ import { authReducer } from './store/auth/auth.reducer';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {authInterceptor} from "./core/interceptor/auth.inteceptor";
+import {responseTransformInterceptor} from "./core/interceptor/transform.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, responseTransformInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),

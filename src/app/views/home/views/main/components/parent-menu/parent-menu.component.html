@@ -1,5 +1,5 @@
 <div class="flex flex-row items-center parent-menu-container">
-  <h4> {{menu}}</h4>
+  <h4 class="first-letter:capitalize"> {{menu}}</h4>
   <app-basic-autocomplete
     class="ml-auto"
     [placeholder]="'Buscar'"
@@ -17,6 +17,6 @@
     <mat-icon class="rounded-full p-3 icon">
       {{ item.icon }}
     </mat-icon>
-    <p class="text-sm tracking-tighter leading-tight">{{ item.label }}</p>
+    <p class="text-sm tracking-tighter leading-tight first-letter:capitalize">{{ item.label }}</p>
   </div>
 </div>

@@ -73,7 +73,7 @@ export class LoginComponent implements  OnDestroy {
   }
 
   handlerAuthentication(auth: any, toast: ToastService): void {
-      const token = auth.data
+      const token = auth
 
       const userInfo = this.decodeToken(token)
 

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {BasicButtonComponent} from "../../../components/buttons/basic-button/basic-button.component";
 import {Router} from "@angular/router";
 import { UserService } from "../../../core/service/user.service";
@@ -6,6 +6,7 @@ import { TableComponent } from "../../../components/table/basic-table/table.comp
 import { sharedModules } from "../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
 import {miniTableComponent} from "../../../components/table/mini-table/mini-table.component";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-usuario-admin',
@@ -15,9 +16,10 @@ import {miniTableComponent} from "../../../components/table/mini-table/mini-tabl
   imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent
   ],
 })
-export class UsuarioAdminComponent implements OnInit {
+export class UsuarioAdminComponent implements OnInit, OnDestroy {
   dataSource: any[] = [];
   overflow: boolean | undefined = false;
+  private destroy$ = new Subject<void>();
 
   columns = [
     { header: 'Estado', field: 'activo' },
@@ -38,9 +40,9 @@ export class UsuarioAdminComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.getUsers().subscribe((data) => {
-      this.dataSource.push(data)
-    });
+    this.userService.getUsers()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => this.dataSource = data);
   }
 
   navegateCreate(){
@@ -49,5 +51,10 @@ export class UsuarioAdminComponent implements OnInit {
 
   handleOverflow(isOverflowing: boolean | undefined): void {
     this.overflow = isOverflowing;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
