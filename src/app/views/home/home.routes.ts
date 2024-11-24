@@ -19,6 +19,7 @@ import {EntidadComponent} from "../../feature/admin/entidad/entidad.component";
 import {RecursoMenuComponent} from "../../feature/asignacion/recurso-menu/recurso-menu.component";
 import {SubmenusMenuComponent} from "../../feature/asignacion/submenus-menu/submenus-menu.component";
 import {RolUsuarioComponent} from "../../feature/asignacion/rol-usuario/rol-usuario.component";
+import {PermissionsGuard} from "../../core/guard/permission.guard";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -28,18 +29,62 @@ export const HOME_ROUTES: Routes = [
       { path: 'user/account', component: AccountComponent },
       { path: 'user/appearance', component: AppearanceComponent },
       { path: 'user/preference', component: PreferenceComponent},
-      { path: 'administracion-usuarios', component: UsuarioAdminComponent},
-      { path: 'administracion-usuarios/crear', component: CrearUsuarioComponent},
-      { path: 'administracion-usuarios/actualizar', component: ActualizarUsuarioComponent},
-      { path: 'administracion-usuarios/eliminar', component: EliminarUsuarioComponent},
-      { path: 'administracion-recursos', component: RecursoAdminComponent},
-      { path: 'administracion-menus', component: MenuAdminComponent},
-      { path: 'administracion-roles', component: RolAdminComponent},
-      { path: 'adminitracion-entidades', component: EntidadComponent},
-      { path: 'asignacion-menu-recurso', component: RecursoMenuComponent},
-      { path: 'asignacion-menu-submenu', component: SubmenusMenuComponent},
-      { path: 'asignacion-user-rol', component: RolUsuarioComponent},
       { path: 'parent-menu', component: ParentMenuComponent},
+      {
+        path: 'administracion-usuarios',
+        component: UsuarioAdminComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-usuarios/crear',
+        component: CrearUsuarioComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-usuarios/actualizar',
+        component: ActualizarUsuarioComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-usuarios/eliminar',
+        component: EliminarUsuarioComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-recursos',
+        component: RecursoAdminComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-menus',
+        component: MenuAdminComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-roles',
+        component: RolAdminComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'adminitracion-entidades',
+        component: EntidadComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'asignacion-menu-recurso',
+        component: RecursoMenuComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'asignacion-menu-submenu',
+        component: SubmenusMenuComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'asignacion-user-rol',
+        component: RolUsuarioComponent,
+        canActivate: [PermissionsGuard]
+      },
     ]
   }
 ]
