@@ -20,6 +20,9 @@ import {RecursoMenuComponent} from "../../feature/asignacion/recurso-menu/recurs
 import {SubmenusMenuComponent} from "../../feature/asignacion/submenus-menu/submenus-menu.component";
 import {RolUsuarioComponent} from "../../feature/asignacion/rol-usuario/rol-usuario.component";
 import {PermissionsGuard} from "../../core/guard/permission.guard";
+import {
+  GestionMantenimientoComponent
+} from "../../feature/mantenimiento/gestion-mantenimiento/gestion-mantenimiento.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -82,6 +85,16 @@ export const HOME_ROUTES: Routes = [
       },
       {
         path: 'asignacion-user-rol',
+        component: RolUsuarioComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'gestion-mantenimiento',
+        component: GestionMantenimientoComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'solicitud-mantenimiento',
         component: RolUsuarioComponent,
         canActivate: [PermissionsGuard]
       },

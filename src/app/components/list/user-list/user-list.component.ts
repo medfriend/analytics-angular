@@ -17,8 +17,8 @@ export class UserListComponent {
 
   menuItems = [
     { icon: 'manage_accounts', label: 'Cuenta', route: 'user/account', submenus: []},
-    { icon: 'palette', label: 'Apariencia', route: 'user/appearance', submenus: [] },
-    { icon: 'tune', label: 'Preferencia', route: 'user/preference', submenus: []}
+    { icon: 'palette', label: 'Apariencia', route: 'home/user/appearance', submenus: [] },
+    { icon: 'tune', label: 'Preferencia', route: 'home/user/preference', submenus: []}
   ];
 
 }

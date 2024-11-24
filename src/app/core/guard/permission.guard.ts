@@ -24,13 +24,15 @@ export class PermissionsGuard implements CanActivate {
     if (userInfo) {
       userInfo.menus.forEach(menu => {
         menu.submenus.forEach((submenu) => {
-          if (submenu.route === fullUrl) {
+          if (fullUrl.startsWith(submenu.route)) {
             hasRoute = true;
           }
         })
       })
     }
 
+    console.log("hasRoute",hasRoute);
     return hasRoute;
+    //return hasRoute;
   }
 }
