@@ -31,8 +31,6 @@ export class PermissionsGuard implements CanActivate {
       })
     }
 
-    console.log("hasRoute",hasRoute);
     return hasRoute;
-    //return hasRoute;
   }
 }

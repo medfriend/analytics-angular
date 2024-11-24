@@ -6,13 +6,17 @@
       <div class="form-group" *ngFor="let input of inputs">
         <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
         <input
-          [type]="input.type"
+          [type]="showPasswordType(input.type)"
           [id]="input.formControlName"
           class="form-control rounded-xl text-base"
           [class.input-error]="loginForm.get(input.formControlName)?.invalid && loginForm.get(input.formControlName)?.touched"
           [formControlName]="input.formControlName"
           [placeholder]="input.placeholder"
         >
+        <div class="flex flex-row checkbox-container" *ngIf="input.type === 'password'">
+            <input type="checkbox" (click)="toggleShowPassword()">
+            <label class="text-sm ml-1"> mostrar contraseña </label>
+        </div>
 
         <!-- Contenedor de errores -->
         <div *ngIf="loginForm.get(input.formControlName)?.invalid && loginForm.get(input.formControlName)?.touched" class="error-message">

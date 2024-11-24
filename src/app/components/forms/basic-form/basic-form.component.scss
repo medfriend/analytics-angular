@@ -19,6 +19,41 @@
       margin: 0.5rem;
     }
 
+    .checkbox-container {
+      input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+
+        &:checked {
+          background-color: $primary-color;
+          border-color: darken($primary-color, 5%);
+        }
+
+        &:focus {
+          border-color: lighten($primary-color, 5%);
+        }
+
+        &:hover {
+          border-color: lighten($primary-color, 5%);
+        }
+      }
+
+      label {
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+      }
+    }
+
+
     .error-message {
       color: $danger-color;
       font-size: 0.875rem;

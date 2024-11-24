@@ -23,6 +23,8 @@ export class BasicFormComponent implements OnInit, OnChanges {
   @Input() cancelHandler: () => void = ():void  => {}
   @Input() initialValues: { [key: string]: any } | null = null;
 
+  showPassword: boolean = false;
+
   loginForm: FormGroup;
 
   constructor(
@@ -73,6 +75,18 @@ export class BasicFormComponent implements OnInit, OnChanges {
       this.toastService.addToast("error del formulario","error")
       console.log('Form is invalid');
     }
+  }
+
+  toggleShowPassword(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  showPasswordType(type: string) {
+    if (this.showPassword && type === 'password') {
+      return 'text'
+    }
+
+    return type
   }
 
   execCancelHandler(): void {
