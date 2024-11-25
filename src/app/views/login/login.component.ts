@@ -75,13 +75,12 @@ export class LoginComponent implements  OnDestroy {
   handlerAuthentication(auth: any, toast: ToastService): void {
       const token = auth
 
-      const userInfo = this.decodeToken(token)
+      const userInfo: any = this.decodeToken(token)
 
       this.store.dispatch(setToken({ token }));
       this.localstorageService.setItem('token', token)
       this.localstorageService.setItem('userInfo', userInfo)
 
-      // @ts-ignore
       toast.addToast(`Bienvenido ${userInfo.user.nombre_1}`, 'success')
       this.router.navigate(['/home'])
   }

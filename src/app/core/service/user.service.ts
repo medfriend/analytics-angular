@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {enviroment} from "../../enviroment/service.enviroment";
 import { Usuario } from '../interfaces/components/usuario/usuario.interface';
@@ -15,5 +15,14 @@ export class UserService {
 
   getUsers(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}/all`);
+  }
+
+  createUser(usuario: Usuario): Observable<Usuario> {
+
+    const headers = new HttpHeaders({
+      'ignore-cache': 'Y'
+    });
+
+    return this.http.post<Usuario>(this.apiUrl, usuario, { headers: headers });
   }
 }

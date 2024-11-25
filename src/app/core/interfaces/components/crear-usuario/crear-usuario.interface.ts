@@ -1,5 +1,6 @@
 import {InputInfo} from "../forms/basic-form/basic-form.interface";
 import {Validators} from "@angular/forms";
+import {TableColumn} from "../table/basic-table/basic-table.interface";
 
 export const inputsCrearUsuario: InputInfo[] = [
   {
@@ -45,9 +46,20 @@ export const inputsCrearUsuario: InputInfo[] = [
   {
     label: 'Contraseña',
     type: 'password',
-    labelFor: 'contraseña',
-    formControlName: 'contraseña',
+    labelFor: 'clave',
+    formControlName: 'clave',
     placeholder: '',
     validators: [Validators.required, Validators.minLength(6)]
   }
+];
+
+export const Usercolumns: TableColumn[]  = [
+  { header: 'Estado', field: 'activo' },
+  { header: 'Usuario', field: 'usuario' },
+  { header: 'Primer nombre', field: 'nombre_1', foldable: true },
+  { header: 'Segundo nombre', field: 'nombre_2' },
+  { header: 'Apellido Paterno', field: 'apellido_paterno' },
+  { header: 'Apellido Materno', field: 'apellido_materno' },
+  { header: 'Email', field: 'email' },
+  { header: 'Fecha de Creación', field: 'fecha_creacion', date: true },
 ];

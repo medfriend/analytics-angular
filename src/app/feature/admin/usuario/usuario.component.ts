@@ -7,6 +7,8 @@ import { sharedModules } from "../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
 import {miniTableComponent} from "../../../components/table/mini-table/mini-table.component";
 import {Subject, takeUntil} from "rxjs";
+import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
+import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
 
 @Component({
   selector: 'app-usuario-admin',
@@ -21,16 +23,7 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
   overflow: boolean | undefined = false;
   private destroy$ = new Subject<void>();
 
-  columns = [
-    { header: 'Estado', field: 'activo' },
-    { header: 'Usuario', field: 'usuario' },
-    { header: 'Primer nombre', field: 'nombre_1', foldable: true },
-    { header: 'Segundo nombre', field: 'nombre_2' },
-    { header: 'Apellido Paterno', field: 'apellido_paterno' },
-    { header: 'Apellido Materno', field: 'apellido_materno' },
-    { header: 'Email', field: 'email' },
-    { header: 'Fecha de Creación', field: 'fecha_creacion', date: true },
-  ];
+  columns: TableColumn[] = Usercolumns;
 
   idKey= 'usuario_id';
 
