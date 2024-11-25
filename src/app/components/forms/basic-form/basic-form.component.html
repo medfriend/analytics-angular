@@ -26,6 +26,9 @@
           <small *ngIf="loginForm.get(input.formControlName)?.hasError('minlength')">
             Debe tener al menos {{ loginForm.get(input.formControlName)?.errors?.['minlength'].requiredLength }} caracteres
           </small>
+          <small *ngIf="loginForm.get(input.formControlName)?.hasError('pattern')">
+            Debe ingresar un correo electrónico válido.
+          </small>
           <!-- Puedes agregar más condiciones para otros errores -->
         </div>
       </div>

@@ -12,6 +12,14 @@ export const inputsCrearUsuario: InputInfo[] = [
     validators: [Validators.required, Validators.minLength(2)]
   },
   {
+    label: 'email',
+    type: 'text',
+    labelFor: 'email',
+    formControlName: 'email',
+    placeholder: '',
+    validators: [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]
+  },
+  {
     label: 'primer nombre',
     type: 'text',
     labelFor: 'nombre_1',
@@ -30,16 +38,16 @@ export const inputsCrearUsuario: InputInfo[] = [
   {
     label: 'primer apellido',
     type: 'text',
-    labelFor: 'nombre_paterno',
-    formControlName: 'nombre_paterno',
+    labelFor: 'apellido_paterno',
+    formControlName: 'apellido_paterno',
     placeholder: '',
     validators: [Validators.required, Validators.minLength(3)]
   },
   {
     label: 'segundo apellido',
     type: 'text',
-    labelFor: 'nombre_materno',
-    formControlName: 'nombre_materno',
+    labelFor: 'apellido_materno',
+    formControlName: 'apellido_materno',
     placeholder: '',
     validators: [Validators.required, Validators.minLength(3)]
   },
