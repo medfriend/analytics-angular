@@ -1,4 +1,13 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ElementRef,
+  HostListener,
+  AfterViewInit
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.component';
 import { sharedModules } from "../../../shared/shared.module";
@@ -11,7 +20,7 @@ import { InputInfo } from "../../../core/interfaces/components/forms/basic-form/
   templateUrl: './basic-form.component.html',
   styleUrls: ['./basic-form.component.scss']
 })
-export class BasicFormComponent implements OnInit, OnChanges {
+export class BasicFormComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() forTitle: string = 'Inicio sesión';
   @Input() buttonName: string = 'Ingresar'
   @Input() inputs: InputInfo[] = [];
@@ -24,14 +33,32 @@ export class BasicFormComponent implements OnInit, OnChanges {
   @Input() initialValues: { [key: string]: any } | null = null;
 
   showPassword: boolean = false;
-
+  containerWidth: number = 0;
   loginForm: FormGroup;
+  showForm: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private toastService: ToastService
+    private toastService: ToastService,
   ) {
     this.loginForm = this.fb.group({});
+  }
+
+  ngOnInit(): void {
+    this.initializeForm();
+
+
+    if (this.initialValues) {
+      this.updateFormValues(this.initialValues);
+    }
+  }
+
+  ngAfterViewInit() {
+    // @ts-ignore
+    setTimeout(() => {
+      this.onResize(window);
+      this.showForm = true;
+    }, 0);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -41,17 +68,20 @@ export class BasicFormComponent implements OnInit, OnChanges {
     }
   }
 
-  updateFormValues(values: { [key: string]: any } | null | undefined): void {
-    if (values && this.loginForm) {
-      this.loginForm.patchValue(values);
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event | Window): void {
+    const target = event instanceof Window ? event : (event.target as Window);
+    this.containerWidth = target.innerWidth;
+
+    // Cambia el número de columnas según el ancho
+    if (this.containerWidth < 560) {
+      this.numberOfColumns = 1;
     }
   }
 
-  ngOnInit(): void {
-    this.initializeForm();
-
-    if (this.initialValues) {
-      this.updateFormValues(this.initialValues);
+  updateFormValues(values: { [key: string]: any } | null | undefined): void {
+    if (values && this.loginForm) {
+      this.loginForm.patchValue(values);
     }
   }
 
@@ -61,9 +91,16 @@ export class BasicFormComponent implements OnInit, OnChanges {
 
   initializeForm(): void {
     this.inputs.forEach(input => {
-      const control = new FormControl('', input.validators || []);
+      const initialValue = input.type === 'checkbox' ? false : '';
+      const control = new FormControl(initialValue, input.validators || []);
       this.loginForm.addControl(input.formControlName, control);
     });
+  }
+
+  onChangeCheckBox(event: Event, formControlName: string): void {
+    const target = event.target as HTMLInputElement; // Asegúrate de que es un checkbox
+    const isChecked = target.checked; // Obtiene el estado actual del checkbox
+    this.loginForm.get(formControlName)?.setValue(isChecked); // Actualiza el FormControl dinámicamente
   }
 
   //TODO agregar los demas casos de validators a medida que se vayan necesitando

@@ -15,6 +15,45 @@
     display: flex;
     flex-direction: column;
 
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+
+      .toggle {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+        appearance: none; /* Oculta el checkbox predeterminado */
+        outline: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          background-color: white;
+          border-radius: 50%;
+          top: 3px;
+          left: 3px;
+          transition: transform 0.3s ease;
+        }
+
+        &:checked {
+          background-color: $primary-color;
+
+          &::before {
+            transform: translateX(30px);
+          }
+        }
+      }
+  }
+
     .form-label {
       margin: 0.5rem;
     }

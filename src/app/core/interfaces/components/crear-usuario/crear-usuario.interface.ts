@@ -20,6 +20,14 @@ export const inputsCrearUsuario: InputInfo[] = [
     validators: [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]
   },
   {
+    label: 'edad',
+    type: 'number',
+    labelFor: 'edad',
+    formControlName: 'edad',
+    placeholder: '',
+    validators: [Validators.required]
+  },
+  {
     label: 'primer nombre',
     type: 'text',
     labelFor: 'nombre_1',
@@ -58,7 +66,15 @@ export const inputsCrearUsuario: InputInfo[] = [
     formControlName: 'clave',
     placeholder: '',
     validators: [Validators.required, Validators.minLength(6)]
-  }
+  },
+  {
+    label: 'estado',
+    type: 'checkbox',
+    labelFor: 'estado',
+    formControlName: 'estado',
+    placeholder: 'estado',
+    validators: []
+  },
 ];
 
 export const Usercolumns: TableColumn[]  = [
