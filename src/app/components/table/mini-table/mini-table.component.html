@@ -7,8 +7,8 @@
         [textSize]="'text-lg first-letter:capitalize'"
       >
         <hr>
-        <div *ngFor="let column of columns" class="p-2 column-container mb-1">
-          <div class="flex flex-item items-center justify-between">
+        <div *ngFor="let column of columns; let i = index" class="p-2 column-container mb-1">
+          <div class="flex flex-item items-center justify-between" >
             <!-- Header -->
             <div>
               {{ column.header }}
