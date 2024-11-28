@@ -80,7 +80,7 @@ export const inputsCrearUsuario: InputInfo[] = [
 export const Usercolumns: TableColumn[]  = [
   { header: 'Estado', field: 'activo' },
   { header: 'Usuario', field: 'usuario' },
-  { header: 'Primer nombre', field: 'nombre_1', foldable: true },
+  { header: 'Primer nombre', field: 'nombre_1', foldable: true, overflow: true },
   { header: 'Segundo nombre', field: 'nombre_2' },
   { header: 'Apellido Paterno', field: 'apellido_paterno' },
   { header: 'Apellido Materno', field: 'apellido_materno' },

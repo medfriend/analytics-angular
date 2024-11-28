@@ -4,6 +4,9 @@ import {sharedModules} from "../../../shared/shared.module";
 import {ActionPanelComponent} from "../../actionPanel/actionPanel.component";
 import {UserListComponent} from "../../list/user-list/user-list.component";
 import {TableListComponent} from "../../list/table-list/table-list.component";
+import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
+import {enviroment} from "../../../enviroment/components.enviroment";
+
 
 @Component({
   selector: 'app-table',
@@ -13,22 +16,17 @@ import {TableListComponent} from "../../list/table-list/table-list.component";
   imports: [[...sharedModules], ActionPanelComponent, UserListComponent, TableListComponent]
 })
 export class TableComponent implements OnChanges, AfterViewInit {
-  //TODO agregarlo dentro de las interfaces de componentes
-
   @ViewChild('tableContainer', { static: true }) tableContainer!: ElementRef;
-  @Input() columns: {
-    date?: boolean;
-    foldable?: boolean;
-    header: string; field: string }[] = [];
+  @Input() columns: TableColumn[] = [];
   @Input() data: any[] = [];
   @Input() paginated: boolean = true;
   @Input() idKey: string = '';
 
   @Output() overflowDetected: EventEmitter<boolean>  = new EventEmitter<boolean>();
 
+  //TODO guardar esta variable dentro de un redux y su copia en el localstorage
   currentPage: number = 1;
-  //TODO cambiarlo a una variable global
-  itemsPerPage: number = 5;
+  itemsPerPage: number = enviroment.numberRowsTable;
   paginatedData: any[] = [];
   totalPages: number = 0;
 

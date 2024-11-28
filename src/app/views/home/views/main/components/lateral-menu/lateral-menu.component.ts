@@ -2,12 +2,16 @@ import {Component, OnInit} from "@angular/core";
 import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
 import {sharedModules} from "../../../../../../shared/shared.module";
 import {Router} from "@angular/router";
+import {BasicBorderComponent} from "../../../../../../components/border/basic-border.component";
+import {
+  BasicCollapsedComponent
+} from "../../../../../../components/collapsed/basic-collapsed/basic-collapsed.component";
 
 @Component({
   selector: "app-lateral-menu",
   styleUrls: ["./lateral-menu.component.scss"],
   templateUrl: "./lateral-menu.component.html",
-  imports: [[...sharedModules]],
+  imports: [[...sharedModules], BasicBorderComponent, BasicCollapsedComponent],
   standalone: true,
 })
 export class LateralMenuComponent implements OnInit{

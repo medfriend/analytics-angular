@@ -39,7 +39,6 @@ export class ActualizarUsuarioComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const id = params['id'];
       this.userService.getUserById(id).subscribe(user => {
-        console.log(user)
         this.initialValues = user
       })
     })
