@@ -19,6 +19,7 @@ import { Usuario } from '../../core/interfaces/components/usuario/usuario.interf
 })
 
 export class filterTableComponent {
+  refreshUser = false;
   private destroy$ = new Subject<void>();
   subjections: any[] = []
   dataSource: Usuario[] = [];
@@ -52,7 +53,7 @@ export class filterTableComponent {
   }
 
   getAllUsers() {
-    this.userService.getUsers()
+    this.userService.getUsers(this.refreshUser)
     .pipe(takeUntil(this.destroy$))
     .subscribe((data) => {
       this.subjections = data.map(usuario => usuario.usuario_id?.toString())

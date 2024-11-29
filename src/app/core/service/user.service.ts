@@ -20,16 +20,12 @@ export class UserService {
       headers = headers.set('ignore-cache', 'Y')
     }
 
-<<<<<<< HEAD
+    return this.http.get<Usuario[]>(`${this.apiUrl}/all`, { headers });
+  }
+
   getUser(id: string): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.apiUrl}/byId/${id}`);
   }
-
-  createUser(usuario: Usuario): Observable<Usuario> {
-=======
-    return this.http.get<Usuario[]>(`${this.apiUrl}/all`, { headers });
-  }
->>>>>>> main
 
   createUser(usuario: Usuario): Observable<any> {
     const headers = new HttpHeaders({
