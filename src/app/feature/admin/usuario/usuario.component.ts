@@ -9,7 +9,7 @@ import {miniTableComponent} from "../../../components/table/mini-table/mini-tabl
 import {Subject, takeUntil} from "rxjs";
 import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
-import { BasicModalComponent } from "../../../components/basic-modal/basic-modal.component";
+import { BasicModalComponent } from "../../../components/modal/basic-modal/basic-modal.component";
 import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
 import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
 import {filterTableComponent} from "../../../components/table/filter-table/filter-table.component";

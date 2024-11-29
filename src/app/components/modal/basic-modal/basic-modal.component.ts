@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { sharedModules } from '../../shared/shared.module';
-import { filterTableComponent } from '../table/filter-table/filter-table.component';
-import { BasicAutocompleteComponent } from '../autocompletes/basic-autocomplete.component';
+import { sharedModules } from '../../../shared/shared.module';
+import { filterTableComponent } from '../../table/filter-table/filter-table.component';
+import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomplete.component';
 
 @Component({
   selector: 'app-basic-modal',
