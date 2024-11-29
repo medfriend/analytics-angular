@@ -1,5 +1,5 @@
-<div class="not-found-container">
+<div class="not-found-container" *ngIf="!isLoading">
   <img src="noFound.png" width="200" height="200">
-  <h1>Página no encontrada</h1>
-  <p>Lo sentimos, la página que buscas no existe.</p>
+  <h1>{{title}}</h1>
+  <p>{{description}}</p>
 </div>

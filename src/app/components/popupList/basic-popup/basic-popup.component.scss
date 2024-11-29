@@ -3,6 +3,7 @@
   mat-icon {
     z-index: 0 !important;
   }
+
   mat-icon.active {
     color: gray;
     //transform: translateY(0.15rem);
@@ -26,6 +27,7 @@
   }
 
   .referente-element.showup {
+    z-index: 999 !important;
     opacity: 1;
     transform: translate(-150px, 35px);
     pointer-events: auto;

@@ -12,14 +12,18 @@ import {TableColumn} from "../../../core/interfaces/components/table/basic-table
 import { BasicModalComponent } from "../../../components/basic-modal/basic-modal.component";
 import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
 import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
+import {filterTableComponent} from "../../../components/table/filter-table/filter-table.component";
+import {NotFound} from "../../../components/not-found/not-found.component";
+import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
 
 @Component({
   selector: 'app-usuario-admin',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
-  BasicModalComponent
+  imports: [[...sharedModules],
+    BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
+    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent
   ],
 })
 

@@ -16,28 +16,20 @@
   </app-basic-button>
 </div>
 
-<div *ngIf="dataSource.length > 0 && overflow !== undefined; else noData">
-  <app-table
-    *ngIf="!overflow"
-    [columns]="columns"
-    [data]="dataSource"
-    [idKey]="idKey"
-    (overflowDetected)="handleOverflow($event)"
-  >
-  </app-table>
-  <app-mini-table
-    *ngIf="overflow"
-    [columns]="columns"
-    [data]="dataSource"
-    [idKey]="idKey"
-  >
-  </app-mini-table>
-</div>
-
-<ng-template #noData>
-  <p>No hay datos disponibles. Haz clic en "Cargar".</p>
-</ng-template>
-
+<app-master-table
+  [dataSource]="dataSource"
+  [columns]="columns"
+  [idKey]="idKey"
+  [overflow]="overflow"
+  (overflowDetected)="handleOverflow($event)"
+>
+</app-master-table>
 
 <button (click)="openModal()">Abrir Modal</button>
-<app-basic-modal [isVisible]="isModalVisible" (onClose)="handleModalClose()"></app-basic-modal>
+<app-basic-modal
+  [isVisible]="isModalVisible"
+  (onClose)="handleModalClose()"
+>
+  <app-filter-table>
+  </app-filter-table>
+</app-basic-modal>

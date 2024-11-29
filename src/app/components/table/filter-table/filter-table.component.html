@@ -1,7 +1,11 @@
 
 <div *ngIf="subjections.length > 0; else noData2">
-    <app-basic-autocomplete [suggestions]="subjections" [onSelectHandler]="filter()"></app-basic-autocomplete>
+    <app-basic-autocomplete
+      [suggestions]="subjections"
+      [onSelectHandler]="filter()">
+    </app-basic-autocomplete>
 </div>
+
 <ng-template #noData2>
     <p>No hay datos disponibles. Haz clic en "Cargar".</p>
 </ng-template>

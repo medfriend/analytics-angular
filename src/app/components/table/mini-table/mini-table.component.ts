@@ -27,7 +27,6 @@ export class miniTableComponent implements OnInit, OnChanges {
   @Input() paginated: boolean = true;
   @Input() idKey: string = '';
 
-
   currentPage: number = 1;
   itemsPerPage: number = enviroment.numberRowsTable;
   paginatedData: any[] = [];

@@ -31,14 +31,9 @@ export class AppComponent implements OnInit {
     private router: Router,
     private store: Store,
     private localstorageService: StorageService,
-    private loadingTunnel: LoadingTunnel
   ) {}
 
   ngOnInit(): void {
-
-    this.loadingTunnel.loading$.subscribe(loadingTunnel => {
-      this.isLoading = loadingTunnel;
-    })
 
     if(this.location.path() !== 'login'){
       this.store.select(selectToken).subscribe(token => {

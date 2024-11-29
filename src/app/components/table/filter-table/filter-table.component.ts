@@ -1,14 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { sharedModules } from '../../shared/shared.module';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { sharedModules } from '../../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { TableComponent } from '../table/basic-table/table.component';
-import { UserService } from '../../core/service/user.service';
+import { TableComponent } from '../basic-table/table.component';
+import { UserService } from '../../../core/service/user.service';
 import { Subject, takeUntil } from 'rxjs';
-import { TableColumn } from '../../core/interfaces/components/table/basic-table/basic-table.interface';
-import { Usercolumns } from '../../core/interfaces/components/crear-usuario/crear-usuario.interface';
-import { BasicAutocompleteComponent } from '../autocompletes/basic-autocomplete.component';
-import { Usuario } from '../../core/interfaces/components/usuario/usuario.interface';
+import { TableColumn } from '../../../core/interfaces/components/table/basic-table/basic-table.interface';
+import { Usercolumns } from '../../../core/interfaces/components/crear-usuario/crear-usuario.interface';
+import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomplete.component';
+import { Usuario } from '../../../core/interfaces/components/usuario/usuario.interface';
 
 @Component({
   selector: 'app-filter-table',
@@ -18,7 +17,7 @@ import { Usuario } from '../../core/interfaces/components/usuario/usuario.interf
   imports: [[...sharedModules], FormsModule, TableComponent, BasicAutocompleteComponent]
 })
 
-export class filterTableComponent {
+export class filterTableComponent implements  OnInit, OnDestroy {
   refreshUser = false;
   private destroy$ = new Subject<void>();
   subjections: any[] = []
@@ -31,16 +30,10 @@ export class filterTableComponent {
     private userService: UserService
   ) {}
 
-
   ngOnInit() {
     this.getAllUsers()
   }
-  
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-  
+
   filter() {
     return (value: any)=> {
       this.dataSource = [];
@@ -60,4 +53,8 @@ export class filterTableComponent {
     });
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

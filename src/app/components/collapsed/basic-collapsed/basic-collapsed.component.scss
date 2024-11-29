@@ -3,7 +3,7 @@
 mat-icon {
   transition: transform 0.3s ease-in-out;
   pointer-events: auto !important;
-  z-index: 1000;
+  z-index: 998 !important;
 
   &:hover {
     color: $primary-color;
