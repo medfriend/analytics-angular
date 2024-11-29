@@ -18,7 +18,10 @@ export class BasicModalComponent {
   @Output() onClose = new EventEmitter<void>();
 
   closeModal() {
-    this.isVisible = false;
-    this.onClose.emit();
+
+    setTimeout(() => {
+      this.isVisible = false;
+      this.onClose.emit();
+    }, 300);
   }
 }

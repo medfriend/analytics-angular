@@ -1,5 +1,5 @@
-<div *ngIf="isVisible" class="modal-backdrop">
-  <div class="modal-content">
+<div *ngIf="isVisible" [ngClass]="{'fade-in': isVisible, 'fade-out': !isVisible}" class="modal-backdrop">
+  <div class="modal-content" [ngClass]="{'scale-in': isVisible, 'scale-out': !isVisible}">
     <button class="close-btn" (click)="closeModal()">×</button>
     <h2>{{titlle}}</h2>
     <ng-content></ng-content>
