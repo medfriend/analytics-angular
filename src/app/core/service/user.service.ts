@@ -13,20 +13,32 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.apiUrl}/all`);
-  }
+  getUsers(refresh: boolean): Observable<Usuario[]> {
+    let headers = new HttpHeaders();
 
+    if (refresh) {
+      headers = headers.set('ignore-cache', 'Y')
+    }
+
+<<<<<<< HEAD
   getUser(id: string): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.apiUrl}/byId/${id}`);
   }
 
   createUser(usuario: Usuario): Observable<Usuario> {
+=======
+    return this.http.get<Usuario[]>(`${this.apiUrl}/all`, { headers });
+  }
+>>>>>>> main
 
+  createUser(usuario: Usuario): Observable<any> {
     const headers = new HttpHeaders({
       'ignore-cache': 'Y'
     });
+    return this.http.post<any>(this.apiUrl, usuario, { headers: headers });
+  }
 
-    return this.http.post<Usuario>(this.apiUrl, usuario, { headers: headers });
+  getUserById(id: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/byId/${id}`)
   }
 }

@@ -1,10 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {inputsCrearUsuario} from "../../../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {BasicFormComponent, ToastService} from "../../../../../components";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {
   inputsEliminarUsuario
 } from "../../../../../core/interfaces/components/eliminar-usuario/eliminar-usuario.interface";
+import {UserService} from "../../../../../core/service/user.service";
 
 @Component({
   selector: "app-eliminar-usuario",
@@ -19,16 +20,26 @@ export class EliminarUsuarioComponent implements OnInit {
 
   forTitle: string = 'Eliminar usuario';
   inputs = inputsEliminarUsuario;
-  userName: string = '';
+  userName: string | undefined = '';
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
-    //TODO agregar funcionalidad del llamado del ususario por medio de la router
-    this.userName = 'Diego Axsel Garcia Sierra'
-    this.inputs[0].label = this.inputs[0].label + ' ' + this.userName
+    this.getId()
+  }
+
+  getId(){
+    this.route.queryParams.subscribe(params => {
+      const id = params['id'];
+      this.userService.getUserById(id).subscribe(user => {
+        this.userName = user.nombre_1 + " " + user.nombre_2 + " " +  user.apellido_paterno + " " + user.apellido_materno;
+        this.inputs[0].label = this.inputs[0].label + ' ' + this.userName
+      })
+    })
   }
 
   onSubmitHandler(){
@@ -38,6 +49,7 @@ export class EliminarUsuarioComponent implements OnInit {
       }
 
       if (this.userName == values.usuario){
+        //TODO realizar la funcionalidad de la eliminacion de usuarios
         this.goBack()()
       }
     }

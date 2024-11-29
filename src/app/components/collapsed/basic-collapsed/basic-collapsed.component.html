@@ -1,0 +1,15 @@
+<div class="mb-3">
+  <div [class]="'flex flex-row first-letter:capitalize ' + textSize">
+    {{label}}
+    <mat-icon
+      class="ml-auto cursor-pointer transition-transform duration-300 ease-in-out"
+      [class.rotate-180]="isCollapsed"
+      (click)="toggleCollapsed()">
+      keyboard_arrow_up
+    </mat-icon>
+  </div>
+  <div class="content-container"
+       [class.active]="!isCollapsed">
+    <ng-content></ng-content>
+  </div>
+</div>

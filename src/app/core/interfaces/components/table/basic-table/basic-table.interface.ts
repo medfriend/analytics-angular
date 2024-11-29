@@ -3,4 +3,5 @@ export type  TableColumn = {
   field: string;   // El nombre del campo del objeto que corresponde a la columna
   foldable?: boolean;  // Opcional: Indica si la columna es plegable
   date?: boolean;  // Opcional: Indica si el campo debe tratarse como una fecha
+  overflow?: boolean; // Opcional: Indica si el campo es que se mostrara cuando se encuentra en overflow en el componente de mobile
 }

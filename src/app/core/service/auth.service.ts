@@ -15,8 +15,7 @@ export class AuthService {
   auth(data: Auth): Observable<any> {
 
     const headers = new HttpHeaders({
-      'Usuario': data.usuario.toString(),
-      'ignore-cache': 'Y'
+      'Usuario': data.usuario.toString()
     });
 
     return this.http.post(`${this.apiUrl}`, data, { headers: headers });

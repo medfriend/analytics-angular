@@ -1,11 +1,12 @@
-<div class="form">
+<div class="form" *ngIf="showForm">
   <h2 [ngClass]="{ 'text-center': isCentered }">{{ forTitle }}</h2>
   <hr *ngIf="hasDivisor">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div [ngClass]="gridColumnClass">
       <div class="form-group" *ngFor="let input of inputs">
-        <label class="form-label" [for]="input.formControlName">{{ input.label }}</label>
+        <label class="form-label first-letter:capitalize" [for]="input.formControlName">{{ input.label }}</label>
         <input
+          *ngIf="input.type !== 'checkbox'"
           [type]="showPasswordType(input.type)"
           [id]="input.formControlName"
           class="form-control rounded-xl text-base"
@@ -13,6 +14,16 @@
           [formControlName]="input.formControlName"
           [placeholder]="input.placeholder"
         >
+        <div *ngIf="input.type === 'checkbox'" class="toggle-container">
+          <input
+            [type]="input.type"
+            [id]="input.formControlName"
+            [formControlName]="input.formControlName"
+            (change)="onChangeCheckBox($event, input.formControlName)"
+            [checked]="loginForm.get(input.formControlName)?.value"
+            class="toggle"
+          >
+        </div>
         <div class="flex flex-row checkbox-container" *ngIf="input.type === 'password'">
             <input type="checkbox" (click)="toggleShowPassword()">
             <label class="text-sm ml-1"> mostrar contraseña </label>
@@ -25,6 +36,9 @@
           </small>
           <small *ngIf="loginForm.get(input.formControlName)?.hasError('minlength')">
             Debe tener al menos {{ loginForm.get(input.formControlName)?.errors?.['minlength'].requiredLength }} caracteres
+          </small>
+          <small *ngIf="loginForm.get(input.formControlName)?.hasError('pattern')">
+            Debe ingresar un correo electrónico válido.
           </small>
           <!-- Puedes agregar más condiciones para otros errores -->
         </div>
@@ -53,7 +67,5 @@
         {{ buttonName }}
       </button>
     </div>
-
-
   </form>
 </div>

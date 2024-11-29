@@ -1,0 +1,27 @@
+@import "colors";
+
+mat-icon {
+  transition: transform 0.3s ease-in-out;
+  pointer-events: auto !important;
+  z-index: 1000;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &.rotate-180 {
+    transform: rotate(180deg);
+  }
+}
+
+.content-container {
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  opacity: 0;
+  max-height: 0; /* Oculta el contenido */
+
+  &.active {
+    opacity: 1;
+    max-height: 1000px; /* Define un límite alto para el contenido expandido */
+    overflow: hidden; /* Oculta contenido extra si hay problemas con max-height */
+  }
+}

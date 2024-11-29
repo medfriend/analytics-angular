@@ -9,8 +9,12 @@ import {miniTableComponent} from "../../../components/table/mini-table/mini-tabl
 import {Subject, takeUntil} from "rxjs";
 import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
+<<<<<<< HEAD
 import { BasicModalComponent } from "../../../components/basic-modal/basic-modal.component";
 import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
+=======
+import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
+>>>>>>> main
 
 @Component({
   selector: 'app-usuario-admin',
@@ -32,15 +36,17 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
 
   idKey= 'usuario_id';
 
+  refreshUser = false;
+
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private refreshTunnel: refreshTunnel
   ) {}
 
   ngOnInit() {
-    this.userService.getUsers()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => this.dataSource = data);
+    this.handleRefreshUser()
+    this.getUsers()
   }
 
   navegateCreate(){
@@ -49,6 +55,23 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
 
   handleOverflow(isOverflowing: boolean | undefined): void {
     this.overflow = isOverflowing;
+  }
+
+  handleRefreshUser(){
+    this.refreshTunnel.refresh$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(refresh => {
+        this.refreshUser = refresh;
+      })
+  }
+
+  getUsers(){
+    this.userService.getUsers(this.refreshUser)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        this.dataSource = data
+        this.refreshTunnel.setrefreshState(false)
+      });
   }
 
   ngOnDestroy(): void {

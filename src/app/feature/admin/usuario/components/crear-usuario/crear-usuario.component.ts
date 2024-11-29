@@ -5,14 +5,18 @@ import {BasicFormComponent, ToastService} from "../../../../../components";
 import {Router} from "@angular/router";
 import {Usuario} from "../../../../../core/interfaces/components/usuario/usuario.interface";
 import {UserService} from "../../../../../core/service/user.service";
-import {Subject} from "rxjs";
+import {Subject, takeUntil} from "rxjs";
+import {sharedModules} from "../../../../../shared/shared.module";
+import {response} from "express";
+import {refreshTunnel} from "../../../../../core/tunnel/usuario/usuario.tunnel";
 
 @Component({
   selector: "app-crear-usuario",
   styleUrls: ["./crear-usuario.component.scss"],
   templateUrl: "./crear-usuario.component.html",
   imports: [
-    BasicFormComponent
+    BasicFormComponent,
+    ...sharedModules
   ],
   standalone: true
 })
@@ -25,14 +29,18 @@ export class CrearUsuarioComponent implements OnDestroy{
   constructor(
     private router: Router,
     private userService: UserService,
+    private refreshTunnel: refreshTunnel
   ) {}
 
   onSubmitHandler(){
     return (values: Usuario, toast: ToastService): void => {
-      this.userService.createUser(values).subscribe(response => {
-        console.log(response);
-        this.goBack()
-      })
+      this.userService.createUser(values)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(response => {
+          toast.addToast("usuario creado exitosamente", "success")
+          this.refreshTunnel.setrefreshState(true)
+          this.goBack()()
+        });
     }
   }
 

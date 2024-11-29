@@ -1,34 +1,48 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {inputsCrearUsuario} from "../../../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {BasicFormComponent, ToastService} from "../../../../../components";
+import {sharedModules} from "../../../../../shared/shared.module";
+import {UserService} from "../../../../../core/service/user.service";
+import {
+  inputsActualizarUsuario
+} from "../../../../../core/interfaces/components/actualizar-usuario/actualizar-usuario.interface";
 
 @Component({
   selector: "app-actualizar-usuario",
   templateUrl: "./actualizar-usuario.component.html",
   styleUrls: ["./actualizar-usuario.component.scss"],
   imports: [
+    ...sharedModules,
     BasicFormComponent
   ],
   standalone: true
 })
-export class ActualizarUsuarioComponent {
+export class ActualizarUsuarioComponent implements OnInit {
   forTitle: string = 'Actualizar usuario';
-  inputs = inputsCrearUsuario;
+  inputs = inputsActualizarUsuario;
 
   //TODO tomar los datos de usuario de router e ingresar los valores en los initial values
-  initialValues = {
-    usuario: '123456', // Número de identificación
-    nombre_1: 'Juan',  // Primer nombre
-    nombre_2: 'Carlos', // Segundo nombre
-    nombre_paterno: 'Pérez', // Primer apellido
-    nombre_materno: 'Gómez', // Segundo apellido
-    contraseña: 'password123' // Contraseña
-  };
+  initialValues: any;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
+    private userService: UserService,
   ) {}
+
+  ngOnInit() {
+    this.getId()
+  }
+
+  getId(){
+    this.route.queryParams.subscribe(params => {
+      const id = params['id'];
+      this.userService.getUserById(id).subscribe(user => {
+        this.initialValues = user
+      })
+    })
+  }
 
   onSubmitHandler(){
     return (values: any, toast: ToastService): void => {
