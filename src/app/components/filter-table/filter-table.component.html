@@ -1,0 +1,22 @@
+
+<div *ngIf="subjections.length > 0; else noData2">
+    <app-basic-autocomplete [suggestions]="subjections" [onSelectHandler]="filter()"></app-basic-autocomplete>
+</div>
+<ng-template #noData2>
+    <p>No hay datos disponibles. Haz clic en "Cargar".</p>
+</ng-template>
+
+<h4 style="font-weight: 500;">Table</h4>
+
+<div *ngIf="dataSource.length > 0; else noData">
+    <app-table
+      [columns]="columns"
+      [data]="dataSource"
+      [idKey]="idKey"
+    >
+    </app-table>
+</div>
+
+<ng-template #noData>
+    <p>No hay datos disponibles. Haz clic en "Cargar".</p>
+</ng-template>

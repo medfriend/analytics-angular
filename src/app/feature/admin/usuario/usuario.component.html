@@ -37,3 +37,7 @@
 <ng-template #noData>
   <p>No hay datos disponibles. Haz clic en "Cargar".</p>
 </ng-template>
+
+
+<button (click)="openModal()">Abrir Modal</button>
+<app-basic-modal [isVisible]="isModalVisible" (onClose)="handleModalClose()"></app-basic-modal>

@@ -9,6 +9,8 @@ import {miniTableComponent} from "../../../components/table/mini-table/mini-tabl
 import {Subject, takeUntil} from "rxjs";
 import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
+import { BasicModalComponent } from "../../../components/basic-modal/basic-modal.component";
+import { Usuario } from "../../../core/interfaces/components/usuario/usuario.interface";
 import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
 
 @Component({
@@ -16,11 +18,14 @@ import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent
+  imports: [[...sharedModules], BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
+  BasicModalComponent
   ],
 })
+
 export class UsuarioAdminComponent implements OnInit, OnDestroy {
-  dataSource: any[] = [];
+  isModalVisible: boolean = false;
+  dataSource: Usuario[] = [];
   overflow: boolean | undefined = false;
   private destroy$ = new Subject<void>();
 
@@ -70,4 +75,13 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+
+  openModal() {
+    this.isModalVisible = true;
+  }
+
+  handleModalClose() {
+    this.isModalVisible = false;
+  }
+
 }
