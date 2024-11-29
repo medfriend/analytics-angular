@@ -10,6 +10,7 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
   imports: [ [...sharedModules], ReactiveFormsModule ]
 })
 export class BasicAutocompleteComponent {
+  @Input() onSelectHandler: (values: any) => void = () => {};
   @Input() suggestions: string[] = [];
   @Input() placeholder: string = 'Buscar';
 
@@ -26,6 +27,7 @@ export class BasicAutocompleteComponent {
 
   selectItem(item: string) {
     this.searchControl.setValue(item);
+    this.onSelectHandler(item)
     this.showSuggestions = false;
   }
 
