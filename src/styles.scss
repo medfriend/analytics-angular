@@ -10,4 +10,10 @@ body{
     border: none;
     border-top: 2px solid $parent-icon;
   }
-}
+
+    &.no-scroll {
+      overflow: hidden; /* Bloquea el scroll vertical */
+      position: fixed; /* Fija la posición para evitar movimientos accidentales */
+      width: 100%;
+    }
+  }

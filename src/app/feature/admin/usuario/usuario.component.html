@@ -24,24 +24,7 @@
   (overflowDetected)="handleOverflow($event)"
 >
 </app-master-table>
-
 <div class="w-25">
-  <app-basic-border>
-    <div class="flex flex-row">
-      <div>
-        label
-      </div>
-      <div class="flex items-center">
-        <mat-icon (click)="openModal()"> search </mat-icon>
-      </div>
-    </div>
-  </app-basic-border>
+  <app-modal-input [label]="'Selección de usuario'">
+  </app-modal-input>
 </div>
-
-<app-basic-modal
-  [isVisible]="isModalVisible"
-  (onClose)="handleModalClose()"
->
-  <app-filter-table>
-  </app-filter-table>
-</app-basic-modal>

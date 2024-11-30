@@ -1,0 +1,13 @@
+@import "colors";
+
+.label{
+  color: $autocomplete-input;
+}
+
+mat-icon{
+  color: $autocomplete-input;
+
+  &:hover{
+    color: darken($autocomplete-input, 25%);
+  }
+}

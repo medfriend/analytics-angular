@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { sharedModules } from '../../../shared/shared.module';
 import { filterTableComponent } from '../../table/filter-table/filter-table.component';
 import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomplete.component';
+import {ModalService} from "../../../util/modal/modal.service";
 
 @Component({
   selector: 'app-basic-modal',
@@ -17,9 +18,12 @@ export class BasicModalComponent {
   @Input() titlle: string = '';
   @Output() onClose = new EventEmitter<void>();
 
+  constructor(private modalService: ModalService) {}
+
   closeModal() {
 
     setTimeout(() => {
+      this.modalService.closeModal()
       this.isVisible = false;
       this.onClose.emit();
     }, 300);

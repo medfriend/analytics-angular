@@ -1,0 +1,18 @@
+<app-basic-border>
+  <div class="flex flex-row tracking-tighter">
+    <div class="label">
+      {{label}}
+    </div>
+    <div class="flex items-center ml-auto cursor-pointer">
+      <mat-icon (click)="openModal()"> search </mat-icon>
+    </div>
+  </div>
+</app-basic-border>
+
+<app-basic-modal
+  [isVisible]="isModalVisible"
+  (onClose)="handleModalClose()"
+>
+  <app-filter-table>
+  </app-filter-table>
+</app-basic-modal>

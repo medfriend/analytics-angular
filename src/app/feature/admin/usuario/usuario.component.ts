@@ -16,6 +16,7 @@ import {filterTableComponent} from "../../../components/table/filter-table/filte
 import {NotFound} from "../../../components/not-found/not-found.component";
 import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
 import {BasicBorderComponent} from "../../../components/border/basic-border.component";
+import {ModalInputComponent} from "../../../components/inputs/modal-input/modal-input.component";
 
 @Component({
   selector: 'app-usuario-admin',
@@ -24,12 +25,11 @@ import {BasicBorderComponent} from "../../../components/border/basic-border.comp
   standalone: true,
   imports: [[...sharedModules],
     BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
-    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent, BasicBorderComponent
+    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent, BasicBorderComponent, ModalInputComponent
   ],
 })
 
 export class UsuarioAdminComponent implements OnInit, OnDestroy {
-  isModalVisible: boolean = false;
   dataSource: Usuario[] = [];
   overflow: boolean | undefined = false;
   private destroy$ = new Subject<void>();
@@ -80,13 +80,4 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
-  openModal() {
-    this.isModalVisible = true;
-  }
-
-  handleModalClose() {
-    this.isModalVisible = false;
-  }
-
 }
