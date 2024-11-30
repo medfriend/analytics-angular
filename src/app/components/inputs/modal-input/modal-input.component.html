@@ -12,7 +12,11 @@
 <app-basic-modal
   [isVisible]="isModalVisible"
   (onClose)="handleModalClose()"
+  [titlle]="label"
 >
-  <app-filter-table>
+  <app-filter-table
+    [dataUri]="dataUri"
+    [filterKey]="filterKey"
+  >
   </app-filter-table>
 </app-basic-modal>

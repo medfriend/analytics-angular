@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { sharedModules } from '../../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from '../basic-table/table.component';
@@ -8,6 +8,7 @@ import { TableColumn } from '../../../core/interfaces/components/table/basic-tab
 import { Usercolumns } from '../../../core/interfaces/components/crear-usuario/crear-usuario.interface';
 import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomplete.component';
 import { Usuario } from '../../../core/interfaces/components/usuario/usuario.interface';
+import {ApiService} from "../../../util/apiService/apiService.service";
 
 @Component({
   selector: 'app-filter-table',
@@ -26,17 +27,21 @@ export class filterTableComponent implements  OnInit, OnDestroy {
   columns: TableColumn[] = Usercolumns;
   idKey= 'usuario_id';
 
+  @Input('dataUri') dataUri: string = '';
+  @Input('filterKey') filterKey: string = '';
+
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private httpServer: ApiService
   ) {}
 
   ngOnInit() {
-    this.getAllUsers()
+    this.getAll()
   }
 
   filter() {
     return (value: any)=> {
-      this.dataSource = [];
+      //this.dataSource = [];
       this.userService.getUser(value)
         .pipe(takeUntil(this.destroy$))
         .subscribe((data) =>{
@@ -45,12 +50,12 @@ export class filterTableComponent implements  OnInit, OnDestroy {
     }
   }
 
-  getAllUsers() {
-    this.userService.getUsers(this.refreshUser)
+  getAll() { this.httpServer.get<any>(this.dataUri, true)
     .pipe(takeUntil(this.destroy$))
     .subscribe((data) => {
-      this.subjections = data.map(usuario => usuario.usuario_id?.toString())
-    });
+      this.subjections = data.map((item: any) => item[this.filterKey].toString())
+      this.dataSource = data
+    })
   }
 
   ngOnDestroy(): void {

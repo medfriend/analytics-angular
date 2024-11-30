@@ -25,6 +25,10 @@
 >
 </app-master-table>
 <div class="w-25">
-  <app-modal-input [label]="'Selección de usuario'">
+  <app-modal-input
+    [label]="'Selección de usuario'"
+    [dataUri]="'security/user/all'"
+    [filterKey]="'usuario'"
+  >
   </app-modal-input>
 </div>

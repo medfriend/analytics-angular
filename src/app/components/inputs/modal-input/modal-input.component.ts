@@ -15,6 +15,8 @@ import {ModalService} from "../../../util/modal/modal.service";
 export class ModalInputComponent {
 
   @Input() label: string = '';
+  @Input() dataUri: string = '';
+  @Input() filterKey: string = '';
 
   isModalVisible: boolean = false;
 

@@ -1,7 +1,14 @@
 <div *ngIf="isVisible" [ngClass]="{'fade-in': isVisible, 'fade-out': !isVisible}" class="modal-backdrop">
   <div class="modal-content" [ngClass]="{'scale-in': isVisible, 'scale-out': !isVisible}">
-    <button class="close-btn" (click)="closeModal()">×</button>
-    <h2>{{titlle}}</h2>
+    <div class="flex flex-row-reverse">
+      <mat-icon
+        class="close-btn rounded-full cursor-pointer font-medium p-1 flex items-center"
+        (click)="closeModal()"
+      >
+        close
+      </mat-icon>
+    </div>
+    <h4>{{titlle}}</h4>
     <ng-content></ng-content>
   </div>
 </div>
