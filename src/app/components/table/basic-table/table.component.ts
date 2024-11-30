@@ -45,12 +45,12 @@ export class TableComponent implements OnChanges, AfterViewInit {
   }
 
   checkOverflow(): void {
-    const element = this.tableContainer.nativeElement;
+    /*const element = this.tableContainer.nativeElement;
     const isOverflowing = element.scrollWidth > element.clientWidth;
 
     if(this.overflowDetected !== undefined){
       this.overflowDetected.emit(isOverflowing || false)
-    }
+    }*/
   }
 
   isBoolean(value: any): boolean {

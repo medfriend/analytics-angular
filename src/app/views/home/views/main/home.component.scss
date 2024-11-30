@@ -1,7 +1,6 @@
 .layout {
   display: grid;
   grid-template-columns: 340px auto;
-  height: 100vh;
 
   .sidebar {
     overflow-y: auto;
@@ -9,6 +8,7 @@
 
   .content {
     background-color: #ffffff;
+    overflow: auto;
   }
 }
 
