@@ -25,7 +25,19 @@
 >
 </app-master-table>
 
-<button (click)="openModal()">Abrir Modal</button>
+<div class="w-25">
+  <app-basic-border>
+    <div class="flex flex-row">
+      <div>
+        label
+      </div>
+      <div class="flex items-center">
+        <mat-icon (click)="openModal()"> search </mat-icon>
+      </div>
+    </div>
+  </app-basic-border>
+</div>
+
 <app-basic-modal
   [isVisible]="isModalVisible"
   (onClose)="handleModalClose()"

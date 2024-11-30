@@ -15,6 +15,7 @@ import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
 import {filterTableComponent} from "../../../components/table/filter-table/filter-table.component";
 import {NotFound} from "../../../components/not-found/not-found.component";
 import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
+import {BasicBorderComponent} from "../../../components/border/basic-border.component";
 
 @Component({
   selector: 'app-usuario-admin',
@@ -23,7 +24,7 @@ import {MasterTableComponent} from "../../../components/table/master-table/maste
   standalone: true,
   imports: [[...sharedModules],
     BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
-    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent
+    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent, BasicBorderComponent
   ],
 })
 
