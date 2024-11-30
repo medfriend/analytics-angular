@@ -8,7 +8,8 @@
 
   .content {
     background-color: #ffffff;
-    overflow: auto;
+   //overflow-x: auto;
+    min-width: 0;
   }
 }
 
