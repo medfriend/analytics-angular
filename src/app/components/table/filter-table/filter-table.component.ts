@@ -7,13 +7,14 @@ import { TableColumn } from '../../../core/interfaces/components/table/basic-tab
 import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomplete.component';
 import {ApiService} from "../../../util/apiService/apiService.service";
 import {Usercolumns} from "../../../core/interfaces/components/rol-usuario/rol-usuario.interface";
+import {SelectableTableComponent} from "../selectable-table/selectable-table.component";
 
 @Component({
   selector: 'app-filter-table',
   templateUrl: './filter-table.component.html',
   styleUrls: ['./filter-table.component.scss'],
   standalone: true,
-  imports: [[...sharedModules], FormsModule, TableComponent, BasicAutocompleteComponent]
+  imports: [[...sharedModules], FormsModule, TableComponent, BasicAutocompleteComponent, SelectableTableComponent]
 })
 
 export class filterTableComponent implements  OnInit, OnDestroy {

@@ -1,0 +1,71 @@
+<div
+  #tableContainer
+  class="table-container mt-2 rounded-2xl tracking-tighter leading-tight px-1"
+>
+  <table>
+    <thead>
+    <tr>
+      <th
+        *ngFor="let column of columns"
+        class="p-4 header text-sm"
+      >
+        <div
+          class="px-4 py-2 rounded-md"
+          tabindex="0"
+        >
+          {{ column.header }}
+        </div>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+      *ngFor="let row of paginatedData"
+      class="row-container rounded-2xl text-sm"
+    >
+      <td *ngFor="let column of columns" [class.center-content]="column.foldable">
+        <ng-container [ngSwitch]="column.foldable">
+          <app-actionPanel
+            *ngSwitchCase="true"
+            [panelLabel]="row[column.field]"
+          >
+            <app-table-list [id]="row[idKey]"></app-table-list>
+          </app-actionPanel>
+
+          <span *ngSwitchDefault>
+              <ng-container *ngIf="column.date; else defaultLogic">
+                {{tableService.convertDate(row[column.field]) }}
+              </ng-container>
+
+              <ng-template #defaultLogic>
+                <ng-container *ngIf="tableService.isBoolean(row[column.field]); else stringTemplate">
+                  <mat-icon
+                    *ngIf="row[column.field]; else inactiveIcon"
+                    class="sun"
+                  >
+                    wb_sunny
+                  </mat-icon>
+                  <ng-template #inactiveIcon>
+                    <mat-icon class="moon">dark_mode</mat-icon>
+                  </ng-template>
+                </ng-container>
+
+                <ng-template #stringTemplate>
+                  {{ row[column.field] }}
+                </ng-template>
+              </ng-template>
+            </span>
+        </ng-container>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-basic-pagination
+  [data]="data"
+  [paginated]="paginated"
+  (paginatedDataChange)="handlerPagination($event)"
+>
+</app-basic-pagination>

@@ -52,5 +52,4 @@ export class TableComponent implements AfterViewInit {
   handlerPagination(data: any[]){
     this.paginatedData = data
   }
-
 }

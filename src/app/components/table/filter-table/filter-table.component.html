@@ -11,11 +11,11 @@
 </ng-template>
 
 <div *ngIf="dataSource.length > 0; else noData">
-    <app-table
+    <selectable-table
       [columns]="columns"
       [data]="dataSource"
     >
-    </app-table>
+    </selectable-table>
 </div>
 
 <ng-template #noData>
