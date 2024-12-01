@@ -1,5 +1,6 @@
 <div *ngIf="subjections.length > 0; else noData2">
     <app-basic-autocomplete
+      [placeholder]="placeholder"
       [suggestions]="subjections"
       [onSelectHandler]="filter()">
     </app-basic-autocomplete>
@@ -13,7 +14,6 @@
     <app-table
       [columns]="columns"
       [data]="dataSource"
-      [idKey]="idKey"
     >
     </app-table>
 </div>

@@ -17,6 +17,7 @@ export class ModalInputComponent {
   @Input() label: string = '';
   @Input() dataUri: string = '';
   @Input() filterKey: string = '';
+  @Input() placeholder: string = '';
 
   isModalVisible: boolean = false;
 
