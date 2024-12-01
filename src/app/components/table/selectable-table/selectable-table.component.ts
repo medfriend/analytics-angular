@@ -45,6 +45,10 @@ export class SelectableTableComponent implements AfterViewInit {
     }
   }
 
+  selectData($event: Event, row: any): void {
+    console.log(row);
+  }
+
   handlerPagination(data: any[]){
     this.paginatedData = data
   }

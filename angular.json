@@ -39,6 +39,7 @@
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss",
+              "src/app/shared/style/toggle.scss",
               "public/assets/scss/grid.scss",
               "public/assets/scss/text.scss",
               "public/assets/scss/flex.scss",

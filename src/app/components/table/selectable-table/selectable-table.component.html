@@ -5,6 +5,7 @@
   <table>
     <thead>
     <tr>
+      <th class="p-4"></th>
       <th
         *ngFor="let column of columns"
         class="p-4 header text-sm"
@@ -21,8 +22,15 @@
     <tbody>
     <tr
       *ngFor="let row of paginatedData"
-      class="row-container rounded-2xl text-sm"
+      class="row-container rounded-2xl text-sm h-full"
     >
+      <div class="flex justify-center items-center checkbox-container p-2">
+        <input
+          type="checkbox"
+          (change)="selectData($event, row)"
+        >
+      </div>
+
       <td *ngFor="let column of columns" [class.center-content]="column.foldable">
         <ng-container [ngSwitch]="column.foldable">
           <app-actionPanel

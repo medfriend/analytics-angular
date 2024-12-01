@@ -1,0 +1,74 @@
+@import "colors";
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  .toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    appearance: none; /* Oculta el checkbox predeterminado */
+    outline: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    &:checked {
+      background-color: $primary-color;
+
+      &::before {
+        transform: translateX(30px);
+      }
+    }
+  }
+}
+
+.checkbox-container {
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:checked {
+      background-color: $primary-color;
+      border-color: darken($primary-color, 5%);
+    }
+
+    &:focus {
+      border-color: lighten($primary-color, 5%);
+    }
+
+    &:hover {
+      border-color: lighten($primary-color, 5%);
+    }
+  }
+
+  label {
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+  }
+}
