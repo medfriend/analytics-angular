@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import { sharedModules } from '../../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from '../basic-table/table.component';
@@ -8,6 +8,7 @@ import { BasicAutocompleteComponent } from '../../autocompletes/basic-autocomple
 import {ApiService} from "../../../util/apiService/apiService.service";
 import {Usercolumns} from "../../../core/interfaces/components/rol-usuario/rol-usuario.interface";
 import {SelectableTableComponent} from "../selectable-table/selectable-table.component";
+import {ToastService} from "../../toast/toast.component";
 
 @Component({
   selector: 'app-filter-table',
@@ -23,6 +24,8 @@ export class filterTableComponent implements  OnInit, OnDestroy {
   dataSource: any[] = [];
   allDataSource: any[] = []
 
+  row: any = null;
+
   inputValue: string = '';
   columns: TableColumn[] = Usercolumns;
 
@@ -30,8 +33,11 @@ export class filterTableComponent implements  OnInit, OnDestroy {
   @Input('filterKey') filterKey: string = '';
   @Input('placeholder') placeholder: string = '';
 
+  @Output() selectedRow: EventEmitter<any> = new EventEmitter();
+
   constructor(
-    private httpServer: ApiService
+    private httpServer: ApiService,
+    private toastService: ToastService,
   ) {}
 
   ngOnInit() {
@@ -51,6 +57,19 @@ export class filterTableComponent implements  OnInit, OnDestroy {
       this.dataSource = data
       this.allDataSource = data
     })
+  }
+
+  handlerSelected(row: any) {
+    this.row = row;
+  }
+
+  handlerButton(){
+    if(this.row === null){
+      this.toastService.addToast('No se a seleccionado un valor', 'error')
+      return
+    }
+
+    this.selectedRow.emit(this.row);
   }
 
   ngOnDestroy(): void {

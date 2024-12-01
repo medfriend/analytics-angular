@@ -21,6 +21,7 @@ export class SelectableTableComponent implements AfterViewInit {
   @Input() idKey: string = '';
 
   @Output() overflowDetected: EventEmitter<boolean>  = new EventEmitter<boolean>();
+  @Output() rowSelected: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     protected tableService: TableService,
@@ -46,7 +47,10 @@ export class SelectableTableComponent implements AfterViewInit {
   }
 
   selectData($event: Event, row: any): void {
-    console.log(row);
+    const checkbox = $event.target as HTMLInputElement; // Cast al input checkbox
+    if (checkbox.checked){
+      this.rowSelected.emit(row)
+    }
   }
 
   handlerPagination(data: any[]){

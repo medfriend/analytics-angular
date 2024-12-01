@@ -14,12 +14,16 @@
     <selectable-table
       [columns]="columns"
       [data]="dataSource"
+      (rowSelected)="handlerSelected($event)"
     >
     </selectable-table>
 </div>
 
 <div class="button-container grid grid-cols-1 gap-4 w-25 justify-end ml-auto">
-  <button class="btn rounded-xl"> Selecionar </button>
+  <button
+    class="btn rounded-xl"
+    (click)="handlerButton()"
+  > Selecionar </button>
 </div>
 
 

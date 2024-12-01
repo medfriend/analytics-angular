@@ -17,6 +17,7 @@ export class ModalInputComponent {
   @Input() label: string = '';
   @Input() dataUri: string = '';
   @Input() filterKey: string = '';
+  @Input() labelKey: string = '';
   @Input() placeholder: string = '';
 
   isModalVisible: boolean = false;
@@ -30,5 +31,11 @@ export class ModalInputComponent {
 
   handleModalClose() {
     this.isModalVisible = false;
+  }
+
+  handlerSelectedRow(row: any){
+    this.label = row[this.labelKey];
+    this.modalService.closeModal();
+    this.handleModalClose()
   }
 }
