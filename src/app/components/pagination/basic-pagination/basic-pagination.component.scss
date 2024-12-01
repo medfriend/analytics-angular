@@ -1,0 +1,25 @@
+@import "colors";
+
+.pagination {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  mat-icon {
+    font-size: 1.5rem;
+    color: $lateral-menu-hover;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &.disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(.disabled) {
+      color: #0056b3;
+    }
+  }
+}

@@ -34,11 +34,11 @@
 
             <span *ngSwitchDefault>
               <ng-container *ngIf="column.date; else defaultLogic">
-                {{ convertDate(row[column.field]) }}
+                {{tableService.convertDate(row[column.field]) }}
               </ng-container>
 
               <ng-template #defaultLogic>
-                <ng-container *ngIf="isBoolean(row[column.field]); else stringTemplate">
+                <ng-container *ngIf="tableService.isBoolean(row[column.field]); else stringTemplate">
                   <mat-icon
                     *ngIf="row[column.field]; else inactiveIcon"
                     class="sun"
@@ -63,25 +63,9 @@
   </table>
 </div>
 
-<div class="pagination tracking-tighter leading-tight" *ngIf="paginated">
-  <mat-icon
-    (click)="changePage(-1)"
-    [class.disabled]="currentPage === 1"
-    aria-label="Página anterior"
-    [ngClass]="{ 'active': currentPage > 1 }"
-  >
-    chevron_left
-  </mat-icon>
-
-  <span class="text-sm">Página {{ currentPage }} de {{ totalPages }}</span>
-
-  <mat-icon
-    (click)="changePage(1)"
-    [class.disabled]="currentPage === totalPages"
-    aria-label="Página siguiente"
-    [ngClass]="{ 'active': currentPage < totalPages }"
-  >
-    chevron_right
-  </mat-icon>
-</div>
-
+<app-basic-pagination
+  [data]="data"
+  [paginated]="paginated"
+  (paginatedDataChange)="handlerPagination($event)"
+>
+</app-basic-pagination>
