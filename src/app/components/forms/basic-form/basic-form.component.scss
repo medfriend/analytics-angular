@@ -33,30 +33,6 @@
     }
   }
 
-  .button-container {
-    margin-top: 1rem;
-
-    .btn {
-      color: $light-color;
-      width: 100%;
-      border: none;
-      background-color: $primary-color;
-      cursor: pointer;
-      padding: 0.8rem;
-      font-size: 1rem;
-    }
-
-    .btn-cancelar {
-      width: 100%;
-      color: $light-color;
-      border: none;
-      background-color: $danger-color;
-      cursor: pointer;
-      padding: 0.8rem;
-      font-size: 1rem;
-    }
-  }
-
   // Media Queries para pantallas pequeñas
   @media (max-width: 768px) {
 
