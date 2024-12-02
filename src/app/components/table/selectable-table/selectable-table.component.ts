@@ -23,6 +23,8 @@ export class SelectableTableComponent implements AfterViewInit {
   @Output() overflowDetected: EventEmitter<boolean>  = new EventEmitter<boolean>();
   @Output() rowSelected: EventEmitter<any> = new EventEmitter<any>();
 
+  selectedRowId: any = null;
+
   constructor(
     protected tableService: TableService,
   ) {}
@@ -46,10 +48,13 @@ export class SelectableTableComponent implements AfterViewInit {
     }
   }
 
-  selectData($event: Event, row: any): void {
+  selectData($event: Event, row: any, index: number): void {
     const checkbox = $event.target as HTMLInputElement; // Cast al input checkbox
     if (checkbox.checked){
       this.rowSelected.emit(row)
+      this.selectedRowId = index
+    } else {
+      this.selectedRowId = null
     }
   }
 

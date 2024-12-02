@@ -1,1 +1,31 @@
-<h4> rol usuario </h4>
+<app-basic-header
+  [headerName]="'asignación de roles a usuarios'"
+>
+  <div class="ml-auto"></div>
+</app-basic-header>
+
+<form class="flex flex-row gap-2">
+  <div class="w-25">
+    <app-modal-input
+      [label]="'Selección de usuario'"
+      [dataUri]="'security/user/all'"
+      [filterKey]="'usuario'"
+      [labelKey]="'nombre_1'"
+      [placeholder]="'Buscar usuario por numero de identificación'"
+      [tableColumn]="testColumns"
+    >
+    </app-modal-input>
+  </div>
+  <div class="w-25">
+    <app-modal-input
+      [label]="'Selección de rol'"
+      [dataUri]="'security/user/all'"
+      [filterKey]="'usuario'"
+      [labelKey]="'nombre_1'"
+      [placeholder]="'Buscar usuario por numero de identificación'"
+      [tableColumn]="testColumns"
+    >
+    </app-modal-input>
+  </div>
+</form>
+

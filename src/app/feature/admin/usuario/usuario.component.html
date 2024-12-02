@@ -1,12 +1,13 @@
-<div class="flex flex-row items-center justify-center">
-  <h4 class="first-letter:capitalize title">administración de usuarios</h4>
+<app-basic-header
+  [headerName]="'adminitración de usuarios'"
+>
   <app-basic-autocomplete
     class="ml-auto"
     [placeholder]="'Buscar usuario'"
   >
   </app-basic-autocomplete>
-</div>
-<hr>
+</app-basic-header>
+
 <div class="flex justify-end gap-2">
   <app-basic-button
     label="crear"
@@ -24,13 +25,3 @@
   (overflowDetected)="handleOverflow($event)"
 >
 </app-master-table>
-<div class="w-25">
-  <app-modal-input
-    [label]="'Selección de usuario'"
-    [dataUri]="'security/user/all'"
-    [filterKey]="'usuario'"
-    [labelKey]="'nombre_1'"
-    [placeholder]="'Buscar usuario por numero de identificación'"
-  >
-  </app-modal-input>
-</div>

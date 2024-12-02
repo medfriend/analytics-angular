@@ -17,6 +17,7 @@ import {NotFound} from "../../../components/not-found/not-found.component";
 import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
 import {BasicBorderComponent} from "../../../components/border/basic-border.component";
 import {ModalInputComponent} from "../../../components/inputs/modal-input/modal-input.component";
+import {BasicHeaderComponent} from "../../../components/header/basic-header/basic-header.component";
 
 @Component({
   selector: 'app-usuario-admin',
@@ -24,8 +25,8 @@ import {ModalInputComponent} from "../../../components/inputs/modal-input/modal-
   styleUrls: ['./usuario.component.scss'],
   standalone: true,
   imports: [[...sharedModules],
-    BasicButtonComponent, TableComponent, BasicAutocompleteComponent, miniTableComponent,
-    BasicModalComponent, filterTableComponent, NotFound, MasterTableComponent, BasicBorderComponent, ModalInputComponent
+    BasicButtonComponent, BasicAutocompleteComponent,
+    MasterTableComponent, BasicHeaderComponent
   ],
 })
 
@@ -35,6 +36,8 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   columns: TableColumn[] = Usercolumns;
+
+  testColumns: TableColumn[] = Usercolumns;
 
   idKey= 'usuario_id';
 

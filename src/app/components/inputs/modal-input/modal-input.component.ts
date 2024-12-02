@@ -4,6 +4,7 @@ import {BasicBorderComponent} from "../../border/basic-border.component";
 import {BasicModalComponent} from "../../modal/basic-modal/basic-modal.component";
 import {filterTableComponent} from "../../table/filter-table/filter-table.component";
 import {ModalService} from "../../../util/modal/modal.service";
+import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
 
 @Component({
   selector: "app-modal-input",
@@ -19,6 +20,7 @@ export class ModalInputComponent {
   @Input() filterKey: string = '';
   @Input() labelKey: string = '';
   @Input() placeholder: string = '';
+  @Input() tableColumn: TableColumn[] = [];
 
   isModalVisible: boolean = false;
 

@@ -21,13 +21,14 @@
     </thead>
     <tbody>
     <tr
-      *ngFor="let row of paginatedData"
+      *ngFor="let row of paginatedData; let i = index"
       class="row-container rounded-2xl text-sm h-full"
     >
       <div class="flex justify-center items-center checkbox-container p-2">
         <input
           type="checkbox"
-          (change)="selectData($event, row)"
+          (change)="selectData($event, row, i)"
+          [checked]="selectedRowId === i"
         >
       </div>
 

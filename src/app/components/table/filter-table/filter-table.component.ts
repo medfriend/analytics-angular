@@ -26,12 +26,10 @@ export class filterTableComponent implements  OnInit, OnDestroy {
 
   row: any = null;
 
-  inputValue: string = '';
-  columns: TableColumn[] = Usercolumns;
-
   @Input('dataUri') dataUri: string = '';
   @Input('filterKey') filterKey: string = '';
   @Input('placeholder') placeholder: string = '';
+  @Input('tableColumns') columns: TableColumn[] = [];
 
   @Output() selectedRow: EventEmitter<any> = new EventEmitter();
 
