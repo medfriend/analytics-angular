@@ -1,4 +1,18 @@
-<h1> rol component </h1>
-<button (click)="handleRolClick()">
-  click rol test
-</button>
+<app-basic-header
+  [headerName]="'adminitración de rol'"
+>
+  <app-basic-autocomplete
+    class="ml-auto"
+    [placeholder]="'Buscar rol'"
+  >
+  </app-basic-autocomplete>
+</app-basic-header>
+
+<div class="flex justify-end gap-2">
+  <app-basic-button
+    label="crear"
+    icon="add"
+    (click)="navegateCreate()"
+  >
+  </app-basic-button>
+</div>

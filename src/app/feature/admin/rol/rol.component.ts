@@ -1,33 +1,60 @@
-import {Component, OnDestroy} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Subject, takeUntil} from "rxjs";
 import {RolService} from "../../../core/service/rol.service";
+import {BasicAutocompleteComponent} from "../../../components/autocompletes/basic-autocomplete.component";
+import {BasicHeaderComponent} from "../../../components/header/basic-header/basic-header.component";
+import {BasicButtonComponent} from "../../../components/buttons/basic-button/basic-button.component";
+import {Router} from "@angular/router";
+import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
+import {Usuario} from "../../../core/interfaces/components/usuario/usuario.interface";
+import {Rol} from "../../../core/interfaces/services/rol.interface";
 
 @Component({
   selector: 'app-rol-admin',
   templateUrl: './rol.component.html',
   styleUrls: ['./rol.component.scss'],
+  imports: [
+    BasicAutocompleteComponent,
+    BasicHeaderComponent,
+    BasicButtonComponent
+  ],
   standalone: true
 })
-export class RolAdminComponent implements OnDestroy{
+export class RolAdminComponent implements OnInit, OnDestroy{
 
   private destroy$ = new Subject<void>();
+  refreshRol: boolean = false;
+  dataSource: Rol[] = [];
 
   constructor(
-    private rolService: RolService
+    private rolService: RolService,
+    private router: Router,
+    private refreshTunnel: refreshTunnel,
   ) {}
 
-  handleRolClick() {
-    this.rolService
-      .GetRolById("1")
+  ngOnInit() {
+    this.handleRefreshRol()
+    this.getRoles()
+  }
+
+  navegateCreate(){
+    this.router.navigate(["/home/administracion-roles/crear"]);
+  }
+
+  handleRefreshRol(){
+    this.refreshTunnel.refresh$
       .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (data) => {
-          console.log('Rol recibido:', data);
-        },
-        error: (err) => {
-          console.error('Error al obtener el rol:', err);
-        },
-      });
+      .subscribe(refresh => {
+        this.refreshRol = refresh;
+      })
+  }
+
+  getRoles(){
+    this.rolService.getRoles(this.refreshRol)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((data) => {
+      this.dataSource = data
+    })
   }
 
   ngOnDestroy() {

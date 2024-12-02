@@ -37,8 +37,6 @@ export class UsuarioAdminComponent implements OnInit, OnDestroy {
 
   columns: TableColumn[] = Usercolumns;
 
-  testColumns: TableColumn[] = Usercolumns;
-
   idKey= 'usuario_id';
 
   refreshUser = false;

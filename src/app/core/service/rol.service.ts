@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {enviroment} from "../../enviroment/service.enviroment";
 import {Rol} from "../interfaces/services/rol.interface";
+import {Usuario} from "../interfaces/components/usuario/usuario.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,16 @@ export class RolService {
 
   GetRolById(id: string): Observable<Rol>{
     return this.http.get<Rol>(`${this.apiUrl}/${id}`);
+  }
+
+  getRoles(refresh: boolean): Observable<Rol[]> {
+    let headers = new HttpHeaders();
+
+    if (refresh) {
+      headers = headers.set('ignore-cache', 'Y')
+    }
+
+    return this.http.get<Rol[]>(`${this.apiUrl}/all`, { headers });
   }
 
 }
