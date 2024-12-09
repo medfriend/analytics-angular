@@ -4,4 +4,5 @@ export type  TableColumn = {
   foldable?: boolean;  // Opcional: Indica si la columna es plegable
   date?: boolean;  // Opcional: Indica si el campo debe tratarse como una fecha
   overflow?: boolean; // Opcional: Indica si el campo es que se mostrara cuando se encuentra en overflow en el componente de mobile
+  icon?: boolean; // opciona: indica si se mostrara en forma de icono
 }

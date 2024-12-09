@@ -23,40 +23,44 @@
         *ngFor="let row of paginatedData"
         class="row-container rounded-2xl text-sm"
       >
-        <td *ngFor="let column of columns" [class.center-content]="column.foldable">
-          <ng-container [ngSwitch]="column.foldable">
-            <app-actionPanel
-              *ngSwitchCase="true"
-              [panelLabel]="row[column.field]"
-            >
-              <app-table-list [id]="row[idKey]"></app-table-list>
-            </app-actionPanel>
+        <td *ngFor="let column of columns" [class.center-content]="column.foldable"><ng-container [ngSwitch]="column.foldable">
+          <!-- Caso plegable -->
+          <app-actionPanel *ngSwitchCase="true" [panelLabel]="row[column.field]">
+            <app-table-list [id]="row[idKey]"></app-table-list>
+          </app-actionPanel>
 
-            <span *ngSwitchDefault>
-              <ng-container *ngIf="column.date; else defaultLogic">
-                {{tableService.convertDate(row[column.field]) }}
+          <!-- Caso no plegable -->
+          <span *ngSwitchDefault>
+            <!-- Si es una fecha -->
+            <ng-container *ngIf="column.date; else nonDateLogic">
+              {{ tableService.convertDate(row[column.field]) }}
+            </ng-container>
+
+                    <!-- Lógica para no fechas -->
+            <ng-template #nonDateLogic>
+              <!-- Si es un ícono -->
+              <ng-container *ngIf="column.icon; else generalLogic">
+                <mat-icon>{{ row[column.field] }}</mat-icon>
               </ng-container>
 
-              <ng-template #defaultLogic>
+              <!-- Lógica general -->
+              <ng-template #generalLogic>
+                <!-- Si es un booleano -->
                 <ng-container *ngIf="tableService.isBoolean(row[column.field]); else stringTemplate">
-                  <mat-icon
-                    *ngIf="row[column.field]; else inactiveIcon"
-                    class="sun"
-                  >
-                    wb_sunny
-                  </mat-icon>
+                  <mat-icon *ngIf="row[column.field]; else inactiveIcon" class="sun">wb_sunny</mat-icon>
                   <ng-template #inactiveIcon>
                     <mat-icon class="moon">dark_mode</mat-icon>
                   </ng-template>
                 </ng-container>
 
+                <!-- Si es un string -->
                 <ng-template #stringTemplate>
-                  {{ row[column.field] }}
+                  <div>{{ row[column.field] }}</div>
                 </ng-template>
               </ng-template>
-            </span>
+            </ng-template>
+          </span>
         </ng-container>
-
         </td>
       </tr>
     </tbody>

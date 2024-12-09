@@ -1,4 +1,4 @@
-<div class="pagination tracking-tighter leading-tight" *ngIf="paginated">
+<div class="pagination tracking-tighter leading-tight" *ngIf="paginated && totalPages > 1">
   <mat-icon
     (click)="changePage(-1)"
     [class.disabled]="currentPage === 1"

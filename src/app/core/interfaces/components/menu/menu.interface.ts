@@ -10,5 +10,6 @@ export interface Menu {
 
 export const MenuColumns: TableColumn[]  = [
   { header: 'Nombre', field: 'nombre', foldable: true, overflow: true },
-  { header: 'Descripcion', field: 'descripcion' }
+  { header: 'Descripcion', field: 'descripcion' },
+  { header: 'Icono', field: 'icono', icon: true }
 ];
