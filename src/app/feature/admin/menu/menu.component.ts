@@ -12,6 +12,8 @@ import {CommonModule} from "@angular/common";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
 import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
+import {BasicPopupComponent} from "../../../components";
+import {UserListComponent} from "../../../components/list/user-list/user-list.component";
 
 @Component({
   selector: 'app-menu-admin',
@@ -22,7 +24,9 @@ import {MasterTableComponent} from "../../../components/table/master-table/maste
     BasicHeaderComponent,
     BasicButtonComponent,
     sharedModules,
-    MasterTableComponent
+    MasterTableComponent,
+    BasicPopupComponent,
+    UserListComponent
   ],
   styleUrls: ['./menu.component.scss']
 })
@@ -32,6 +36,7 @@ export class MenuAdminComponent implements OnInit, OnDestroy {
   overflow: boolean | undefined = false;
   idKey= 'MenuID';
   columns: TableColumn[] = MenuColumns;
+  isUserArrowActive = true;
 
   private destroy$ = new Subject<void>();
 
@@ -58,6 +63,14 @@ export class MenuAdminComponent implements OnInit, OnDestroy {
 
   navegateCreate(){
     this.router.navigate(["/home/administracion-menus/crear"])
+  }
+
+  userArrowActive(){
+    this.isUserArrowActive = true
+  }
+
+  userArrowDeactive(){
+    this.isUserArrowActive = false
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,16 @@
 import { CommonModule } from '@angular/common';
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, Output, SimpleChanges, ViewChild, EventEmitter } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild,
+  EventEmitter,
+  ContentChild, TemplateRef
+} from '@angular/core';
 import {sharedModules} from "../../../shared/shared.module";
 import {ActionPanelComponent} from "../../actionPanel/actionPanel.component";
 import {UserListComponent} from "../../list/user-list/user-list.component";
@@ -23,8 +34,11 @@ export class TableComponent implements AfterViewInit {
   @Input() data: any[] = [];
   @Input() paginated: boolean = true;
   @Input() idKey: string = '';
+  @Input() actions!: TemplateRef<any>;
 
   @Output() overflowDetected: EventEmitter<boolean>  = new EventEmitter<boolean>();
+
+  //@ContentChild('actions', { static: false }) actions!: TemplateRef<any>;
 
   constructor(
     protected tableService: TableService,

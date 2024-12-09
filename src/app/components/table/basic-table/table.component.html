@@ -62,6 +62,13 @@
           </span>
         </ng-container>
         </td>
+        <td>
+          <ng-container *ngTemplateOutlet="actions; context: { $implicit: row }"></ng-container>
+        </td>
+        <td>
+          <ng-content></ng-content>
+        </td>
+
       </tr>
     </tbody>
   </table>

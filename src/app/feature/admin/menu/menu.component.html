@@ -24,4 +24,19 @@
   [overflow]="overflow"
   (overflowDetected)="handleOverflow($event)"
 >
+
+  <ng-template #actions let-row>
+    <div
+      class="key-container flex"
+    >
+      <app-basic-popup
+        [isActive]="isUserArrowActive"
+        [translateX]="-120"
+        [translateY]="40"
+      >
+        <app-user-list/>
+      </app-basic-popup>
+    </div>
+  </ng-template>
+
 </app-master-table>

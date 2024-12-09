@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, ContentChild, EventEmitter, Input, Output, TemplateRef} from "@angular/core";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
 import {miniTableComponent} from "../mini-table/mini-table.component";
 import {TableComponent} from "../basic-table/table.component";
@@ -28,6 +28,8 @@ export class MasterTableComponent {
   @Input() overflow: boolean | undefined;
 
   @Output() overflowDetected = new EventEmitter<boolean>();
+
+  @ContentChild('actions', { static: false }) actions!: TemplateRef<any>;
 
   handleOverflow(event: boolean): void {
     this.overflowDetected.emit(event);

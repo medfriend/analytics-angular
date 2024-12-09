@@ -5,8 +5,10 @@
     [data]="dataSource"
     [idKey]="idKey"
     (overflowDetected)="handleOverflow($event)"
+    [actions]="actions"
   >
   </app-table>
+
   <app-mini-table
     *ngIf="overflow"
     [columns]="columns"
@@ -20,3 +22,5 @@
   <app-not-found [title]="noFoundTitle">
   </app-not-found>
 </ng-template>
+
+<ng-content select="[actions]"></ng-content>
