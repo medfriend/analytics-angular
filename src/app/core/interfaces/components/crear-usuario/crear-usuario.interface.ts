@@ -75,6 +75,15 @@ export const inputsCrearUsuario: InputInfo[] = [
     placeholder: 'estado',
     validators: []
   },
+  {
+    label: 'rol',
+    type: 'modalInput',
+    labelFor: 'rolId',
+    formControlName: 'rolId',
+    placeholder: 'seleccionar rol',
+    validators: []
+  },
+
 ];
 
 export const Usercolumns: TableColumn[]  = [
