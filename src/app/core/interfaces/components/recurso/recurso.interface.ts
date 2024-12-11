@@ -6,7 +6,7 @@ export interface Recurso {
   acceso: string;
 }
 
-export const recursoColumns: TableColumn[] = [
+export const RecursoColumns: TableColumn[] = [
   { header: 'id', field: 'recurso_id', foldable: true, overflow: true },
   { header: 'Descripcion', field: 'descripcion' },
   { header: 'Acceso', field: 'acceso' },

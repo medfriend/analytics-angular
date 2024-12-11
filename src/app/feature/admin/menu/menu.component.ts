@@ -65,14 +65,6 @@ export class MenuAdminComponent implements OnInit, OnDestroy {
     this.router.navigate(["/home/administracion-menus/crear"])
   }
 
-  userArrowActive(){
-    this.isUserArrowActive = true
-  }
-
-  userArrowDeactive(){
-    this.isUserArrowActive = false
-  }
-
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
