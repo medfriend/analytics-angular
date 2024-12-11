@@ -8,13 +8,13 @@ import {RecursoAdminComponent} from "../../feature/admin/recurso/recurso.compone
 import {UsuarioAdminComponent} from "../../feature/admin/usuario/usuario.component";
 import {RolAdminComponent} from "../../feature/admin/rol/rol.component";
 import {ParentMenuComponent} from "./views/main/components/parent-menu/parent-menu.component";
-import {CrearUsuarioComponent} from "../../feature/admin/usuario/components/crear-usuario/crear-usuario.component";
+import {CrearUsuarioComponent} from "../../feature/admin/usuario/pages/crear-usuario/crear-usuario.component";
 import {
   ActualizarUsuarioComponent
-} from "../../feature/admin/usuario/components/actualizar-usuario/actualizar-usuario.component";
+} from "../../feature/admin/usuario/pages/actualizar-usuario/actualizar-usuario.component";
 import {
   EliminarUsuarioComponent
-} from "../../feature/admin/usuario/components/eliminar-usuario/eliminar-usuario.component";
+} from "../../feature/admin/usuario/pages/eliminar-usuario/eliminar-usuario.component";
 import {EntidadComponent} from "../../feature/admin/entidad/entidad.component";
 import {RecursoMenuComponent} from "../../feature/asignacion/recurso-menu/recurso-menu.component";
 import {SubmenusMenuComponent} from "../../feature/asignacion/submenus-menu/submenus-menu.component";

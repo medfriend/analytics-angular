@@ -16,6 +16,16 @@
             {{ column.header }}
           </div>
         </th>
+        <th
+          class="p-4 header text-sm"
+        >
+          <div
+            class="px-4 py-2 rounded-md"
+            tabindex="0"
+          >
+            Acciones
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -62,13 +72,9 @@
           </span>
         </ng-container>
         </td>
-        <td>
+        <td *ngIf="actions" class="center-content">
           <ng-container *ngTemplateOutlet="actions; context: { $implicit: row }"></ng-container>
         </td>
-        <td>
-          <ng-content></ng-content>
-        </td>
-
       </tr>
     </tbody>
   </table>

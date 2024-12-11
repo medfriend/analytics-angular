@@ -3,7 +3,6 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {enviroment} from "../../enviroment/service.enviroment";
 import {Rol} from "../interfaces/services/rol.interface";
-import {Usuario} from "../interfaces/components/usuario/usuario.interface";
 
 @Injectable({
   providedIn: 'root'
