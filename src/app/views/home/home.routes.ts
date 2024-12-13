@@ -23,6 +23,7 @@ import {PermissionsGuard} from "../../core/guard/permission.guard";
 import {
   GestionMantenimientoComponent
 } from "../../feature/mantenimiento/gestion-mantenimiento/gestion-mantenimiento.component";
+import {CrearRecursoComponent} from "../../feature/admin/recurso/pages/crear-recurso/crear-recurso.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -56,6 +57,11 @@ export const HOME_ROUTES: Routes = [
       {
         path: 'administracion-recursos',
         component: RecursoAdminComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-recursos/crear',
+        component: CrearRecursoComponent,
         canActivate: [PermissionsGuard]
       },
       {
