@@ -24,6 +24,7 @@ import {
   GestionMantenimientoComponent
 } from "../../feature/mantenimiento/gestion-mantenimiento/gestion-mantenimiento.component";
 import {CrearRecursoComponent} from "../../feature/admin/recurso/pages/crear-recurso/crear-recurso.component";
+import {CrearEntidadComponent} from "../../feature/admin/entidad/pages/crear-entidad/crear-entidad.component";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -75,8 +76,13 @@ export const HOME_ROUTES: Routes = [
         canActivate: [PermissionsGuard]
       },
       {
-        path: 'adminitracion-entidades',
+        path: 'administracion-entidades',
         component: EntidadComponent,
+        canActivate: [PermissionsGuard]
+      },
+      {
+        path: 'administracion-entidades/crear',
+        component: CrearEntidadComponent,
         canActivate: [PermissionsGuard]
       },
       {

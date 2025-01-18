@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, CanActivate, Router} from "@angular/router";
 import {StorageService} from "../../util/localstorage/localstorage.service";
 import {AuthData} from "../interfaces/services/localstorage.service";
+import {AuthService} from "../service/auth.service";
+
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,8 @@ import {AuthData} from "../interfaces/services/localstorage.service";
 export class PermissionsGuard implements CanActivate {
   constructor(
     private localstorageService: StorageService,
-    private router: Router
+    private router: Router,
+
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
@@ -18,6 +21,9 @@ export class PermissionsGuard implements CanActivate {
     const fullUrl = route.pathFromRoot
       .map(segment => segment.url.map(s => s.path).join('/'))
       .join('/');
+
+    console.log(userInfo);
+    console.log(fullUrl);
 
     let hasRoute = false
 
@@ -30,6 +36,8 @@ export class PermissionsGuard implements CanActivate {
         })
       })
     }
+
+    //TODO agregar una toastada que no tienes permiso para acceder a esa vista
 
     return hasRoute;
   }
