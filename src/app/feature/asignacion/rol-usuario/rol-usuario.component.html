@@ -4,28 +4,42 @@
   <div class="ml-auto"></div>
 </app-basic-header>
 
-<div class="flex flex-row gap-2">
-  <div class="w-25">
-    <app-modal-input
-      [label]="'Selección de usuario'"
-      [dataUri]="'security/user/all'"
-      [filterKey]="'usuario'"
-      [labelKey]="'nombre_1'"
-      [placeholder]="'Buscar usuario por numero de identificación'"
-      [tableColumn]="testColumns"
-    >
-    </app-modal-input>
+<form [formGroup]="rolUsuarioForm">
+  <div class="flex flex-row gap-2">
+    <div class="w-25">
+      <app-modal-input
+        formControlName="usuario"
+        [label]="'Selecciona usuario'"
+        [dataUri]="'security/user/all'"
+        [filterKey]="'usuario'"
+        [labelKey]="'nombre_1'"
+        [formKey]="'usuario_id'"
+        [placeholder]="'Selección de usuario'"
+        [tableColumn]="testColumns"
+      >
+      </app-modal-input>
+    </div>
+    <div class="w-25">
+      <app-modal-input
+        formControlName="rol"
+        [label]="'Selecciona el rol'"
+        [dataUri]="'security/rol/all'"
+        [filterKey]="'nombre'"
+        [labelKey]="'nombre'"
+        [formKey]="'RolID'"
+        [placeholder]="'Selección de rol'"
+        [tableColumn]="rolColumns"
+      >
+      </app-modal-input>
+    </div>
+    <div class="ml-auto flex justify-center items-center">
+      <app-basic-button
+        [label]="'Asignar'"
+        (click)="asignar()"
+      >
+      </app-basic-button>
+    </div>
+
   </div>
-  <div class="w-25">
-    <app-modal-input
-      [label]="'Selección de rol'"
-      [dataUri]="'security/user/all'"
-      [filterKey]="'usuario'"
-      [labelKey]="'nombre_1'"
-      [placeholder]="'Buscar usuario por numero de identificación'"
-      [tableColumn]="testColumns"
-    >
-    </app-modal-input>
-  </div>
-</div>
+</form>
 

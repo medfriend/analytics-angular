@@ -10,3 +10,9 @@ export const Usercolumns: TableColumn[]  = [
   { header: 'Email', field: 'email' },
   { header: 'Fecha de Creación', field: 'fecha_creacion', date: true },
 ];
+
+export const Rolcolumns: TableColumn[] = [
+  { header: 'Estado', field: 'activo' },
+  { header: 'descripción', field: 'descripcion' },
+  { header: 'nombre', field: 'nombre', overflow: true },
+]
