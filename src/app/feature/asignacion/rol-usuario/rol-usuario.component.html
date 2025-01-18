@@ -5,8 +5,8 @@
 </app-basic-header>
 
 <form [formGroup]="rolUsuarioForm">
-  <div class="flex flex-row gap-2">
-    <div class="w-25">
+  <div class="grid grid-cols-3 gap-4">
+    <div class="col-span-1">
       <app-modal-input
         formControlName="usuario"
         [label]="'Selecciona usuario'"
@@ -19,7 +19,7 @@
       >
       </app-modal-input>
     </div>
-    <div class="w-25">
+    <div class="col-span-1">
       <app-modal-input
         formControlName="rol"
         [label]="'Selecciona el rol'"
