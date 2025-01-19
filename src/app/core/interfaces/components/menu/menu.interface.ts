@@ -1,4 +1,5 @@
 import {TableColumn} from "../table/basic-table/basic-table.interface";
+import {ActionTable} from "../action-table/action-table.component";
 
 export interface Menu {
   MenuID: number;         // ID único del menú
@@ -13,3 +14,7 @@ export const MenuColumns: TableColumn[]  = [
   { header: 'Descripcion', field: 'descripcion' },
   { header: 'Icono', field: 'icono', icon: true }
 ];
+
+export const MenuActions: ActionTable[] = [
+  { icon: 'link', color: '#4caf50', size: 24, route: '/home/asignacion-menu-submenu' }
+]

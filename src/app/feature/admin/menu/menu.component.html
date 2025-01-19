@@ -26,23 +26,10 @@
 >
 
   <ng-template #actions let-row>
-    <div class="gap-4">
-      <app-router-icon-button
-        icon="link"
-        color="#4caf50"
-        [size]="24"
-        route="/home/asignacion-menu-submenu"
-      >
-      </app-router-icon-button>
-
-      <app-router-icon-button
-        icon="merge"
-        color="#2196f3"
-        [size]="24"
-        route="/home/asignacion-menu-recurso"
-      ></app-router-icon-button>
-
-    </div>
+    <app-action-table
+      [actions]="menuActions"
+    >
+    </app-action-table>
   </ng-template>
 
 </app-master-table>
