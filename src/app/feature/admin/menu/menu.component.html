@@ -26,16 +26,22 @@
 >
 
   <ng-template #actions let-row>
-    <div
-      class="key-container flex"
-    >
-      <app-basic-popup
-        [isActive]="isUserArrowActive"
-        [translateX]="-120"
-        [translateY]="40"
+    <div class="gap-4">
+      <app-router-icon-button
+        icon="link"
+        color="#4caf50"
+        [size]="24"
+        route="/home/asignacion-menu-submenu"
       >
-        <app-user-list/>
-      </app-basic-popup>
+      </app-router-icon-button>
+
+      <app-router-icon-button
+        icon="merge"
+        color="#2196f3"
+        [size]="24"
+        route="/home/asignacion-menu-recurso"
+      ></app-router-icon-button>
+
     </div>
   </ng-template>
 

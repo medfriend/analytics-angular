@@ -8,12 +8,11 @@ import {Subject, takeUntil} from "rxjs";
 import {MenuService} from "../../../core/service/menu.service";
 import {StorageService} from "../../../util/localstorage/localstorage.service";
 import {sharedModules} from "../../../shared/shared.module";
-import {CommonModule} from "@angular/common";
 import {TableColumn} from "../../../core/interfaces/components/table/basic-table/basic-table.interface";
-import {Usercolumns} from "../../../core/interfaces/components/crear-usuario/crear-usuario.interface";
 import {MasterTableComponent} from "../../../components/table/master-table/master-table.component";
 import {BasicPopupComponent} from "../../../components";
 import {UserListComponent} from "../../../components/list/user-list/user-list.component";
+import {RouterIconButtonComponent} from "../../../components/buttons/router-icon-button/router-icon-button.component";
 
 @Component({
   selector: 'app-menu-admin',
@@ -26,7 +25,8 @@ import {UserListComponent} from "../../../components/list/user-list/user-list.co
     sharedModules,
     MasterTableComponent,
     BasicPopupComponent,
-    UserListComponent
+    UserListComponent,
+    RouterIconButtonComponent
   ],
   styleUrls: ['./menu.component.scss']
 })

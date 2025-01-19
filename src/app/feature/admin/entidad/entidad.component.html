@@ -17,3 +17,12 @@
   </app-basic-button>
 </div>
 
+<app-master-table
+  [dataSource]="dataSource"
+  [columns]="columns"
+  [idKey]="idKey"
+  [overflow]="overflow"
+  (overflowDetected)="handleOverflow($event)"
+>
+</app-master-table>
+
