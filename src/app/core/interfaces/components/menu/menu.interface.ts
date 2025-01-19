@@ -10,9 +10,9 @@ export interface Menu {
 }
 
 export const MenuColumns: TableColumn[]  = [
+  { header: 'Icono', field: 'icono', icon: true },
   { header: 'Nombre', field: 'nombre', foldable: true, overflow: true },
   { header: 'Descripcion', field: 'descripcion' },
-  { header: 'Icono', field: 'icono', icon: true }
 ];
 
 export const MenuActions: ActionTable[] = [
