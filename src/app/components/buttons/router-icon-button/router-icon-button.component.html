@@ -1,7 +1,8 @@
 <mat-icon
+  [matTooltip]="tooltip"
+  matTooltipPosition="above"
   [ngStyle]="{ color: color, fontSize: size + 'px' }"
   class="icon"
-  (click)="navigate()"
 >
   {{ icon }}
 </mat-icon>

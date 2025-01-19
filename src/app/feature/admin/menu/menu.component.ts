@@ -68,6 +68,10 @@ export class MenuAdminComponent implements OnInit, OnDestroy {
     this.router.navigate(["/home/administracion-menus/crear"])
   }
 
+  actionHandler(event: any, row:any){
+    console.log(event, row);
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

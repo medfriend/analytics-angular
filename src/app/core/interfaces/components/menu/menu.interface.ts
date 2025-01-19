@@ -16,5 +16,18 @@ export const MenuColumns: TableColumn[]  = [
 ];
 
 export const MenuActions: ActionTable[] = [
-  { icon: 'link', color: '#4caf50', size: 24, route: '/home/asignacion-menu-submenu' }
+  {
+    icon: 'link',
+    color: '#4caf50',
+    size: 24,
+    identificator: "menu-recurso",
+    tooltip: "asignar recurso a menu"
+  },
+  {
+    icon: 'merge',
+    color: '#4caf50',
+    size: 24,
+    identificator: "menu-submenu",
+    tooltip: "asignar submenu a menu"
+  }
 ]

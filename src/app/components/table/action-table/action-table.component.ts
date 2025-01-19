@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {RouterIconButtonComponent} from "../../buttons/router-icon-button/router-icon-button.component";
 import {sharedModules} from "../../../shared/shared.module";
 import {ActionTable} from "../../../core/interfaces/components/action-table/action-table.component";
@@ -15,4 +15,9 @@ import {ActionTable} from "../../../core/interfaces/components/action-table/acti
 })
 export class ActionTableComponent {
   @Input() actions: ActionTable[];
+  @Output() actionClicked = new EventEmitter();
+
+  onActionClicked(identificator: string){
+    this.actionClicked.emit(identificator);
+  }
 }
