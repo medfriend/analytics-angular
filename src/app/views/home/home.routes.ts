@@ -17,6 +17,7 @@ import {CrearEntidadComponent} from "../../feature/admin/entidad/pages/crear-ent
 import {ADMIN_USUARIO_ROUTE} from "../../feature/admin/usuario/usuario.route";
 import {ADMIN_RECURSO_ROUTE} from "../../feature/admin/recurso/recurso.route";
 import {ADMIN_MENU_ROUTE} from "../../feature/admin/menu/menu.route";
+import {ADMIN_ENTIDAD_ROUTE} from "../../feature/admin/entidad/entidad.route";
 
 export const HOME_ROUTES: Routes = [
   {
@@ -31,13 +32,7 @@ export const HOME_ROUTES: Routes = [
       ...ADMIN_RECURSO_ROUTE,
       ...ADMIN_MENU_ROUTE,
       { path: 'administracion-roles', component: RolAdminComponent, canActivate: [PermissionsGuard] },
-      {
-        path: 'administracion-entidades',
-        children: [
-          { path: '', component: EntidadComponent, canActivate: [PermissionsGuard] },
-          { path: 'crear', component: CrearEntidadComponent, canActivate: [PermissionsGuard] },
-        ]
-      },
+      ...ADMIN_ENTIDAD_ROUTE,
       { path: 'asignacion-menu-recurso', component: RecursoMenuComponent, canActivate: [PermissionsGuard] },
       { path: 'asignacion-menu-submenu', component: SubmenusMenuComponent, canActivate: [PermissionsGuard] },
       { path: 'asignacion-user-rol', component: RolUsuarioComponent, canActivate: [PermissionsGuard] },
