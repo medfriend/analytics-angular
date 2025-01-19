@@ -1,8 +1,8 @@
 import {Routes} from "@angular/router";
 import {HomeComponent} from "./views/main/home.component";
-import {AccountComponent} from "./views/account/account.component";
-import {AppearanceComponent} from "./views/appearance/appearance.component";
-import {PreferenceComponent} from "./views/preference/preference.component";
+import {AccountComponent} from "./views/user/account/account.component";
+import {AppearanceComponent} from "./views/user/appearance/appearance.component";
+import {PreferenceComponent} from "./views/user/preference/preference.component";
 import {RolAdminComponent} from "../../feature/admin/rol/rol.component";
 import {ParentMenuComponent} from "./views/main/components/parent-menu/parent-menu.component";
 import {EntidadComponent} from "../../feature/admin/entidad/entidad.component";
@@ -13,31 +13,27 @@ import {PermissionsGuard} from "../../core/guard/permission.guard";
 import {
   GestionMantenimientoComponent
 } from "../../feature/mantenimiento/gestion-mantenimiento/gestion-mantenimiento.component";
-import {CrearEntidadComponent} from "../../feature/admin/entidad/pages/crear-entidad/crear-entidad.component";
 import {ADMIN_USUARIO_ROUTE} from "../../feature/admin/usuario/usuario.route";
 import {ADMIN_RECURSO_ROUTE} from "../../feature/admin/recurso/recurso.route";
 import {ADMIN_MENU_ROUTE} from "../../feature/admin/menu/menu.route";
 import {ADMIN_ENTIDAD_ROUTE} from "../../feature/admin/entidad/entidad.route";
+import {ADMIN_ROL_ROUTE} from "../../feature/admin/rol/rol.route";
+import {ASIGNACION_RECURSO_MENU_ROUTE} from "../../feature/asignacion/recurso-menu/recurso-menu.route";
+import {USER_ROUTE} from "./views/user/user.route";
+import {ADMIN_ROUTE} from "../../feature/admin/admin.route";
+import {ASIGNACION_ROUTE} from "../../feature/asignacion/asignacion.route";
+import {MANTENIMIENTO_ROUTE} from "../../feature/mantenimiento/mantenimiento.route";
 
 export const HOME_ROUTES: Routes = [
   {
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'user/account', component: AccountComponent },
-      { path: 'user/appearance', component: AppearanceComponent },
-      { path: 'user/preference', component: PreferenceComponent },
       { path: 'parent-menu', component: ParentMenuComponent },
-      ...ADMIN_USUARIO_ROUTE,
-      ...ADMIN_RECURSO_ROUTE,
-      ...ADMIN_MENU_ROUTE,
-      { path: 'administracion-roles', component: RolAdminComponent, canActivate: [PermissionsGuard] },
-      ...ADMIN_ENTIDAD_ROUTE,
-      { path: 'asignacion-menu-recurso', component: RecursoMenuComponent, canActivate: [PermissionsGuard] },
-      { path: 'asignacion-menu-submenu', component: SubmenusMenuComponent, canActivate: [PermissionsGuard] },
-      { path: 'asignacion-user-rol', component: RolUsuarioComponent, canActivate: [PermissionsGuard] },
-      { path: 'gestion-mantenimiento', component: GestionMantenimientoComponent, canActivate: [PermissionsGuard] },
-      { path: 'solicitud-mantenimiento', component: RolUsuarioComponent, canActivate: [PermissionsGuard] },
+      ...ADMIN_ROUTE,
+      ...USER_ROUTE,
+      ...ASIGNACION_ROUTE,
+      ...MANTENIMIENTO_ROUTE
     ]
   }
 ];
