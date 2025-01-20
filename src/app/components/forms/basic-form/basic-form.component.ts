@@ -12,11 +12,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angul
 import { ToastService } from '../../toast/toast.component';
 import { sharedModules } from "../../../shared/shared.module";
 import { InputInfo } from "../../../core/interfaces/components/forms/basic-form/basic-form.interface";
+import {ModalInputComponent} from "../../inputs/modal-input/modal-input.component";
+import {Recursocolumns} from "../../../core/interfaces/components/menu-recurso/menu-recurso.interface";
 
 @Component({
   selector: 'app-basic-form',
   standalone: true,
-  imports: [...sharedModules, ReactiveFormsModule],
+  imports: [...sharedModules, ReactiveFormsModule, ModalInputComponent],
   templateUrl: './basic-form.component.html',
   styleUrls: ['./basic-form.component.scss']
 })
@@ -129,4 +131,6 @@ export class BasicFormComponent implements OnInit, OnChanges, AfterViewInit {
   execCancelHandler(): void {
     this.cancelHandler();
   }
+
+  protected readonly recursoColumns = Recursocolumns;
 }

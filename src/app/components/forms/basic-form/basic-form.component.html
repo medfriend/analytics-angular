@@ -6,7 +6,7 @@
       <div class="form-group" *ngFor="let input of inputs">
         <label class="form-label first-letter:capitalize" [for]="input.formControlName">{{ input.label }}</label>
         <input
-          *ngIf="input.type !== 'checkbox'"
+          *ngIf="input.type !== 'checkbox' && input.type != 'modal-input'"
           [type]="showPasswordType(input.type)"
           [id]="input.formControlName"
           class="form-control rounded-xl text-base"
@@ -23,6 +23,18 @@
             [checked]="loginForm.get(input.formControlName)?.value"
             class="toggle"
           >
+        </div>
+        <div *ngIf="input.type === 'modal-input' && input.modalInput">
+          <app-modal-input
+            [formControlName]="input.formControlName"
+            [dataUri]="input.modalInput.dataUri"
+            [filterKey]="input.modalInput.filterKey"
+            [labelKey]="input.modalInput.labelKey"
+            [formKey]="input.modalInput.formKey"
+            [placeholder]="input.modalInput.placeholder"
+            [tableColumn]="input.modalInput.tableColumn"
+          >
+          </app-modal-input>
         </div>
         <div class="flex flex-row checkbox-container" *ngIf="input.type === 'password'">
             <input type="checkbox" (click)="toggleShowPassword()">
