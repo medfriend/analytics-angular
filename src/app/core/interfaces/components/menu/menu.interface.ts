@@ -15,6 +15,12 @@ export const MenuColumns: TableColumn[]  = [
   { header: 'Descripcion', field: 'descripcion' },
 ];
 
+export const  CrearMenuColumns: TableColumn[]  = [
+  { header: 'Icono', field: 'icono', icon: true },
+  { header: 'Nombre', field: 'nombre' },
+  { header: 'Descripcion', field: 'descripcion' },
+];
+
 export const MenuActions: ActionTable[] = [
   {
     icon: 'link',

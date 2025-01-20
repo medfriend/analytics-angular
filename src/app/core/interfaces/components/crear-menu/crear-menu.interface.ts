@@ -1,8 +1,25 @@
 import {InputInfo} from "../forms/basic-form/basic-form.interface";
 import {Validators} from "@angular/forms";
-import {MenuColumns} from "../menu/menu.interface";
+import {CrearMenuColumns, MenuColumns} from "../menu/menu.interface";
 
 export const inputsCrearMenu: InputInfo[] = [
+  {
+    label: 'Menu Padre',
+    type: 'modal-input',
+    labelFor: '',
+    formControlName: 'menuPadre',
+    placeholder: '',
+    validators: [],
+    modalInput:{
+      label: 'Selecciona menu padre',
+      dataUri: 'security/menu/parents/1',
+      filterKey: 'nombre',
+      labelKey: 'nombre',
+      formKey: 'MenuID',
+      placeholder: 'Selecciona menu padre',
+      tableColumn: CrearMenuColumns
+    }
+  },
   {
     label: 'Nombre',
     type: 'text',
@@ -20,20 +37,11 @@ export const inputsCrearMenu: InputInfo[] = [
     validators: [Validators.required]
   },
   {
-    label: 'Menu Padre',
-    type: 'modal-input',
-    labelFor: '',
-    formControlName: 'menuPadre',
-    placeholder: '',
-    validators: [],
-    modalInput:{
-      label: 'Selecciona menu padre',
-      dataUri: 'security/menu/parents/1',
-      filterKey: 'nombre',
-      labelKey: 'nombre',
-      formKey: 'MenuID',
-      placeholder: 'Selecciona menu padre',
-      tableColumn: MenuColumns
-    }
+    label: 'icono',
+    type: 'text',
+    labelFor: 'icono',
+    formControlName: 'icono',
+    placeholder: 'Selecciona el icono',
+    validators: [Validators.required]
   },
 ]
