@@ -15,6 +15,7 @@ import {UserListComponent} from "../../../components/list/user-list/user-list.co
 import {RouterIconButtonComponent} from "../../../components/buttons/router-icon-button/router-icon-button.component";
 import {ActionTableComponent} from "../../../components/table/action-table/action-table.component";
 import {ActionTable} from "../../../core/interfaces/components/action-table/action-table.component";
+import {refreshTunnel} from "../../../core/tunnel/usuario/usuario.tunnel";
 
 @Component({
   selector: 'app-menu-admin',
@@ -41,27 +42,44 @@ export class MenuAdminComponent implements OnInit, OnDestroy {
   columns: TableColumn[] = MenuColumns;
   menuActions: ActionTable[] = MenuActions;
 
+  refreshMenu = false;
+
   private destroy$ = new Subject<void>();
 
   constructor(
     private localstorageService: StorageService,
     private router: Router,
     private menuService: MenuService,
+    private refreshTunnel: refreshTunnel
   ) {}
 
   ngOnInit() {
-    const userInfo = this.localstorageService.getItem('userInfo');
-    // @ts-ignore
-    this.menuService.getParentMenu(userInfo.entidadId)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(menus => {
-        this.dataSource = menus;
-      })
+    this.handleRefreshMenu()
+    this.handleGetMenus()
   }
 
   //TODO pasarlo a una utilidad
   handleOverflow(isOverflowing: boolean | undefined): void {
     this.overflow = isOverflowing;
+  }
+
+  handleRefreshMenu(){
+    this.refreshTunnel.refresh$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(refresh => {
+        this.refreshMenu = refresh;
+      })
+  }
+
+  handleGetMenus(){
+    const userInfo = this.localstorageService.getItem('userInfo');
+    // @ts-ignore
+    this.menuService.getParentMenu(userInfo.entidadId, this.refreshMenu)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(menus => {
+        this.dataSource = menus;
+        this.refreshTunnel.setrefreshState(false)
+      })
   }
 
   navegateCreate(){

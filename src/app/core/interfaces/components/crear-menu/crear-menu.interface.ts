@@ -7,7 +7,7 @@ export const inputsCrearMenu: InputInfo[] = [
     label: 'Menu Padre',
     type: 'modal-input',
     labelFor: '',
-    formControlName: 'menuPadre',
+    formControlName: 'menu_padre_id',
     placeholder: '',
     validators: [],
     modalInput:{

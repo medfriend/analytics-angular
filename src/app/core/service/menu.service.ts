@@ -12,7 +12,17 @@ export class MenuService {
 
   constructor(private http: HttpClient) {}
 
-  getParentMenu(id: string): Observable<Menu[]> {
-    return this.http.get<Menu[]>(`${this.apiUrl}/parents/${id}`);
+  getParentMenu(id: string, refresh: boolean): Observable<Menu[]> {
+    let headers = new HttpHeaders();
+
+    if (refresh) {
+      headers = headers.set('ignore-cache', 'Y')
+    }
+
+    return this.http.get<Menu[]>(`${this.apiUrl}/parents/${id}`, { headers });
+  }
+
+  createMenu(dto: Menu): Observable<Menu> {
+    return this.http.post<Menu>(`${this.apiUrl}/`, dto);
   }
 }

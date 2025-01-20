@@ -7,6 +7,7 @@ export interface Menu {
   entidad_id: number;     // ID de la entidad asociada
   descripcion: string;    // Descripción del menú
   icono: string;
+  menu_padre_id: string;
 }
 
 export const MenuColumns: TableColumn[]  = [
