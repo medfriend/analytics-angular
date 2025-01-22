@@ -25,4 +25,8 @@ export class MenuService {
   createMenu(dto: Menu): Observable<Menu> {
     return this.http.post<Menu>(`${this.apiUrl}/`, dto);
   }
+
+  getMenuById(id: number){
+    return this.http.get<Menu>(`${this.apiUrl}/${id}`);
+  }
 }

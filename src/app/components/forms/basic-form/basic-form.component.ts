@@ -131,6 +131,4 @@ export class BasicFormComponent implements OnInit, OnChanges, AfterViewInit {
   execCancelHandler(): void {
     this.cancelHandler();
   }
-
-  protected readonly recursoColumns = Recursocolumns;
 }
