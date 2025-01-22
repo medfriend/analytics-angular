@@ -32,8 +32,20 @@
           (click)="navegateTo(route.name, i, isLast)"
           class="sub-control-panel"
         >
-          {{ route.name }}
+          <a *ngIf="!isLast">
+            {{ route.name }}
+          </a>
+          <a *ngIf="isLast">
+
+            {{ getLastParam(route.name) }}
+          </a>
         </div>
+
+        <ng-container *ngIf="parseParams(route.name)">
+          <div *ngFor="let param of parseParams(route.name)" class="bg-white p-1 rounded-md ml-1">
+            {{ param.key }} {{ param.value }}
+          </div>
+        </ng-container>
       </ng-template>
 
       <!-- Ícono de separación si no es el último -->

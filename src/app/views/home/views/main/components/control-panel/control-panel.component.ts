@@ -178,6 +178,32 @@ export class ControlPanelComponent implements OnInit {
     }
   }
 
+  parseParams(routeName: string): { key: string; value: string }[] {
+    if (!routeName) {
+      return [];
+    }
+    const params: { key: string; value: string }[] = [];
+    const queryString = routeName.split('?')[1];
+    if (queryString) {
+      queryString.split('&').forEach((param) => {
+        const [key, value] = param.split('=');
+        if (key && value) {
+          params.push({ key, value });
+        }
+      });
+    }
+
+    return params;
+  }
+
+  getLastParam(routeName: string){
+    if (routeName.split('?')[0]) {
+      return routeName.split('?')[0]
+    }
+
+    return routeName
+  }
+
   navegateHome(){
     console.log(this.actualRoute)
   }
