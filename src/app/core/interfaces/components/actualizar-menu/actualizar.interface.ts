@@ -17,7 +17,8 @@ export const ActualizarMenuInputs: InputInfo[] = [
       labelKey: 'nombre',
       formKey: 'MenuID',
       placeholder: 'Selecciona menu padre',
-      tableColumn: CrearMenuColumns
+      tableColumn: CrearMenuColumns,
+      disable: false
     }
   },
   {

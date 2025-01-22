@@ -17,7 +17,8 @@ export const inputsCrearMenu: InputInfo[] = [
       labelKey: 'nombre',
       formKey: 'MenuID',
       placeholder: 'Selecciona menu padre',
-      tableColumn: CrearMenuColumns
+      tableColumn: CrearMenuColumns,
+      disable: false
     }
   },
   {

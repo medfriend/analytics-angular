@@ -8,6 +8,7 @@ type ModalInput = {
   labelKey: string;
   formKey: string;
   placeholder: string;
+  disable: boolean;
   tableColumn: TableColumn[];
 }
 

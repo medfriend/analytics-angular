@@ -5,7 +5,15 @@
         {{placeholder}}
       </div>
       <div class="flex items-center ml-auto cursor-pointer">
-        <mat-icon (click)="openModal()"> search </mat-icon>
+        <mat-icon
+          (click)="openModal()"
+          *ngIf="!disabled"
+        > search
+        </mat-icon>
+        <mat-icon
+          *ngIf="disabled"
+        > search
+        </mat-icon>
       </div>
     </div>
   </div>

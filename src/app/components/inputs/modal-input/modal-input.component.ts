@@ -30,6 +30,7 @@ export class ModalInputComponent implements ControlValueAccessor{
   @Input() formKey: string = '';
   @Input() placeholder: string = '';
   @Input() tableColumn: TableColumn[] = [];
+  @Input() disabled: boolean = false;
 
   isModalVisible: boolean = false;
   value: any;
@@ -40,7 +41,6 @@ export class ModalInputComponent implements ControlValueAccessor{
   constructor(private modalService: ModalService) {}
 
   writeValue(value: any): void {
-    console.log("valor escrito desde el patchvalue",value);
     this.placeholder = value;
     this.value = value;
   }

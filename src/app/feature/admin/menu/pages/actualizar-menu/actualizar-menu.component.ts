@@ -48,6 +48,10 @@ export class ActualizarMenuComponent implements OnInit, OnDestroy {
             menu.menu_padre_id = menu.menu_padre.nombre
           }
 
+          if(menu.menu_padre === undefined && this.inputs[0].modalInput){
+            this.inputs[0].modalInput.disable = true;
+          }
+
           this.initialValues = menu
       })
     })
