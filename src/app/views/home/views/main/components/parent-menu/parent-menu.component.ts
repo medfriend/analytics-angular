@@ -42,6 +42,7 @@ export class ParentMenuComponent implements OnInit{
         if (item.label === this.menu){
           // @ts-ignore
           this.submenus = item.submenus
+          console.log(this.submenus)
         }
       })
     });
