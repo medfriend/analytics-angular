@@ -11,7 +11,7 @@
   <div
     *ngFor="let item of submenus"
     class="flex flex-row items-center rounded-2xl gap-2 menu p-2"
-    [routerLink]="item.route"
+    (click)="routeHandler(item.route)"
     tabindex="0"
   >
     <mat-icon class="rounded-full p-3 icon">

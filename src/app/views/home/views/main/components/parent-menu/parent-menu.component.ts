@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {StorageService} from "../../../../../../util/localstorage/localstorage.service";
 import {sharedModules} from "../../../../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../../../../components/autocompletes/basic-autocomplete.component";
+import {enviroment} from "../../../../../../enviroment/service.enviroment";
 
 type menuItem = {
   label: string;
@@ -27,6 +28,8 @@ export class ParentMenuComponent implements OnInit{
   menu = '';
   submenus: menuItem[] = []
 
+  enviromentP = enviroment
+
   ngOnInit() {
     this.getMenuName()
   }
@@ -46,5 +49,18 @@ export class ParentMenuComponent implements OnInit{
         }
       })
     });
+  }
+
+  routeHandler(routeName: string){
+    const service = routeName.split("/")[1]
+
+    const firstSlash = routeName.indexOf("/"); // Encuentra el primer /
+    const secondSlash = routeName.indexOf("/", firstSlash + 1); // Encuentra el segundo /
+    const result = secondSlash !== -1 ? routeName.substring(secondSlash) : "";
+
+    // @ts-ignore
+    const host = this.enviromentP[service]
+
+    window.location.href = 'http://' + host + result;
   }
 }
