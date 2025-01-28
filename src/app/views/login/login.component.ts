@@ -1,5 +1,5 @@
 import { AuthState } from '../../store/auth/auth.state';
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ToastComponent, ToastService, BasicFormComponent} from '../../components';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
@@ -22,7 +22,7 @@ import {jwtDecode} from "jwt-decode";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements  OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
 
   forTitle: string = 'MedFriend';
 
@@ -38,6 +38,10 @@ export class LoginComponent implements  OnDestroy {
     private authService: AuthService,
   ) {
     this.token$ = store.pipe(select(state => state.auth.token));
+  }
+
+  ngOnInit() {
+    this.clearLocalStorage()
   }
 
   //onSubmitHandler handler para realizar el submit
@@ -70,6 +74,10 @@ export class LoginComponent implements  OnDestroy {
     }catch (e){
       return null
     }
+  }
+
+  clearLocalStorage(){
+    this.localstorageService.clear()
   }
 
   handlerAuthentication(auth: any, toast: ToastService): void {

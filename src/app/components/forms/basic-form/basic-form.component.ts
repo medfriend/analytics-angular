@@ -6,14 +6,14 @@ import {
   SimpleChanges,
   ElementRef,
   HostListener,
-  AfterViewInit
+  AfterViewInit, Inject, PLATFORM_ID
 } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.component';
 import { sharedModules } from "../../../shared/shared.module";
 import { InputInfo } from "../../../core/interfaces/components/forms/basic-form/basic-form.interface";
 import {ModalInputComponent} from "../../inputs/modal-input/modal-input.component";
-import {Recursocolumns} from "../../../core/interfaces/components/menu-recurso/menu-recurso.interface";
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-basic-form',
@@ -42,6 +42,7 @@ export class BasicFormComponent implements OnInit, OnChanges, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private toastService: ToastService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.loginForm = this.fb.group({});
   }
@@ -58,7 +59,9 @@ export class BasicFormComponent implements OnInit, OnChanges, AfterViewInit {
   ngAfterViewInit() {
     // @ts-ignore
     setTimeout(() => {
-      this.onResize(window);
+      if (isPlatformBrowser(this.platformId)){
+        this.onResize(window);
+      }
       this.showForm = true;
     }, 0);
   }
