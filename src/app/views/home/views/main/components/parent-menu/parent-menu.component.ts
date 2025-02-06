@@ -5,6 +5,7 @@ import {sharedModules} from "../../../../../../shared/shared.module";
 import {BasicAutocompleteComponent} from "../../../../../../components/autocompletes/basic-autocomplete.component";
 import {enviroment} from "../../../../../../enviroment/service.enviroment";
 import {isPlatformBrowser} from "@angular/common";
+import {ServiceService} from "../../../../../../core/service/md-service/service.service";
 
 type menuItem = {
   label: string;
@@ -29,6 +30,7 @@ export class ParentMenuComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private localstorageService: StorageService,
+    private serviceService: ServiceService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -52,16 +54,23 @@ export class ParentMenuComponent implements OnInit {
     });
   }
 
+  getService(prefijo: string, path: string) {
+    this.serviceService.getServiceBYPrefijo(prefijo).subscribe(service => {
+      const { puerto } = service[0]
+      window.location.href = 'http://localhost:' + puerto + path;
+    })
+  }
+
   routeHandler(routeName: string){
     if (isPlatformBrowser(this.platformId)) {
       const service = routeName.split("/")[1];
       const firstSlash = routeName.indexOf("/"); // Encuentra el primer /
       const secondSlash = routeName.indexOf("/", firstSlash + 1); // Encuentra el segundo /
-      const result = secondSlash !== -1 ? routeName.substring(secondSlash) : "";
+      const path = secondSlash !== -1 ? routeName.substring(secondSlash) : "";
       // @ts-ignore
-      const host = this.enviromentP[service];
+      this.getService(service, path)
 
-      window.location.href = 'http://' + host + result;
+
     }
   }
 }

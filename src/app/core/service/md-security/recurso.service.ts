@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
-import {enviroment} from "../../enviroment/service.enviroment";
+import {enviroment} from "../../../enviroment/service.enviroment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Rol} from "../interfaces/services/rol.interface";
-import {Recurso} from "../interfaces/components/recurso/recurso.interface";
-import {Usuario} from "../interfaces/components/usuario/usuario.interface";
+import {Rol} from "../../interfaces/services/rol.interface";
+import {Recurso} from "../../interfaces/components/recurso/recurso.interface";
+import {Usuario} from "../../interfaces/components/usuario/usuario.interface";
 
 @Injectable({
   providedIn: 'root'

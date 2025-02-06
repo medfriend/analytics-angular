@@ -6,7 +6,7 @@ import { select, Store } from '@ngrx/store';
 import { setToken } from '../../store/auth/auth.actions';
 import { Router, RouterOutlet } from '@angular/router';
 import { StorageService } from '../../util/localstorage/localstorage.service';
-import { AuthService } from "../../core/service/auth.service";
+import { AuthService } from "../../core/service/md-security/auth.service";
 import { Auth } from "../../core/interfaces/services/auth.interface";
 import { inputsLogin } from "../../core/interfaces/components/login/login.interface";
 import {jwtDecode} from "jwt-decode";

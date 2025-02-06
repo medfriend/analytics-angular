@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Auth} from "../interfaces/services/auth.interface";
-import {enviroment} from "../../enviroment/service.enviroment";
+import {Auth} from "../../interfaces/services/auth.interface";
+import {enviroment} from "../../../enviroment/service.enviroment";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class AuthService {
   auth(data: Auth): Observable<any> {
 
     const headers = new HttpHeaders({
-      'Usuario': data.usuario.toString()
+        'Usuario': data.usuario.toString(),
+        'ignore-cache': 'Y'
     });
 
     return this.http.post(`${this.apiUrl}`, data, { headers: headers });

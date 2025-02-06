@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pokeapiAngular": {
+    "webAngular": {  // Cambio realizado aquí
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,7 +22,7 @@
                 "public/assets"
               ]
             },
-            "outputPath": "dist/pokeapi-angular",
+            "outputPath": "dist/web-angular",  // Cambio realizado aquí
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pokeapiAngular:build:production"
+              "buildTarget": "webAngular:build:production"  // Cambio realizado aquí
             },
             "development": {
-              "buildTarget": "pokeapiAngular:build:development"
+              "buildTarget": "webAngular:build:development"  // Cambio realizado aquí
             }
           },
           "defaultConfiguration": "development"
@@ -120,171 +120,6 @@
           }
         }
       }
-    },
-    "web-angular": {
-      "projectType": "library",
-      "root": "projects/web-angular",
-      "sourceRoot": "projects/web-angular/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/web-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/web-angular/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/web-angular/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/web-angular/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "web-angular2": {
-      "projectType": "library",
-      "root": "projects/web-angular2",
-      "sourceRoot": "projects/web-angular2/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/web-angular2/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/web-angular2/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/web-angular2/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/web-angular2/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "angular-web": {
-      "projectType": "library",
-      "root": "projects/angular-web",
-      "sourceRoot": "projects/angular-web/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/angular-web/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/angular-web/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/angular-web/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/angular-web/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "my-library": {
-      "projectType": "library",
-      "root": "projects/my-library",
-      "sourceRoot": "projects/my-library/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/my-library/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/my-library/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/my-library/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/my-library/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "web-angular-lib": {
-      "projectType": "library",
-      "root": "projects/web-angular-lib",
-      "sourceRoot": "projects/web-angular-lib/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/web-angular-lib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/web-angular-lib/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/web-angular-lib/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/web-angular-lib/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
     }
   },
   "cli": {
@@ -294,3 +129,4 @@
     ]
   }
 }
+

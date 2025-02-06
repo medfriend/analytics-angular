@@ -1,7 +1,7 @@
-import {enviroment} from "../../enviroment/service.enviroment";
+import {enviroment} from "../../../enviroment/service.enviroment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Menu} from "../interfaces/components/menu/menu.interface";
+import {Menu} from "../../interfaces/components/menu/menu.interface";
 import {Injectable} from "@angular/core";
 
 @Injectable({
