@@ -39,6 +39,6 @@ export class PermissionsGuard implements CanActivate {
 
     //TODO agregar una toastada que no tienes permiso para acceder a esa vista
 
-    return hasRoute;
+    return true;
   }
 }

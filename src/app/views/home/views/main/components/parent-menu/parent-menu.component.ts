@@ -69,8 +69,6 @@ export class ParentMenuComponent implements OnInit {
       const path = secondSlash !== -1 ? routeName.substring(secondSlash) : "";
       // @ts-ignore
       this.getService(service, path)
-
-
     }
   }
 }
