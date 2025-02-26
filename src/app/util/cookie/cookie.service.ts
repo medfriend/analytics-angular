@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookieService as NgxCookieService } from 'ngx-cookie-service';
-import {enviroment} from "../../enviroment/service.enviroment";
+import {enviroment} from "../../enviroment/service.enviroment.local";
 
 @Injectable({
   providedIn: 'root',

@@ -32,3 +32,49 @@
   </canvas>
 </div>
 
+<h4> burbujas </h4>
+<div>
+  <canvas baseChart
+          [datasets]="bubbleChartDatasets"
+          [options]="bubbleChartOptions"
+          [legend]="bubbleChartLegend"
+          [type]="'bubble'"
+  >
+  </canvas>
+</div>
+
+
+<h4> radar </h4>
+<div>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          type="radar"
+  >
+  </canvas>
+</div>
+
+<h4> dona </h4>
+<div>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          type='doughnut'
+  >
+  </canvas>
+</div>
+
+<h4> scatter </h4>
+<div>
+  <canvas baseChart
+          [datasets]="scatterChartDatasets"
+          [options]="scatterChartOptions"
+          [legend]="scatterChartLegend"
+          type='scatter'
+  >
+  </canvas>
+</div>

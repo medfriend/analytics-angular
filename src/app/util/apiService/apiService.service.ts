@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {enviroment} from "../../enviroment/service.enviroment";
+import {enviroment} from "../../enviroment/service.enviroment.local";
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,7 @@ export class ApiService {
     if (refresh) {
       headers = headers.set('ignore-cache', 'Y')
     }
-    
+
     return this.http.get<T>(url, { params, headers });
   }
 

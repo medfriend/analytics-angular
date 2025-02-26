@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {enviroment} from "../../../enviroment/service.enviroment";
+import {enviroment} from "../../../enviroment/service.enviroment.local";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Auth} from "../../interfaces/services/auth.interface";
 import {Observable} from "rxjs";

@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import {BaseChartDirective} from "ng2-charts";
+import {ChartOptions, ChartType, ChartDataSets, ChartConfiguration} from 'chart.js';
+import {sharedModules} from "../../shared/shared.module";
 
 @Component({
   selector: 'app-component',
   templateUrl: './component.component.html',
   styleUrls: ['./component.component.scss'],
-  imports: [BaseChartDirective],
+  imports: [...sharedModules],
   standalone: true
 })
 export default class ComponentComponent {
@@ -31,5 +31,44 @@ export default class ComponentComponent {
       borderColor: 'rgba(54, 162, 235, 1)',       // Azul
       borderWidth: 1
     }
+  ];
+
+  public bubbleChartOptions: ChartOptions = {
+    responsive: true,
+  };
+
+  public bubbleChartLegend = true;
+
+  public bubbleChartDatasets: ChartDataSets[] = [
+    {
+      data: [
+        { x: 10, y: 10, r: 10 },
+        { x: 15, y: 5, r: 15 },
+        { x: 10, y: 12, r: 40 },
+        { x: 7, y: 8, r: 8 },
+      ],
+      label: 'Series A',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)'
+    },
+  ];
+
+  public scatterChartOptions: ChartOptions = {
+    responsive: true,
+  };
+
+  public scatterChartLegend = true;
+
+  public scatterChartDatasets: ChartDataSets[] = [
+    {
+      data: [
+        { x: 10, y: 10 },
+        { x: 15, y: 5 },
+        { x: 10, y: 12 },
+        { x: 7, y: 8 },
+      ],
+      pointRadius: 10,
+      label: 'Series A',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)'
+    },
   ];
 }
