@@ -1,12 +1,14 @@
-import {Component} from "@angular/core";
+import {Component, ViewEncapsulation} from "@angular/core";
 import {ChartOptions, ChartType, ChartDataSets, ChartConfiguration} from 'chart.js';
 import {sharedModules} from "../../shared/shared.module";
+import {NgxGaugeModule} from "ngx-gauge";
 
 @Component({
   selector: 'app-component',
   templateUrl: './component.component.html',
   styleUrls: ['./component.component.scss'],
-  imports: [...sharedModules],
+  imports: [...sharedModules, NgxGaugeModule],
+  encapsulation: ViewEncapsulation.None,
   standalone: true
 })
 export default class ComponentComponent {
@@ -71,4 +73,11 @@ export default class ComponentComponent {
       backgroundColor: 'rgba(54, 162, 235, 0.2)'
     },
   ];
+
+  gaugeType = "semi";
+  gaugeValue = 28.3;
+  gaugeLabel = "Speed";
+  gaugeAppendText = "km/hr";
+  gaugeThickness = 15;
+  gaugueSize = 400;
 }
