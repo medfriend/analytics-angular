@@ -11,7 +11,7 @@ export class ExcelService {
 
   constructor(private http: HttpClient) {}
 
-  getExcel(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+  getExcel(hoja: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}${hoja}${enviroment.llaveExcel}`);
   }
 }

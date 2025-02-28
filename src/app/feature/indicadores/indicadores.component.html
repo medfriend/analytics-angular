@@ -1,13 +1,15 @@
 TEST INDICADORES
-
-<h4> barras </h4>
-<div>
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          type="bar"
+<div *ngFor="let hoja of hojas; let i = index" class="mb-8">
+  <app-basic-card
+    [titulo]="hoja"
   >
-  </canvas>
+    <canvas baseChart
+            [datasets]="barChartDataComplete[hoja]"
+            [labels]="barChartLabelsComplete[hoja]"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            type="bar"
+    >
+    </canvas>
+  </app-basic-card>
 </div>

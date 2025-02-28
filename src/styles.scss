@@ -11,6 +11,13 @@ body{
     border-top: 2px solid $parent-icon;
   }
 
+  ngx-gauge .reading-block {
+    font-size: 30px !important;
+    height: 50px;
+    transform: translateY(100px) !important;
+    font-weight: bold;
+  }
+
     &.no-scroll {
       overflow: hidden; /* Bloquea el scroll vertical */
       position: fixed; /* Fija la posición para evitar movimientos accidentales */

@@ -1,5 +1,6 @@
-<h4> lineas </h4>
-<div>
+<app-basic-card
+  titulo="lineas"
+>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -8,9 +9,11 @@
           type="line"
   >
   </canvas>
-</div>
-<h4> barras </h4>
-<div>
+</app-basic-card>
+
+<app-basic-card
+  titulo="barras"
+>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -19,9 +22,11 @@
           type="bar"
   >
   </canvas>
-</div>
-<h4> pie </h4>
-<div>
+</app-basic-card>
+
+<app-basic-card
+  titulo="pie"
+>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -30,10 +35,11 @@
           type="pie"
   >
   </canvas>
-</div>
+</app-basic-card>
 
-<h4> burbujas </h4>
-<div>
+<app-basic-card
+  titulo="bubble"
+>
   <canvas baseChart
           [datasets]="bubbleChartDatasets"
           [options]="bubbleChartOptions"
@@ -41,11 +47,11 @@
           [type]="'bubble'"
   >
   </canvas>
-</div>
+</app-basic-card>
 
-
-<h4> radar </h4>
-<div>
+<app-basic-card
+  titulo="rabar"
+>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -54,10 +60,11 @@
           type="radar"
   >
   </canvas>
-</div>
+</app-basic-card>
 
-<h4> dona </h4>
-<div>
+<app-basic-card
+titulo="dona"
+>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -66,10 +73,11 @@
           type='doughnut'
   >
   </canvas>
-</div>
+</app-basic-card>
 
-<h4> scatter </h4>
-<div>
+<app-basic-card
+  titulo="scatter"
+>
   <canvas baseChart
           [datasets]="scatterChartDatasets"
           [options]="scatterChartOptions"
@@ -77,15 +85,44 @@
           type='scatter'
   >
   </canvas>
-</div>
+</app-basic-card>
 
-<ngx-gauge
-  [value]="gaugeValue"
-  type="arch"
-  [thick]="gaugeThickness"
-  cap="round"
-  [size]="gaugueSize"
-
+<app-basic-card
+titulo="indicadores"
 >
+  <ngx-gauge
+    [value]="gaugeValue"
+    type="arch"
+    [thick]="gaugeThickness"
+    cap="round"
+    [size]="gaugueSize"
+    [label]="gaugeLabel"
 
-</ngx-gauge>
+  >
+
+  </ngx-gauge>
+
+  <ngx-gauge
+    [value]="gaugeValue"
+    type="full"
+    [thick]="gaugeThickness"
+    cap="round"
+    [size]="gaugueSize"
+    [label]="gaugeLabel"
+
+  >
+
+  </ngx-gauge>
+
+  <ngx-gauge
+    [value]="gaugeValue"
+    type="semi"
+    [thick]="gaugeThickness"
+    cap="round"
+    [size]="gaugueSize"
+    [label]="gaugeLabel"
+
+  >
+
+  </ngx-gauge>
+</app-basic-card>
