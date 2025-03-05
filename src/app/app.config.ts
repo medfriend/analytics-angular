@@ -12,9 +12,11 @@ import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {authInterceptor} from "./core/interceptor/auth.inteceptor";
 import {responseTransformInterceptor} from "./core/interceptor/transform.interceptor";
 import {loadingInterceptor} from "./core/interceptor/loading.interceptor";
+import {APP_BASE_HREF} from "@angular/common";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    {provide: APP_BASE_HREF, useValue: '/analytics'},
     provideHttpClient(withInterceptors(
       [
         loadingInterceptor,

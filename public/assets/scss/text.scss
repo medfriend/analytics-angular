@@ -444,3 +444,73 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+// Bordes con diferentes anchos
+.border {
+  border-width: 1px; // Borde estándar de 1px
+  border-style: solid; // Estilo sólido por defecto
+  border-color: #000; // Color negro por defecto
+}
+
+.border-0 {
+  border-width: 0; // Sin borde
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-4 {
+  border-width: 4px;
+}
+
+// Estilos de borde
+.border-solid {
+  border-style: solid;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-dotted {
+  border-style: dotted;
+}
+
+// Colores de borde
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.border-blue-500 {
+  border-color: #3b82f6;
+}
+
+.border-red-500 {
+  border-color: #ef4444;
+}
+
+// Aplicación de bordes específicos
+.border-t {
+  border-top-width: 1px;
+  border-style: solid;
+  border-color: inherit; // Toma el color del elemento padre o especificado
+}
+
+.border-b {
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+}
+
+.border-l {
+  border-left-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+}
+
+.border-r {
+  border-right-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+}
